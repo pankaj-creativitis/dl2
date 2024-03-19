@@ -1,0 +1,3 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens" access="global">
+	<lightning:fileCard fileId="069S0000001RHgpIAG" description="Sample Description"/>
+</aura:component>

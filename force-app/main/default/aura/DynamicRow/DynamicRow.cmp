@@ -1,0 +1,65 @@
+<aura:component implements="force:hasRecordId,force:lightningQuickAction,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:actionOverride" access="global" >
+	<!-- Aura Attribute for store single Contact[standard Object] Instance
+         And Store Index of Particular Instance --> 
+    <aura:attribute name="ConditionInstance" type="Condition__c"/>
+    <aura:attribute name="rowIndex" type="String"/>
+    <aura:attribute name="objectName" type="String"/>
+    <aura:attribute name="fldList" type="Object[]" />
+    
+    <!-- Register 2 Lightning Event for handle add or Delete rows on Parent Component  --> 
+    <aura:registerEvent name="DeleteRowEvt" type="c:DeleteRowEvt"/> 
+    <aura:registerEvent name="AddRowEvt" type="c:AddNewRowEvt"/> 
+    
+    <!-- Table Row -->   
+    <tr class="slds-text-title_caps">
+        <td> 
+            {!v.rowIndex + 1}
+        </td>
+        <td>
+            <ui:inputText class="slds-input" value="{!v.ConditionInstance.Name}"/>
+        </td>
+        <td>
+            <lightning:select name="fldVal" 
+                                      required="true" value="{!v.ConditionInstance.Field__c}">
+                        <option value="">choose field...</option>
+                        <aura:iteration items="{!v.fldList}" var="sFld" >
+                            <option value="{!sFld.fName}">{!sFld.fLabel}</option>
+                        </aura:iteration>
+                    </lightning:select>
+        </td>
+        <td>
+            <ui:inputCheckbox value="{!v.ConditionInstance.Not__c}" />
+        </td>
+        <td>
+            <lightning:select name="Operator" label="Operator" 
+                                      required="true" value="{!v.ConditionInstance.Operator__c}" onchange="{!c.objectSelected}">
+                        <option value="">choose operator...</option>
+                <option value="Greater than">Greater than</option>
+                <option value="Equals any">Equals any</option>
+                <option value="Contains any">Contains any</option>
+                        
+                    </lightning:select>
+        </td>
+        <td>
+            <ui:inputTextArea  value="{!v.ConditionInstance.Values__c}" rows="3"/>
+        </td>
+        
+        <td>
+            <!-- conditionally Display Add or Delete Icons
+                 if rowIndex is 0 then show Add New Row Icon else show delete Icon
+             --> 
+            <aura:if isTrue="{!v.rowIndex == 0}">
+                <a onclick="{!c.AddNewRow}">
+                  <lightning:icon iconName="utility:add" class="slds-icon slds-icon_small" size="small" alternativeText="add"/>
+                  <span class="slds-assistive-text">Add Icon</span>
+                </a>    
+              <aura:set attribute="else">
+                  <a onclick="{!c.removeRow}">
+                   <lightning:icon variant="error" iconName="utility:delete" class="slds-icon slds-icon_small" size="small" alternativeText="icon"/>
+                   <span class="slds-assistive-text">Delete Icon</span>
+                  </a>
+              </aura:set> 
+            </aura:if>
+        </td> 
+    </tr>
+</aura:component>

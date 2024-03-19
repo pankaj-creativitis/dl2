@@ -1,0 +1,9 @@
+<aura:component Implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="headerText" type="String"/>
+    <div class="slds-align_absolute-center">
+        <img style="width:500px;height:50px;" src="{!$Resource.Indusind_bank}" />
+    </div>
+    <div class="slds-text-align_center slds-p-vertical_large">
+        <p class="slds-text-heading_large" style="color:#010101"> <strong>{!v.headerText}</strong></p>
+    </div>
+</aura:component>

@@ -1,0 +1,56 @@
+<template>
+    <div class="slds-col slds-p-around_x-small">
+        <div class="slds-page-header">
+            <div class="slds-page-header__row">
+              <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                  <div class="slds-media__figure">
+                    <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                        
+                        <lightning-icon icon-name="standard:action_list_component" alternative-text="Event" title="Event"></lightning-icon>
+                      <span class="slds-assistive-text">opportunity</span>
+                    </span>
+                  </div>
+                  <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                      <div class="slds-page-header__name-title">
+                        <h1>
+                            <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Deviations</span>
+                        </h1>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="slds-page-header__col-actions">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <lightning-button label="Submit Deviations for Approval" title="Non-primary action" class="slds-m-right_small"></lightning-button>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+          <div class="slds-m-around_x-small">
+        <lightning-card title="System Deviation Details" icon-name="standard:activations">
+            <div>
+                <lightning-datatable
+                        key-field="id"
+                        data={data1}
+                        columns={columns}>
+                </lightning-datatable>
+            </div> 
+        </lightning-card>
+        <lightning-card title="Manual Deviation Details" icon-name="standard:activations">
+            <lightning-button label="New Deviation" slot="actions"></lightning-button>
+            <div>
+                <lightning-datatable
+                        key-field="id"
+                        data={data2}
+                        columns={columns}>
+                </lightning-datatable>
+            </div> 
+        </lightning-card>
+    </div>
+    </div>
+</template>

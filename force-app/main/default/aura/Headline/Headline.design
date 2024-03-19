@@ -1,0 +1,9 @@
+<design:component>
+	<design:attribute name="sectionHeader" label="Section Header" description="Section Header"/>
+    <design:attribute name="sectionDetails" label="Section Details" description="Section Details"/>
+    <design:attribute name="icnName" label="Icon Name" description="Icon Name"/>
+    <design:attribute name="detailsApi" label="detailsApi" description="detailsApi"/>
+    <design:attribute name="recordId" label="Record Id" description="Record Id"/>
+    <design:attribute name="objectName" label="Object Name" description="Object Name"/>
+    <design:attribute name="fldStr" label="Fields" description="Fields"/>
+</design:component>

@@ -1,0 +1,41 @@
+<aura:component controller="Einstein_IntentCheckCtrl"
+	implements="force:appHostable">
+
+	<aura:attribute name="requestAttribute" type="String" />
+	<aura:attribute name="responseAttribute" type="String" />
+	<aura:attribute name="rawResponseAttribute" type="String" />
+
+
+	<div class="slds-box slds-theme_default">
+
+		<div class="slds-text-heading_large slds-text-align_center">
+			Intent checker</div>
+
+		<div class="slds-var-p-around_small">
+			<table>
+				<tr>
+					<td><lightning:input type="text" value="{!v.requestAttribute}"
+							label="Enter the text to analyze" /></td>
+
+					<td style="vertical-align: bottom">
+						<center>
+							<lightning:button label="Submit" variant="brand"
+								onclick="{!c.callServer}" />
+						</center>
+					</td>
+
+					<td><lightning:input value="{!v.responseAttribute}"
+							disabled="true" label="Response" /></td>
+				</tr>
+			</table>
+		</div>
+
+
+		<div>
+			<lightning:input value="{!v.rawResponseAttribute}" disabled="true"
+				label="Raw response" />
+		</div>
+	</div>
+
+
+</aura:component>

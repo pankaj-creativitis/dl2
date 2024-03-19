@@ -1,0 +1,1567 @@
+<apex:page standardController="Opportunity" showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+    <html> <head>
+        <style>
+            .styled-first-table{
+            text-align: left;
+           	width:30%;
+            background-color: #191970;
+            color: #ffffff;
+            
+            }
+            .styled-font-one{
+            font-size: 20px;
+            
+            }
+            .styled-font-two{
+            font-size: 15px;
+            
+            }
+            .styled-title{
+            font-family:sans-serif;
+            margin: 0 0 10px 25px;
+            }
+            .styled-table {
+            text-align: left;
+            border-collapse: collapse;
+            margin: 0 25px 25px 25px;
+            font-size: 0.9em;
+            font-family: sans-serif;
+            min-width: 400px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+            border-radius: 10px;
+            width: 80%;
+            }
+            .styled-table thead tr {
+            border-radius: 10px;
+            background-color: #191970;
+            color: #ffffff;
+            text-align: left;
+            }
+            .styled-table th,
+            .styled-table td {
+            padding: 12px 15px;
+            }
+            .styled-table tbody tr.active-row {
+            font-weight: bold;
+            color: #009879;
+            }
+            tr:hover {background-color:#f5f5f5;}
+        </style>
+        </head> <body>
+        
+        
+        <p class="styled-title styled-font-one">
+            <b>{!Opportunity.Name}</b>
+        </p>
+        <table class="styled-table">
+          		
+                <tr>
+                      <th class="styled-first-table">Name</th>
+                     <td>{!Opportunity.Name}</td>
+                </tr>
+           		
+            <tr>
+               
+                <th class="styled-first-table">Loan Number</th>
+                <td>{!Opportunity.Loan_Number__c}</td>
+                
+            </tr>
+            <tr>
+            	 <th class="styled-first-table">Program</th>
+                <td>{!Opportunity.Pogram__c}</td>
+            </tr>
+            <tr>
+            	 <th class="styled-first-table">Customer ID</th>
+                <td>{!Opportunity.Customer_ID__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Name of Borrower</th>
+                <td>{!Opportunity.Name_of_Borrower__c}</td>
+           	</tr>
+            <tr>
+            	<th class="styled-first-table">Date of Incorporation</th>
+                <td>{!Opportunity.Date_Of_Incorporation__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Vintage in Months</th>
+                <td>{!Opportunity.Vintage_In_Months__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Industry type</th>
+                <td>{!Opportunity.Industry_Type__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Industry Sub Type</th>
+                <td>{!Opportunity.Industry_Sub_Type__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Nature of Business</th>
+                <td>{!Opportunity.Nature_of_Business__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Nature of Activity</th>
+                <td>{!Opportunity.Nature_of_Activity__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Constitution</th>
+                <td>{!Opportunity.Constitution__c}</td>
+            </tr>
+            <tr>
+				<th class="styled-first-table">PAN No of Entity</th>
+                 <td>{!Opportunity.PAN_No_of_Entity__c}</td>
+            </tr>
+            <tr>
+            	<th class="styled-first-table">Banking Arrangement</th>
+				<td>{!Opportunity.Banking_Arrangement__c}</td>
+            </tr>
+        </table> 
+        <p class="styled-title styled-font-one" ><b>Proposal Details</b></p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Facility Name</th>
+                    <th>Amount(Lac)</th>
+                    <th>ROI/Commision</th>
+                    <th>Margin</th>
+                    <th>Tenure(Months)</th>
+                    <th>Repayment</th>
+                    <th>Purpose</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Limit</td>
+                <td>Bank Guarantee (BG)</td>
+                <td>150.00</td>
+                <td>2.00</td>
+                <td>10.00</td>
+                <td>6</td>
+                <td> - </td>
+                <td> - </td>
+            </tr>
+            <tr>
+                <td>Limit</td>
+                <td>Cash Credit (CC)</td>
+                <td>150.00</td>
+                <td>12.50</td>
+                <td>25.00</td>
+                <td>9</td>
+                <td> - </td>
+                <td> - </td>
+            </tr>
+            <tr>
+                <td>Limit</td>
+                <td>Overdraft (OD)</td>
+                <td>150.00</td>
+                <td>12.50</td>
+                <td>25.00</td>
+                <td>9</td>
+                <td> - </td>
+                <td> - </td>
+            </tr>
+        </table>
+          <p class="styled-title styled-font-two"><b>Total Limit Amount: 450.0 Lacs</b> </p>
+        <p class="styled-title styled-font-one"><b>Promoters and Business Details</b></p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Promoter Background</th>
+                    <td>Promoter Background </td>
+                </tr>
+            </thead>
+            <tr>
+                <th>Business Description</th>
+                <td>*Business Description </td>
+            </tr>
+            <tr>
+                <th>Customers and Suppliers Linkages</th>
+                <td>Customers and Suppliers Linkages </td>
+            </tr>
+            <tr>
+                <th>Key Risk Mitigates</th>
+                <td>*Key Risk Mitigates</td>
+            </tr>
+            
+        </table>
+        <p class="styled-title styled-font-one">
+            <b> Management Profile</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Promoters</th>
+                    <th>Age</th>
+                    <th>Qualification</th>
+                    <th>Designation</th>
+                    <th>Experience</th>
+                    <th>ShareHoldingRatio</th>
+                    <th>Associated Since</th>
+                    <th>Additional Remark</th>
+                </tr></thead>
+            <tr>
+                <td>METRO CASH AND CARRY</td>
+                <td>17</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>11.0%</td>
+                <td> - </td>
+                <td> - </td>
+            </tr>
+        </table>
+        
+        
+        <p class="styled-title styled-font-one">
+            <b>Groups Details</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Relationship with Promoter</th>
+                    <th>Nature of activity</th>
+                    <th>sales(Lacs)</th>
+                    <th>PAT(Lacs)</th>
+                    <th>ATNW(Lacs)</th>
+                    <th>Total Debt (Lacs)</th>
+                    <th>Total Limit(Lacs)</th>
+                    <th>BBG Limit IDFC (Lacs)</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>METRO CASH AND CARRY</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+            </tr>   
+        </table>
+        
+        <p class="styled-title styled-font-two ">
+            <b>Group Exposure Amount :300.00 Lacse</b>
+        </p>
+        <p class="styled-title styled-font-one">
+            <b> Financial Analysis</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <td>2020</td>
+                    <td>2019</td>
+                    <td>2018</td>
+                    <td>2017</td>
+                    <td>2016</td>
+                </tr>
+            </thead>
+            <tr>
+                <th>Type</th>
+                <td>Provisional</td>
+                <td>Audited</td>
+                <td>Audited</td>
+                <td>Audited</td>
+                <td>Audited</td>
+            </tr>
+            <tr>
+                <th>Month</th>
+                <td>12</td>
+                <td>12</td>
+                <td>12</td>
+                <td>12</td>
+                <td>12</td>
+            </tr>
+            <tr>
+                <th>sales(Lacs)</th>
+                <td>150.00</td>
+                <td>120</td>
+                <td>210.50</td>
+                <td>000</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>PBDIT(Lacs)</th>
+                <td>200.00</td>
+                <td>513.00</td>
+                <td>1000.00</td>
+                <td>210.00</td>
+                <td>123.00</td>
+            </tr>
+            
+            <tr>
+                <th>Depreciation(Lacs)</th>
+                <td>100.00</td>
+                <td>25.00</td>
+                <td>120.00</td>
+                <td>000.00</td>
+                <td>20.00</td>
+            </tr>
+            <tr>
+                <th>Interest Cost(Lacs)</th>
+                <td>25.00</td>
+                <td>20.00</td>
+                <td>000.00</td>
+                <td>2.5</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Tax(Lacs)</th>
+                <td>2.6</td>
+                <td>000.00</td>
+                <td>3.7</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>PAT(Lacs)</th>
+                <td>516.00</td>
+                <td>000.00</td>
+                <td>256.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Net Cash Accruals (Lacs)</th>
+                <td>000.00</td>
+                <td>2.4</td>
+                <td>000.00</td>
+                <td>10.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Tangible Net worth (Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>10.00</td>
+                <td>000.00</td>
+                <td>14.00</td>
+            </tr>
+            <tr>
+                <th>Quasi Equity (Subordinate)(Lacs)</th>
+                <td>000.00</td>
+                <td>120.00</td>
+                <td>210.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>TNW (Including QE)(Lacs)</th>
+                <td>000.00</td>
+                <td>19.00</td>
+                <td>000.00</td>
+                <td>-20.00</td>
+                <td>-15.00</td>
+            </tr>
+            <tr>
+                <th>Adjusted Tangible Net Worth (ATNW)(Lacs)</th>
+                <td>-24.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Total Debt(Lacs)</th>
+                <td>-15.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Total Current Liabilities(Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>-13.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Total Current Assets(Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>-12.000</td>
+                <td>000.00</td>
+            </tr>
+            
+            
+            <tr>
+                <th>Total Outside Liabilites</th>
+                <td>-15.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            
+            
+            
+            <tr>
+                <th>Total Fixed Assets(Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>10.00</td>
+                <td>000.00</td>
+                <td>14.00</td>
+            </tr>
+            
+            <tr>
+                <th>Debotrs Turnover Period (days)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            
+            <tr>
+                <th>Stock Turnover Period(days)</th>
+                <td>10</td>
+                <td>4</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            
+            <tr>
+                <th>Payable Turnover Period(days)</th>
+                <td>2</td>
+                <td>000.00</td>
+                <td>3</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            
+            <tr>
+                <th>Sales Growth (YoY) (%)</th>
+                <td>-24.00</td>
+                <td>100.00</td>
+                <td>98.00</td>
+                <td>000.00</td>
+                <td>166.00</td>
+            </tr>
+            <tr>
+                <th>Operating Profit/Sales(%)</th>    
+                <td>150.00</td>
+                <td>120</td>
+                <td>210.50</td>
+                <td>000</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Net Profit Margin(%)</th>
+                <td>516.00</td>
+                <td>000.00</td>
+                <td>256.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            
+            <tr>
+                <th>Net Profit Margin(%)</th>
+                <td>516.00</td>
+                <td>000.00</td>
+                <td>256.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>TOL/ATNW [Leverage]</th>
+                <td>5.00</td>
+                <td>000.00</td>
+                <td>56.00</td>
+                <td>100.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>IBD/ATNW[Debt/Equity]</th>
+                <td>51.00</td>
+                <td>000.00</td>
+                <td>26.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>ISCR-Existing Cash Flow</th>
+                <td>166.00</td>
+                <td>000.00</td>
+                <td>156.00</td>
+                <td>121.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>DSCR</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>26.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Current Ratio</th>
+                <td>16.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Debtors Greater Than 6 months(Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>256.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Non Business Fixed Assets (Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>256.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+            <tr>
+                <th>Loans and Advances / Investments(Non Business) (Lacs)</th>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+                <td>000.00</td>
+            </tr>
+        </table>
+        
+        
+        <p class="styled-title styled-font-one">
+            <b>Banking Analysis</b>
+        </p>
+        <table class="styled-table">  
+            <thead>
+                <tr>
+                    <th>Month Year</th>
+                    <th>Cr.Amt (Lacs)</th>
+                    <th>Db.Amt (Lacs)</th>
+                    <th>Cr.Trnx</th>
+                    <th>Db.Trnx</th>
+                    <th>Over drawing (days)</th>
+                    <th>TOD Availed</th>
+                    <th>Excess Util</th>
+                    <th>Peak Interest</th>
+                    <th> Penal Charges(Amt.)</th>
+                    <th> Max Util.(%)</th>
+                    <th>Avg Util.(%)</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Jan 2019</td>
+                <td>0.01</td>
+                <td>0.15</td>
+                <td>2</td>
+                <td>22</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Feb 2019</td>
+                <td>0.01</td>
+                <td>0.17</td>
+                <td>6</td>
+                <td>2</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Mar 2019</td>
+                <td>0.01</td>
+                <td>0.13</td>
+                <td>2</td>
+                <td>21</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Apr 2019</td>
+                <td>0.012</td>
+                <td>0.10</td>
+                <td>2.1</td>
+                <td>22</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>May 2019</td>
+                <td>0.014</td>
+                <td>1.89</td>
+                <td>2.2</td>
+                <td>30</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Jun 2019</td>
+                <td>0.01</td>
+                <td>0.25</td>
+                <td>2.9</td>
+                <td>26</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Jul 2019</td>
+                <td>0.1</td>
+                <td>0.25</td>
+                <td>21</td>
+                <td>67</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Aug 2019</td>
+                <td>1.01</td>
+                <td>0.15</td>
+                <td>2</td>
+                <td>20</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <td>Sep 2019</td>
+                <td>0.02</td>
+                <td>0.19</td>
+                <td>21</td>
+                <td>22</td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+                <td>  - </td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>3.57</td>
+                <td>4.36</td>
+                <td>71</td>
+                <td>227</td>
+                <td>0</td>
+                <td> - </td>
+                <td> - </td>
+                <td> 0 </td>
+                <td> 0.00 </td>
+                <td> 0 </td>
+                <td> 0.00 </td>
+            </tr>
+        </table>
+        
+        <p class="styled-title styled-font-two"><b>Total Credit:</b>8.44 Lacs,  <b>Total Debit:</b>6.28 Lacs</p>
+        <p class="styled-title styled-font-two "><b>Total Non Trade Credit :</b> 4.87 Lacs,  <b>Total Non Trade Debit:</b>1.92 Lacs</p>
+        <p class="styled-title styled-font-one">
+            <b> Hygiene/Dedupe Checks</b>
+        </p>
+        <table class="styled-table"> 
+            <thead>
+                <tr>
+                    <th>Guarantor/Promoter</th>
+                    <th>Role</th>
+                    <th>CRILIC</th>
+                    <th>NSDL</th>
+                    <th>Posidex</th>
+                    <th>Bureau Status</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Autoline Industries Limited</td>
+                <td> -  </td>
+                <td> Not Started </td>
+                <td> Valid </td>
+                <td> APPROVE </td>
+                <td> Success </td>
+            </tr>
+            <tr>
+                <td>METRO CASH AND CARRY</td>
+                <td>Promoter</td>
+                <td> Not Started </td>
+                <td> Valid </td>
+                <td> APPROVE </td>
+                <td> Success </td>
+            </tr>
+        </table>
+        
+        
+        <p class="styled-title styled-font-one">
+            <b> Security Details</b>
+        </p>
+        <p class="styled-title styled-font-two"><b>Primary Securities : </b></p>
+        <p class="styled-title styled-font-two"><b>Charge on Current Asset Present and Future :</b> Yes </p>
+        <p class="styled-title styled-font-two"><b>Charge on Fixed Asset Present and Future :</b> Yes </p>
+        <p class="styled-title styled-font-two"> <b>Collateral Securities :</b></p>
+        
+        <table class="styled-table"> 
+            <thead><tr>
+                <th>Coll.type</th>
+                <th>Occup.Status</th>
+                <th> Adress </th>
+                <th> Owner </th>
+                <th> Coll Value(Lacs)</th>
+                <th> Remarks </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Life Insurance Policy </td>
+                <td> Self Occupied </td>
+                <td>- </td>
+                <td> Autoline Industries Limited </td>
+                <td> 200.00</td>
+                <td> - </td>
+            </tr>
+            
+        </table>
+        <p class="styled-title styled-font-two">
+            <b>Total:</b>200.0 Lacs  
+        </p>
+        
+        <p class="styled-title styled-font-one">
+            <b> Customer Selection Criteria</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th> Parameters </th>
+                    <th> Thres hold Value </th>
+                    <th> Actual </th>
+                    <th> Output </th>
+                    <th> Deviation </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Minimum CIBIL score of the proprietors / guarantors </td>
+                <td>>=630</td>
+                <td> - </td>
+                <td> - </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>PD score as per Credit Model </td>
+                <td> - </td>
+                <td> 0.01 </td>
+                <td> Specific Deviation needed to proceed </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Number of facilities in sub-standard category or below as
+                    per Commercial CIBIL of Borrower and Group Firm </td>
+                <td> 0 </td>
+                <td> 0 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Whether the entity is in the RBI / Caution list or any other
+                    negative list </td>
+                <td> None </td>
+                <td> No </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Whether the promoters / directors is in the RBI / Caution
+                    list or any other negative list </td>
+                <td> None </td>
+                <td> NO </td>
+                <td>Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Whether the Group entity is in the RBI / Caution list or
+                    any other negative list </td>
+                <td> None </td>
+                <td> NO </td>
+                <td>Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Common Director with IDFC First Bankl </td>
+                <td> None </td>
+                <td> NO </td>
+                <td>Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td> Inward cheque bounce (%) in last 12 months </td>
+                <td> less-than=3% </td>
+                <td> 0.00 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td> Over drawings cumulatively over last 6 months </td>
+                <td> less-than=45 </td>
+                <td> 0 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Delay in any of the Amortizing and Non Amortizing Facility in last 6 month </td>
+                <td> less-than=15 days </td>
+                <td> 0 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Churning in account through banking channel </td>
+                <td> >=50% </td>
+                <td> 0 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Minimum Business vintage</td>
+                <td> >= 36 months </td>
+                <td> 337 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Market reference from Existing Supplier and Customer</td>
+                <td> To be positive </td>
+                <td> - </td>
+                <td> - </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Adjusted Tangible Net Worth (ATNW)</td>
+                <td> >0 </td>
+                <td> 0.00 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Adjusted Tangible Net Worth (ATNW) previous Year</td>
+                <td> >0 </td>
+                <td> 0.00 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Profit after Tax (PAT)</td>
+                <td> >0  months </td>
+                <td> 829.00</td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>TOL(Including Proposed Exposure) / ATNW</td>
+                <td>less-than=4.5 </td>
+                <td> 0.00 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Debt Service Coverage Ratio (DSCR)</td>
+                <td>>=1.1 </td>
+                <td> 0.00 </td>
+                <td> Specific Deviation neededto proceed </td>
+                <td> NO </td>
+            </tr>
+            <tr>
+                <td>Interest Service Coverage Ratio (ISCR)</td>
+                <td> > = 1.25x </td>
+                <td> 0.00 </td>
+                <td> Norms met </td>
+                <td> NO </td>
+            </tr>
+            <p></p>
+        </table>
+        
+        <p class="styled-title styled-font-two"><b>Overall Comments :</b></p>
+        
+        <p class="styled-title styled-font-one">
+            <b> Limit Assesment</b>
+        </p >
+        <p class="styled-title styled-font-two">
+            <b>Facility wise Assessment</b>
+        </p>
+        
+        <p class="styled-title styled-font-two"> <b>Bank Gurantee(BG)</b> </p>
+        
+        <p class="styled-title styled-font-two"><b>Is Deviation Required :</b>No</p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>BG Required for EMD </th>
+                    <td> 400.0 </td>
+                </tr>
+            </thead>
+            <tr>
+                <th>BG Required for MA</th>
+                <td> 400.0 </td>
+            </tr>
+            <tr>
+                <th>BG Required for Performance of Order</th>
+                <td> 400.0 </td>
+            </tr>
+            <tr>
+                <th>BG Requirement </th>
+                <td> 1200.0 </td>
+            </tr>
+            <tr>
+                <th>EMD Guarantee to be issued to Bid </th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>EMD Period(Months)</th>
+                <td> 24.00</td>
+            </tr>
+            <tr>
+                <th>% Guarantee to be issued towards MA</th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>Hit / Strike ratio</th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>Limit Eligible (Lacs)</th>
+                <td> Eligible Limit= 1200.0</td>
+            </tr>
+            <tr>
+                <th>Limit Recommended (Lacs)</th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>MA period (Months)</th>
+                <td>24.00 </td>
+            </tr>
+            <tr>
+                <th>Order To Be Bid</th>
+                <td> 200.00</td>
+            </tr>
+            <tr>
+                <th>PG % Guarantee to be issued</th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>PG Period (Months)</th>
+                <td> 24.00</td>
+            </tr>
+            <tr>
+                <th>Remarks</th>
+                <td> Complete </td>
+            </tr>
+            <tr>
+                <th>Request Limit Amount</th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>Sub Limit Amount (Lacs)</th>
+                <td> 100.00</td>
+            </tr>
+            <tr>
+                <th>Successful contract value</th>
+                <td> 200.00</td>
+            </tr>
+            <tr>
+                <th>Total Gurantee Requirment</th>
+                <td> 1200.00</td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-two">
+            <b> Cash Credit (CC)e</b>
+        </p>
+        <p class="styled-title styled-font-two">
+            <b> Is Deviation Required :</b> Yes
+        </p>
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>CC Multiplier </th>
+                    <td> 100 </td>
+                </tr>
+            </thead>
+            <tr>
+                <th>CC Turnover Estimated </th>
+                <td> 200 </td>
+            </tr>
+            <tr>
+                <th>CC Turnover Projected </th>
+                <td> 100 </td>
+            </tr>
+            <tr>
+                <th>Limit Eligible (Lacs) </th>
+                <td> Eligible Cash Credit Limit=0.0 Eliglible Limit For Projected=100 Eligible Limit For Estimated =200.0 </td>
+            </tr>
+            <tr>
+                <th>Limit Recommended (Lacs) </th>
+                <td> 200.00 </td>
+            </tr>
+            <tr>
+                <th>Remarks (Lacs) </th>
+                <td> Complete</td>
+            </tr>
+            <tr>
+                <th>Requested Limit Amount </th>
+                <td> 200.00</td>
+            </tr>
+            <tr>
+                <th>Sub Limit Amount (Lacs) </th>
+                <td> 0.00</td>
+            </tr>
+            
+        </table>
+        <p class="styled-title styled-font-two">
+            <b> Collateral based Assessment</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th> Coll.Type </th>
+                    <th> Value(Lacs) </th>
+                    <th> LTV </th>
+                    <th> Basket </th>
+                    <th> Eligible </th>
+                    <th> Remarks </th>
+                    <th> Deviation Req </th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Life Insurence Policy </td>
+                <td> 200.00 </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> - </td>
+                <td> Yes </td>
+            </tr>
+        </table>
+        
+        <p class="styled-title styled-font-one">
+            <b>Reference Check by Business Team</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th> Entity Name </th>
+                    <th> Source </th> 
+                    <th> Name </th>
+                    <th> Contact No </th>
+                    <th> Location </th>
+                    <th> Banking Percentage </th>
+                    <th> Remarks/Feedback </th>
+                </tr>
+            </thead>
+        </table> 
+        <p class="styled-title styled-font-one">
+            <b> Deviation and Approval</b>
+        </p>
+        <p class="styled-title styled-font-two">Approval Authority : L3</p>
+        <p class="styled-title styled-font-two">Approvers</p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Step Name</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Assigned To</th>
+                    <th>Actual Approver</th>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>L3 approver</td>
+                <td>24/12/2020</td>
+                <td>Approved</td>
+                <td>Tushar Sahlot</td>
+                <td>Tushar Sahlot</td>
+                <td>Approve Loan Applicatiion</td>
+            </tr>
+            <tr>
+                <td>L3 approver</td>
+                <td>24/12/2020</td>
+                <td>Approved</td>
+                <td>Guljiv Sawhney</td>
+                <td>Guljiv Sawhney</td>
+                <td>Approve Loan Application</td>
+            </tr>
+            <tr>
+                <td>L3 approver</td>
+                <td>24/12/2020</td>
+                <td>Approved</td>
+                <td>User 1 CM</td>
+                <td>User 1 CM</td>
+                <td>Approve Loan Application</td>
+            </tr>
+            <tr>
+                <td>L3 approver</td>
+                <td>24/12/2020</td>
+                <td>Submitted</td>
+                <td>Credit Manager user</td>
+                <td>Credit Manager user</td>
+                <td>Submitted Request</td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-two">
+            <b>  Group Exposure</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Entity Name</th>
+                    <th>Exposure Amount (Lacs)</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Autoline Industries Limited</td>
+                <td>300.00</td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-two">
+            <b> System Deviation Details</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Deviation Types</th>
+                    <th>Description</th>
+                    <td>Rationale</td>
+                    <td>Mandate</td>
+                </tr>
+            </thead>
+            <tr>
+                <td>cc</td>
+                <td>Limit as % of turnover greater by 10%</td>
+                <td>Justification</td>
+                <td>L5</td>
+            </tr>
+            <tr>
+                <td>cc</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-two">
+            <b> Manual Deviation Details</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Deviation Types</th>
+                    <th>Description</th>
+                    <th>Rationale</th>
+                    <th>Mandate</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Collateral</td>
+                <td>LTV greater by 5% on Residential - Vacant / Rented (Turbo)</td>
+                <td>Justification</td>
+                <td>L3</td>
+            </tr>
+        </table>
+        
+        <p class="styled-title styled-font-one">
+            <b> Recommendations</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <td>Type</td>
+                    <td>Facility Name</td>
+                    <td>Limit Recommended (Lacs)</td>
+                </tr>
+            </thead>
+            <tr>
+                <td>limit</td>
+                <td>Cash Credit (CC)</td>
+                <td>100.00</td>
+            </tr>
+            <tr>
+                <td>limit</td>
+                <td>Bank Guarantee (BG)</td>
+                <td>200.00</td>
+            </tr>
+        </table> 
+        <p class="styled-title" style="font-size: 30px">
+                <b> Annexures</b>
+            </p>
+            <p class="styled-title" style="font-size: 25px">
+                <b>Terms and Conditions</b>
+            </p>
+        <apex:outputpanel rendered="{!Opportunity.Internal_Conditions__c}">
+            <p class="styled-title styled-font-one">
+                <b> Internal Conditions</b>
+            </p>
+            <p class="styled-title styled-font-two">
+                <b>Pre-Disbursement Conditions</b>
+            </p>
+            <table class="styled-table">
+                <tr><td><b>RM to Ensure</b></td></tr>
+                <tr>
+                    <td>1)Copies of all Permission / Approvals required to run the activity be kept on record.<br/>
+                        2)No TOD / Adhoc to be considered till first six months from takeover of facilities.<br/>
+                        3)Processing Fees / Interest Rate to be approved by competent authority.<br/>
+                        4)All other terms and conditions as per bank’s norms, manual of instruction and credit policy to be followed.<br/>
+                        5)Classification of Exposure as Priority Sector Advance shall be strictly as per RBI / CO Guidelines;RH-BB to ensure same.<br/>
+                        6)EM Creation is done with stipulated timelines (applicable in case of takeover)<br/>
+                        7)Stock Audit to be conducted before limit release and as per Banks guidelines with due timelines provided.<br/>
+                        8)Satisfactory CIR in standardized format from existing lenders to be obtained before limit release.<br/>
+                        9)Satisfactory RCU Check to be held on record.</td>
+                </tr>
+                <tr>
+                    <td>
+                        <b> Credit Conditions to be noted by Credit which include following:</b><br/>	
+                        1.Free Text<br/>
+                        2.Free Text<br/>
+                        3.Free Text<br/>
+                        Valuation Report to be noted<br/>
+                    </td>
+                </tr>
+                <td>
+                    <apex:outputpanel >
+                        <apex:outputField value="{!Opportunity.Internal_Condition__c}"/>
+                    </apex:outputpanel>
+                </td>
+            </table>
+        </apex:outputpanel>
+        
+        <apex:outputpanel rendered="{!Opportunity.External_Conditions__c}">
+          
+            <p class="styled-title styled-font-one">
+                <b> External Conditions</b>
+            </p>
+            <table class="styled-table">
+                <tr>
+                    <td><b>Security</b><br/>
+                        Primary Security:
+                        Exclusive Charge by way of hypothecation on Current Assets and Moveable Fixed Assets (Present and<br/>
+                        Future) of the Borrower<br/>
+                        Collateral Securities :<br/>
+                        Type Of Charge: Equitable Mortgage<br/>
+                        Collateral Type: Life Insurance Policy - Self Occupied<br/>
+                        Address Of Collateral Security:<br/>
+                        Owners Name: Autoline Industries Limited<br/>
+                        Guarantor/s:</td>
+                </tr>
+                <tr>
+                    <td><b>Timelines For Security Creation</b><br/>
+                        60 days<br/>
+                        <b>Processing Fee</b><br/>
+                        Upfront processing fee of ___% on the total sanctioned amount + Applicable taxes and other charges on<br/>
+                        the total facilities payable on acceptance of sanction letter. Please note that the processing fees will be<br/>
+                        non-refundable post acceptance of the sanction letter in the event of the applicant unable to comply with<br/>
+                        the sanction conditions or refusing to take disbursal the amount paid as processing fees shall be forfeited.<br/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <apex:outputpanel >
+                            <apex:outputField value="{!Opportunity.External_Condition__c}"/>
+                        </apex:outputpanel>
+                    </td>
+                </tr>
+            </table>
+            
+        </apex:outputpanel>
+        
+        
+        
+        <!------------------------------------------->
+        <p class="styled-title styled-font-one">
+            <b> Personal Discussion</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Verif.type</th>
+                    <th>Date</th>
+                    <th>Met with</th>
+                    <th>Verif. Done By</th>
+                    <th>Designation</th>
+                    <th>Result</th>
+                    <th>Remarks</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Credit PD</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-one">
+            <b> Statutory Compliance Check</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>List Name</th>
+                    <th>Complied(Yes/No)</th>
+                    <th>Reason for non-compliance and time lines for Compliance</th> 
+                </tr>
+            </thead>
+            <tr>
+                <td>Regulatory restrictions</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Product norms</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Takeover Norms</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Tenor norms for exposure and rating</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Deviation form prescribed method oflending</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>FEMA/FERA requirements</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>AML Related</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Taxation Related</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>PF Related</td>
+                <td>Yes</td>
+                <td></td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-one">
+            <b> Credit Model</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Credit Model Tier</th>
+                    <th>Overall PD score</th>
+                    <th>Application PD Score</th>
+                    <th>Consumer PD Score</th>
+                    <th>Commercial Pd Score</th>
+                    <th>Financial PD Score</th>
+                    <th>QCA PD</th>
+                    <th>Banking PD Score</th>
+                    <th>Date</th>
+                    <th>Overall Remark</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Amber</td>
+                <td>0.01</td>
+                <td>0.01</td>
+                <td>0.01</td>
+                <td>0.01</td>
+                <td>0.00</td>
+                <td>0.02</td>
+                <td>0.13</td>
+                <td>02/12/2020</td>
+                <td></td>
+            </tr>
+        </table>
+        <p class="styled-title styled-font-one">
+            <b>QCA</b>
+        </p>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Answer</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>How many years of relationship does borrower have with top 5 suppliers? (onaverage)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>How will the borrower finance expansion/investment plan (not taking the current loanapplication into account)?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Does the company buy insurance for their products/stocks/machinery?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>What is the length of the previous facility availed by customer ?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Is there a change in collateral from existing banker during bank transfer</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Is there any infusion/ withdrawal of funds post the preparation of audited financialstatements?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Have all statutory dues been paid on time (check for last 3 years): a. Income tax; b.
+                    PF; c. Sales tax; d. Excise duty (if applicable), e. lease rentals for state owned
+                    industrial premises e.g. MIDC, SEZ, etc. (Number of times late payment has been
+                    made)</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Does this business field require special permit by the government?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Is the business vulnerable to imports /substitutes / obsolete technologies ?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>What is the demand for end product of the company ?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>What is the reputation of the owner/company in the community?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Is there a clear succession plan to mitigate key-man risk?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>What are the other interests of the promoters/ family and how critical is the borrowing
+                    entity from a group perspective?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Were there change in ownership / direction in recent past ?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>What has been the production/operational capacity utilization of the operation in the
+                    last 1 year?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Does the company need high skilled manpower to run its operations and how easily is
+                    it available?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Where is/are the retail outlets located?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>How long can the goods be kept in storage before they perish?</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>Working capital cycle across industry comparison to company working capital cycle</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        
+        <p class="styled-title styled-font-one">
+            <b>Business Site Visit Report</b>
+        </p>
+        
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Verif.type</th>
+                    <th>Date</th>
+                    <th>Verif.Done By</th>
+                    <th>Vistedto</th>
+                    <th>Address</th>
+                    <th>Comment</th>
+                </tr>
+            </thead>
+            <tr>
+                <td>Site Visit</td>
+                <td>.</td>
+                <td>Relationship manager user</td>
+                <td>Kaveri Farms Ltd.</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        </body> </html>
+</apex:page>

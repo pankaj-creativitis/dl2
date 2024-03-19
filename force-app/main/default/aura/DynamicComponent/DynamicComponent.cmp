@@ -1,0 +1,68 @@
+<aura:component extensible="true" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+	<aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/> 
+    <!--Record Details -->
+    <aura:attribute name="recordId" type="String" access="global"/>
+    <aura:attribute name="objectName" type="String" default="Opportunity" />
+    <aura:attribute name="rawflds" type="String" default=""/>
+    <aura:attribute name="flds" type="String[]" />
+    <!--Header Details -->
+    <aura:attribute name="sectionHeader" type="String" />
+    <aura:attribute name="sectionDetails" type="String" />
+    <aura:attribute name="icnName" type="String" />
+    <aura:attribute name="disabled" type="Boolean" default="false" />
+    <aura:attribute name="saved" type="Boolean" default="false" />
+    <aura:attribute name="showHeader" type="Boolean" default="false" />
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    <lightning:notificationsLibrary aura:id="notificationsLibrary"/>
+    
+    <aura:if isTrue="{!v.showHeader}">
+        <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                            <lightning:icon iconName="{!v.icnName}" size="medium" class="icn" />
+                            <span class="slds-assistive-text">{!v.sectionHeader}</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="Matrix Variables">{!v.sectionHeader}</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">{!v.sectionDetails}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </aura:if>
+      
+        <lightning:recordEditForm 
+                                  recordId="{!v.recordId}" 
+                                  objectApiName="{!v.objectName}"
+                                  onsuccess="{!c.handleOnSuccess}"
+                                  onerror="{!c.handleOnError}"
+                                  class="slds-card__body_inner">
+            
+            <lightning:messages />
+            <lightning:layout horizontalAlign="spread" multipleRows="true">
+                <aura:iteration items="{!v.flds}" var="fldIndex">
+                            <lightning:layoutItem flexibility="grow" padding="horizontal-small" 
+                                                  size="12" mediumDeviceSize="6" class="border">
+                                <lightning:inputField fieldName="{!fldIndex}" />
+                            </lightning:layoutItem>
+                            <!-- content renders if false -->
+                </aura:iteration>
+            </lightning:layout>
+            
+            <div class="slds-m-top_medium slds-p-horizontal_small">
+                <lightning:button disabled="{!v.disabled}" variant="brand" type="submit" name="save" label="Save" />
+            </div>
+        </lightning:recordEditForm>
+</aura:component>

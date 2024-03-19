@@ -1,0 +1,46 @@
+<aura:component controller="CasesListCommunity"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+<ltng:require styles="/resource/SLDS_Stylesheet/assets/styles/salesforce-lightning-design-system-ltng.css" />	
+    <aura:attribute name="recordId" type="Id"/>
+    <aura:attribute name="userId" type="Id" default="005S000000JCSnSIAX"/>
+    <aura:attribute name="caseRows" type="Case[]" />   
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>    
+    <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+        <thead>
+            <tr class="slds-text-title_caps">
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Case Number</div>
+                </th>
+                <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Subject</div>
+                </th>
+                 <th scope="col">
+                    <div class="slds-truncate" title="Account Name">Created Date</div>
+                </th>
+                 <th scope="col">
+                    <div class="slds-truncate" title="Status">Status</div>
+                </th>                
+            </tr>
+        </thead>
+        <tbody>
+           <aura:iteration var="cas" items="{!v.caseRows}">
+                <tr>
+                    <td data-label="Case Number">
+                        <div class="slds-truncate" title="CaseNumber">{!cas.CaseNumber}</div>
+                    </td>
+                    <td data-label="Subject">
+                        <div class="slds-truncate" title="Subject">{!cas.Subject}</div>
+                    </td>
+                     <td data-label="Created Date">
+                          <ui:outputDate format="MMM dd yyyy" value="{!cas.CreatedDate}"/>
+                    </td>
+                     <td data-label="Status">
+                        <div class="slds-truncate" title="Account Name">{!cas.Status}</div>
+                    </td>              
+                </tr>
+            </aura:iteration>
+        </tbody>
+    </table>
+
+    
+</aura:component>

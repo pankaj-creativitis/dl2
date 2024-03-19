@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Kendra + GenAI Augmentation">
+       <div style=" border: 0.1px solid rgb(211, 211, 211); border-radius: 5px; padding: 10px; margin: 5px;">
+       <lightning-layout>
+           <lightning-layout-item size="6">
+              
+                  <p class="slds-heading_medium">{subject}</p>
+           </lightning-layout-item>
+           <lightning-layout-item size="6">
+               <button class="slds-button slds-button_brand" onclick={handleQueryResult} title="Proceed">Search result</button>
+
+                  <!-- <button title="Search GPT Result" onclick={handleQueryResult}></button> -->
+           </lightning-layout-item>
+       </lightning-layout>
+      
+           <template if:true={isAnswer}>
+               <lightning-textarea  name="input1"  title="Please enter data" class="textAreaBody" value={answer}></lightning-textarea>
+           </template>
+       </div>
+
+    </lightning-card>
+</template>

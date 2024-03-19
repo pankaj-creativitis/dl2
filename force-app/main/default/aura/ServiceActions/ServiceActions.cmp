@@ -1,0 +1,100 @@
+<aura:component controller="SendServiceMails"
+                implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader">
+    <!--aura:handler name="init" value="{!this}" action="{!c.doInit}"/-->
+    <aura:attribute name="title" type="String" default="Actions"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="sentRepayment" type="boolean" default="false"/>
+    <aura:attribute name="validateAddress" type="boolean" default="false"/>
+    <aura:attribute name="flagERC" type="boolean" default="false"/>
+    <aura:attribute name="overPaymentCalc" type="boolean" default="false"/>
+    <aura:attribute name="sendStatus" type="boolean" default="false"/>
+    <aura:attribute name="updateAddress" type="boolean" default="false"/>
+    <aura:attribute name="showSpinner" type="boolean" default="false"/>
+    
+    <lightning:card>
+        <aura:set attribute="title">
+            <lightning:icon iconName="utility:connected_apps" size="small"/>
+            {! v.title }
+        </aura:set>
+        <aura:if isTrue="{!v.showSpinner}">
+            <div class="slds-p-around_x-small slds-spinner_brand">
+                <lightning:spinner alternativeText="Loading" size="medium" />
+            </div>
+            <aura:set attribute="else">
+                <div class="slds-p-around_x-small">
+                    
+                    <div class="slds-container--small slds-p-around_x-small">
+                        <div class="slds-grid slds-gutters slds-grid_align-center">
+                            <div class="slds-col">
+                                <lightning:button label="Send Account Statement" title="Neutral action" onclick="{! c.handleRP }"/>
+                            </div>
+                            <div class="slds-col">
+                                <aura:if isTrue="{!v.sentRepayment}">
+                                    <lightning:icon iconName="action:approval" alternativeText="Approved" size="xx-small" />
+                                </aura:if>
+                            </div>
+                        </div> 
+                    </div>
+                    
+                    <div class="slds-container--small slds-p-around_x-small">
+                        <div class="slds-grid slds-gutters slds-grid_align-center">
+                            <div class="slds-col">
+                                <lightning:button label="Send Loan Status" title="Neutral action" onclick="{! c.handleLoanStatus }"/>
+                            </div>
+                            <div class="slds-col">
+                                <aura:if isTrue="{!v.sendStatus}">
+                                    <lightning:icon iconName="action:approval" alternativeText="Approved" size="xx-small" />
+                                </aura:if>
+                            </div>
+                        </div>
+                        
+                    </div>
+     				
+                    <div class="slds-container--small slds-p-around_x-small">
+                        <div class="slds-grid slds-gutters slds-grid_align-center">
+                            <div class="slds-col">
+                                <lightning:button label="Trigger Address Validation" title="Neutral action" onclick="{! c.handleAddressValidation }"/>
+                            </div>
+                            <div class="slds-col slds-p-left_small">
+                                <aura:if isTrue="{!v.validateAddress}">
+                                    <lightning:icon iconName="action:approval" alternativeText="Updated!" size="xx-small"/>
+                                </aura:if>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="slds-container--small slds-p-around_x-small">
+                        <div class="slds-grid slds-gutters slds-grid_align-center">
+                            <div class="slds-col">
+                                <lightning:button label="Update Address" title="Neutral action" onclick="{! c.handleAddressUpdate }"/>
+                            </div>
+                            <div class="slds-col slds-p-left_small">
+                                <aura:if isTrue="{!v.updateAddress}">
+                                    <lightning:icon iconName="action:approval" alternativeText="Updated!" size="xx-small"/>
+                                </aura:if>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="slds-container--small slds-p-around_x-small">
+                        <div class="slds-grid slds-gutters slds-grid_align-center">
+                            <div class="slds-col">
+                                <lightning:button label="Run ERC Calculation" title="Neutral action" onclick="{! c.handleERC }"/>
+                            </div>
+                            <div class="slds-col slds-p-left_small">
+                                <aura:if isTrue="{!v.flagERC}">
+                                    $250
+                                </aura:if>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </aura:set>
+        </aura:if>
+        
+        
+    </lightning:card>
+</aura:component>

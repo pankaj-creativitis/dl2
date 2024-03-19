@@ -1,0 +1,195 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,force:lightningQuickAction" access="global">
+    <aura:attribute name="isModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="isUFModalOpen" type="boolean" default="false"/>
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg']" />
+    <aura:attribute name="multiple" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" />
+    <div class="slds-grid slds-gutters">
+    	<div class="slds-col">
+        <div class="slds-text-heading_small">Welcome Mr. John Reid</div>
+        </div>
+        <div class="slds-col">
+        <div class="slds-clearfix">
+  <div class="slds-float_right">
+    <p>Date: 2nd Aug, 2022</p>
+  </div>
+</div>
+        </div>
+    </div>
+    <div class="slds-grid slds-gutters">
+        <div class="slds-col">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="Banker">
+                                    <img src="{!$Resource.Banker}" style="height:50px;width:50px" alt="User avatar"/>
+                                    <span class="slds-assistive-text">Meet your Banker</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Meet your Banker</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta"><a href="https://us04web.zoom.us/j/72784260620?pwd=O0M6iJA84nfHj-IuiLLgJCFrSxUVqx.1">Call Now</a> • <a href="https://dev2-udb.cs1.force.com/mybank/s/calendar">Schedule Meeting</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="Upload MI">
+                                    <img src="{!$Resource.UploadData}" style="height:50px;width:50px" alt="User avatar"/>
+                                    <span class="slds-assistive-text">Upload MI</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Upload MI</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta"><a onclick="{!c.setUFModalOpen}">Fill monthly data</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="ESG Details">
+                                    <img src="{!$Resource.caution}" style="height:50px;width:50px" alt="User avatar"/>
+                                    <span class="slds-assistive-text">Your ESG criteria might be at risk</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="">Your ESG criteria might be at risk</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta"><a onclick="{!c.launchFlow}">Take Actions</a> </p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slds-col">
+            <div class="slds-page-header">
+                <div class="slds-page-header__row">
+                    <div class="slds-page-header__col-title">
+                        <div class="slds-media">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="Logout">
+                                    <img src="{!$Resource.logout}" style="height:50px;width:50px" alt="User avatar"/>
+                                    <span class="slds-assistive-text">Logout</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Logout</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                                <p class="slds-page-header__name-meta"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+        <aura:if isTrue="{!v.isModalOpen}">
+             
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Improve ESG to Reduce Cost of Credit</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning:flow aura:id="flowData" />
+                    </div>
+                    
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    
+        <!--Use aura:if tag to display/hide popup based on isModalOpen value-->  
+        <aura:if isTrue="{!v.isUFModalOpen}">
+             
+            <!-- Modal/Popup Box starts here-->
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal/Popup Box Header Starts here-->
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeUFModel }"
+                                              alternativeText="close"
+                                              variant="bare-inverse"
+                                              class="slds-modal__close"/>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Upload Data for Organization (July)</h2>
+                    </header>
+                    <!--Modal/Popup Box Body Starts here-->
+                    <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                        <lightning:fileUpload label="Attach Profit &amp; Loss Statement"
+        name="fileUploader"
+        multiple="true"
+        accept="{!v.filetype}"
+        recordId="{!v.recordId}"
+        onuploadfinished="{!c.handleUploadFinished}" />
+                        <lightning:fileUpload label="Attach Transaction Statements"
+        name="fileUploader"
+        multiple="true"
+        accept="{!v.filetype}"
+        recordId="{!v.recordId}"
+        onuploadfinished="{!c.handleUploadFinished}" />
+                        <lightning:fileUpload label="Attach ESG files"
+        name="fileUploader"
+        multiple="true"
+        accept="{!v.filetype}"
+        recordId="{!v.recordId}"
+        onuploadfinished="{!c.handleUploadFinishedEsg}" />
+                    </div>
+                    
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </aura:if>
+    
+</aura:component>

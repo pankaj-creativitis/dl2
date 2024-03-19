@@ -1,0 +1,59 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="fileId" type="String"/>
+    <aura:attribute name="nfileId" type="String"/>
+    <aura:attribute name="aadhaarfileId" type="String"/>
+    <aura:attribute name="docName" type="String"/>
+    <aura:attribute name="objName" type="String"/>
+    <aura:attribute name="fldArray" type="String"/>
+    
+    <!-- File upload component here-->
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg']" />
+    <aura:attribute name="multiple" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="showDetails" type="Boolean" default="false" />
+    <aura:attribute name="hidePAN" type="Boolean" default="true" />
+    <aura:attribute name="showAadhaarDetails" type="Boolean" default="false" />
+    <!-- Messy code, will organise later -->
+    <lightning:card>
+        <aura:set attribute="title">
+            <aura:if isTrue="{!v.showDetails}">
+                <lightning:icon iconName="utility:success" alternativeText="Success!" variant="Success" title="success variant small" size="small" />
+            </aura:if>
+            {!v.docName}
+            <lightning:fileUpload name="fileUploader"
+                                  multiple="true"
+                                  accept="{!v.filetype}"
+                                  recordId="{!v.recordId}"
+                                  onuploadfinished="{!c.handlePANFinished}" />
+        </aura:set>
+        <aura:if isTrue="{!v.showDetails}">
+            <lightning:accordion aura:id="accordion" allowMultipleSectionsOpen="true">
+                <lightning:accordionSection name="A" label="Document Details">
+                    <div class="slds-grid slds-grid_vertical slds-grid_align-center">
+                        <div class="slds-col">
+                            <span>
+                                
+                                
+                                <lightning:fileCard fileId="{!v.nfileId}" />
+                                <div>
+                                    <div class="slds-text-heading_medium slds-p-around_medium">Verify {!v.docName} Details</div>
+                                    <c:dynaLdsLwc objectApiName="{!v.objName}" recordId="{!v.recordId}"
+                                            fldStr="{!v.fldArray}"></c:dynaLdsLwc>
+                                    <!--
+                                    <lightning:input name="input1" label="Name" value="SURYABHAN YADAV"/>
+                                    <lightning:input type="date" name="input3" label="Date of Birth" value="1972-10-16"/>
+                                    <lightning:input name="input2" label="PAN" value="AHEPY8216D"/>
+                                    <lightning:button type="submit" name="Update" label="update" class="slds-m-top_medium"/>
+									-->
+                                </div>
+                                
+                            </span>
+                        </div>
+                    </div>
+                </lightning:accordionSection>
+            </lightning:accordion>
+        </aura:if>
+        
+    </lightning:card>
+</aura:component>

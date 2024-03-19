@@ -1,0 +1,117 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="showbank" type="Boolean" default="false" />
+    <aura:attribute name="showLoginCmp" type="Boolean" default="false" />
+    <aura:attribute name="showotp" type="Boolean" default="false" />
+    <aura:attribute name="showaddedbank" type="Boolean" default="false" />
+    <aura:attribute name="title" type="String" default="Login via Net Banking"/>
+    <lightning:card>
+        <!-- netbanking uploadimg uploadpdf-->
+        <aura:set attribute="footer">
+            <div class="slds-text-heading_medium slds-text-align_center">Powered by Perfios</div>
+            <span>
+                <div class="slds-align_absolute-center">
+                    <img style="width:10%;height:10%;" src="{!$Resource.perfios}"/>
+                </div>
+            </span>
+        </aura:set>
+        <aura:if isTrue="{!v.showLoginCmp}">
+            <!-- Login Card -->
+            <!-- otp card -->
+            <aura:if isTrue="{!v.showotp}">
+                <lightning:card title="User Response">
+                    <p class="slds-p-horizontal_small">
+                        <lightning:input name="otp" label="Please enter OTP" value="1324"/>
+                    </p>
+                    <div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+                        <lightning:buttonGroup>
+                            <lightning:button label="Proceed" variant="brand" onclick="{! c.showLinkedBank }" />
+                            <lightning:button label="Cancel" />
+                        </lightning:buttonGroup>
+                    </div>
+                </lightning:card>
+                <aura:set attribute="else">
+                    
+                    <lightning:card title="Login via Net Banking">
+                        <p class="slds-p-horizontal_small">
+                            <lightning:input name="username" label="Login Id" value="surya123"/>
+                            <lightning:input type="password" name="password1" label="Enter your Password" value="fgdg67575"/>
+                            <lightning:input type="password" name="password1" label="Re-enter your Password" value="fgdg67575" />
+                            
+                            <lightning:input type="checkbox" label="I agree with terms &amp; conditions" name="input1"/>
+                            
+                        </p>
+                        <div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+                            <lightning:buttonGroup>
+                                <lightning:button label="Proceed" variant="brand" onclick="{! c.showOtpComp }" />
+                                <lightning:button label="Cancel" />
+                            </lightning:buttonGroup>
+                        </div>
+                    </lightning:card>
+                </aura:set>
+            </aura:if> 
+            <aura:set attribute="else">
+                <aura:if isTrue="{!v.showaddedbank}">
+                    
+                    <aura:set attribute="else">
+                        <div class="slds-card__body slds-card__body_inner">
+                            <div class="slds-grid slds-gutters slds-grid slds-grid_align-space">
+                                <div class="slds-col" onclick="{!c.clickHandler}">
+                                    <span>
+                                        <img style="width:200px;height:200px;" src="{!$Resource.netbanking}"/>
+                                    </span>
+                                    <div class="slds-text-heading_medium slds-text-align_center">Net Banking</div>
+                                </div>
+                                <div class="slds-col">
+                                    <span>
+                                        <img style="width:200px;height:200px;" src="{!$Resource.uploadpdf}"/>
+                                    </span>
+                                    <div class="slds-text-heading_medium slds-text-align_center">Upload PDF</div>
+                                </div>
+                                <div class="slds-col">
+                                    <span>
+                                        <img style="width:200px;height:200px;" src="{!$Resource.uploadimg}"/>
+                                    </span>
+                                    <div class="slds-text-heading_medium slds-text-align_center">Upload Image</div>
+                                </div>
+                            </div>
+                            
+                            <aura:if isTrue="{!v.showbank}">
+                                <div class="slds-grid slds-gutters slds-grid_vertical-align-center">
+                                    <div class="slds-col">
+                                        <lightning:select name="bank">
+                                            <option value="">choose bank...</option>
+                                            <option value="1">HDFC</option>
+                                            <option value="2">ICICI</option>
+                                            <option value="3">Axis</option>
+                                        </lightning:select>
+                                    </div>
+                                    <div class="slds-col">
+                                        <lightning:button variant="brand" label="Go to Perfios" title="Brand action" onclick="{! c.goPerfios }" />
+                                    </div>
+                                </div>
+                            </aura:if>
+                        </div>
+                    </aura:set>
+                </aura:if> 
+                
+            </aura:set>
+        </aura:if> 
+        
+        <aura:if isTrue="{!v.showaddedbank}">
+            <div class="slds-size_1-of-5">
+                <article class="slds-card slds-card_boundary slds-p-bottom_medium">
+                    <lightning:card variant="Narrow" title="HDFC-Indiranagar" iconName="custom:custom16">
+                        <p class="slds-p-horizontal_large">
+                            ₹ 1,35,028.45<br></br>
+                            HDFC Bank, India
+                        </p>
+                    </lightning:card>
+                    
+                </article>
+            </div>
+            <div class="slds-p-around_small">
+                <lightning:button label="Add another bank" variant="brand"></lightning:button>
+            </div>
+        </aura:if>
+    </lightning:card>
+</aura:component>

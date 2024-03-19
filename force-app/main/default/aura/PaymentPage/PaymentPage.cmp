@@ -1,0 +1,130 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes">
+    
+    <div class="slds-grid slds-grid_vertical slds-grid_align-center slds-is-hoverable" aura:id="myGrid">
+        <div class="slds-col">
+            <span>Amount due by May 10, 2023</span>
+        </div>
+        <div class="slds-col">
+            <span>
+                <div class="slds-form-element slds-m-vertical_x-small">
+                    <div class="slds-form-element__control">
+                        <input type="text" id="text-input-id-47" value="₹ 5,432" class="slds-input" />
+                    </div>
+                </div>
+            </span>
+        </div>
+        <div class="slds-col">
+            <div class="slds-text-color_weak">PAYMENT OPTIONS</div>
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium slds-is-hovered">
+            
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_small">
+                        
+                        <img src="{!$Resource.cards}" alt="Cards"/>
+                        
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-title_bold">Cards (Credit/Debit)</div>
+                    <div class="slds-text-body_small slds-m-bottom_medium">Pay using any credit or debit card</div>
+                </div>
+            </div>
+                
+            
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            <div class="myDiv">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src="{!$Resource.upi}" alt="UPI"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-title_bold">UPI</div>
+                    <div class="slds-text-body_small slds-m-bottom_medium">Phonepe, Paytm, Google Pay and more</div>
+                </div>
+            </div>
+                </div>
+            
+            
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src="{!$Resource.netBanking1}" alt="Net Banking"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-title_bold">Net Banking</div>
+                    <div class="slds-text-body_small slds-m-bottom_medium">Pay using any supported banks</div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src="{!$Resource.wallet}" alt="Wallet"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-text-title_bold">Wallet</div>
+            <div class="slds-text-body_small slds-m-bottom_medium">Airtel Money, Freecharge PayLater | UPI | Wallet, ItzCash and more</div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src="{!$Resource.emi}" alt="EMI"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                     <div class="slds-text-title_bold">EMI</div>
+            <div class="slds-text-body_small slds-m-bottom_medium">Credit Card, Debit Card and Cardless EMI</div>
+                </div>
+            </div>
+           
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src="{!$Resource.gpay}" alt="Google Pay"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                     <div class="slds-text-title_bold slds-m-bottom_medium">Google Pay</div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            <div class="slds-media">
+                <div class="slds-media__figure">
+                    <span class="slds-avatar slds-avatar_medium">
+                        <img src="{!$Resource.whatsapp}" alt="whatsApp"/>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                     <div class="slds-text-title_bold slds-m-bottom_medium">WhatsApp</div>
+                </div>
+            </div>
+            
+            
+        </div>
+        <div class="slds-col slds-border_bottom slds-m-bottom_medium">
+            <img src="{!$Resource.ccavenue}" alt="CCavenue"/>
+            
+        </div>
+    </div>
+</aura:component>

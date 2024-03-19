@@ -1,0 +1,8 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+	<lightning:card >
+        <div class="slds-align_absolute-center">
+        <lightning:progressRing value="78" size="large" />
+        </div>
+    
+    </lightning:card>  
+</aura:component>

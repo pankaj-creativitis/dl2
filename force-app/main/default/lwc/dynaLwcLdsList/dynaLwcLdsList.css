@@ -1,0 +1,9 @@
+.slds-box:hover {
+  border-color: rgba(21, 137, 238);
+  box-shadow: 0 0 11px rgba(0, 112, 210, 0.2);
+}
+
+.slds-card_boundary:hover {
+  border-color: rgba(21, 137, 238);
+  box-shadow: 0 0 11px rgba(0, 112, 210, 0.2);
+}

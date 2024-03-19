@@ -1,0 +1,89 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global" >
+	<div class="slds-card slds-box slds-scrollable_x slds-size_1-of-1"> 
+        <div class="slds-p-vertical_xx-small slds-border_bottom">
+            <div class="slds-media slds-m-right_x-small">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container" title="opportunity">
+                        <ul class="slds-list_horizontal slds-align_absolute-center">
+                            <li> 
+                                <lightning:icon id="document" iconName="utility:dash" size="xx-small" class="slds-m-right_x-small slds-show" onclick="{!c.toggle}"/>
+                            </li>
+                            <li>
+                                <lightning:icon iconName="standard:survey" size="small" />
+                            </li>
+                        </ul>
+                        <span class="slds-assistive-text">Eligibility Details</span>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                        <div class="slds-page-header__name-title">
+                            <h1>
+                                <span class="slds-text-heading_small slds-hyphenate" title="Eligibility Details">Eligibility Details</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <tbody>
+                <tr class="slds-hint-parent">
+                    
+                    <td data-label="Account Name">
+                        <div class="slds-text-heading_medium">ScoreCard</div>
+                        <span class="slds-badge">Success</span>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="4/14/2015">
+                        Approved Loan Amount: ₹ 50,00,000
+                        </div>
+                         <div class="slds-truncate" title="4/14/2015">Approved IRR: 8%</div>
+                        <div class="slds-truncate" title="4/14/2015">Decision Engine Score: 82/100</div>
+                        <div class="slds-truncate" title="4/14/2015">Applicant Credit Score: 715</div>
+                    </td>
+
+                </tr>
+                <tr class="slds-hint-parent">
+                    
+                    <td data-label="Account Name">
+                        <div class="slds-text-heading_medium">Fraud Check</div>
+                        <span class="slds-badge">No Match</span>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="4/14/2015"></div>
+                    </td>
+
+                </tr>
+                <tr class="slds-hint-parent">
+                    
+                    <td data-label="Account Name">
+                        <div class="slds-text-heading_medium">Dedupe Check</div>
+                        <span class="slds-badge">No Match</span>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="4/14/2015"></div>
+                    </td>
+
+                </tr>
+                <tr class="slds-hint-parent">
+                    
+                    <td data-label="Account Name">
+                        <div class="slds-text-heading_medium">Email Domain Verification</div>
+                        <span class="slds-badge">Passed</span>
+                    </td>
+                    <td data-label="Close Date">
+                        <div class="slds-truncate" title="4/14/2015"></div>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+    
+
+        
+        
+
+    </div>
+</aura:component>

@@ -1,0 +1,57 @@
+<template>
+    <div class="slds-col slds-p-around_x-small">
+    <lightning-card variant="Narrow"  title={header} icon-name={iconName}>
+        
+        <template if:true={hasActionButton}>
+            <lightning-button label="New" slot="actions"></lightning-button>
+        </template>
+        <template if:true={hasActionIcon}>
+            <lightning-button label="New" slot="actions"></lightning-button>
+        </template>
+        <template if:true={description}>
+            <div class="slds-p-horizontal_small">
+                <p class="desc slds-text-align--center">{description}</p></div>
+        </template>
+        <template if:true={content1}>
+            <div class="slds-p-horizontal_small slds-text-align--center">
+                <p class={content1ClassVal}>{content1}</p>
+                </div>
+        </template>
+        <template if:true={content2}>
+            <div class="slds-p-horizontal_small slds-text-align--center">
+                <p class={content2ClassVal}>{content2}
+                </p></div>
+        </template>
+        <template if:true={content3}>
+            <div class="slds-p-horizontal_small slds-text-align--center">
+                <p class={content3ClassVal}>{content3}
+                </p></div>
+        </template>
+        <template if:true={gauge2}>
+            <c-gauge-Type-2></c-gauge-Type-2>
+        </template>
+        <p slot="footer">
+            <template if:true={gauge1}>
+                <c-gauge-Type-1></c-gauge-Type-1>
+            </template>
+            
+            <template if:true={gauge2}>
+                <c-gauge-Type-2></c-gauge-Type-2>
+            </template>
+            
+            <template if:true={footerDescription}>
+                <div class="slds-p-horizontal_small">
+                    <p class="desc">{footerDescription}
+                    </p>
+                    </div>
+            </template>
+        <template if:true={footerContent}>
+            <div class="slds-p-horizontal_small">
+                <p class={footerClassVal}>{footerContent}
+                </p>
+                </div>
+        </template>
+    </p>
+    </lightning-card>
+</div>
+</template>

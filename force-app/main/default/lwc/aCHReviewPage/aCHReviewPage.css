@@ -1,0 +1,18 @@
+.center{
+    margin: 0 auto;
+}
+.grey{
+    background-color: #F1F6F9;
+}
+.white{
+    background-color: white;
+}
+.grey-text{
+    color: gray;
+}
+.small-text{
+    font-size: x-small;
+}
+.black-text{
+    color: black;
+}

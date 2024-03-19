@@ -1,0 +1,5 @@
+<apex:page id="Page" showHeader="false" controller="checkCIBILScore" action="{!InitPage}" cache="false">
+<apex:form >
+Thank you.
+</apex:form>
+</apex:page>

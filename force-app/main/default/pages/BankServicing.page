@@ -1,0 +1,591 @@
+<apex:page showHeader="false" standardStylesheets="false" applyBodyTag="false" applyHtmlTag="false">
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+	<title>United Digital Bank</title>
+    <meta name="keywords" content=""/>
+	<meta name="description" content=""/>
+    <meta name="author" content="templatemo"/>
+    <!-- 
+	Medigo Template
+	http://www.templatemo.com/preview/templatemo_460_medigo
+    -->
+    
+	<!-- Google Fonts -->
+    <link href="http://fonts.googleapis.com/css?family=PT+Serif:400,700,400italic,700itali" rel="stylesheet"/>
+    <link href="http://fonts.googleapis.com/css?family=Raleway:400,900,800,700,500,200,100,600" rel="stylesheet"/>
+
+    <!-- Stylesheets -->
+    <apex:stylesheet value="{!URLFOR($Resource.bankservice, 'bootstrap/bootstrap.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.bankservice, 'css/misc.css')}"/>
+    <apex:stylesheet value="{!URLFOR($Resource.bankservice, 'css/blue-scheme.css')}"/>
+    <!--
+<link rel="stylesheet" href="bootstrap/bootstrap.css"/>
+<link rel="stylesheet" href="css/misc.css"/>
+<link rel="stylesheet" href="css/blue-scheme.css"/>
+-->
+	
+	<!-- JavaScripts -->
+    <apex:includeScript value="{!URLFOR($Resource.bankservice, 'js/jquery-1.10.2.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.bankservice, 'js/jquery-migrate-1.2.1.min.js')}"/>
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" />
+
+    <style>
+        .fa { 
+        transition:.5s; /* this is grow duration */
+        }
+        
+        .fa:hover {
+        transform:scale(1.5); /* this is grow amount */
+        }
+        /* Popup box BEGIN */
+        .hover_bkgr_fricc{
+        background:rgba(0,0,0,.4);
+        cursor:pointer;
+        display:none;
+        height:100%;
+        position:fixed;
+        text-align:center;
+        top:0;
+        width:100%;
+        z-index:10000;
+        }
+        .hover_bkgr_fricc .helper{
+        display:inline-block;
+        height:100%;
+        vertical-align:middle;
+        }
+        .hover_bkgr_fricc > div {
+        background-color: #fff;
+        box-shadow: 10px 10px 60px #555;
+        display: inline-block;
+        height: auto;
+        max-width: 900px;
+        min-height: 100px;
+        vertical-align: middle;
+        width: 60%;
+        position: relative;
+        border-radius: 8px;
+        padding: 15px 5%;
+        }
+        .hover_bkgr_fricc1{
+        background:rgba(0,0,0,.4);
+        cursor:pointer;
+        display:none;
+        height:100%;
+        position:fixed;
+        text-align:center;
+        top:0;
+        width:100%;
+        z-index:10000;
+        }
+         .hover_bkgr_fricc1 .helper{
+        display:inline-block;
+        height:100%;
+        vertical-align:middle;
+        }
+        .hover_bkgr_fricc1 > div {
+        background-color: #fff;
+        box-shadow: 10px 10px 60px #555;
+        display: inline-block;
+        height: auto;
+        max-width: 900px;
+        min-height: 100px;
+        vertical-align: middle;
+        width: 60%;
+        position: relative;
+        border-radius: 8px;
+        padding: 15px 5%;
+        }
+        .popupCloseButton {
+        background-color: #fff;
+        border: 3px solid #999;
+        border-radius: 50px;
+        cursor: pointer;
+        display: inline-block;
+        font-family: arial;
+        font-weight: bold;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-size: 25px;
+        line-height: 30px;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        }
+        .popupCloseButton:hover {
+        background-color: #ccc;
+        }
+        .trigger_popup_fricc {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 20px;
+        display: inline-block;
+        font-weight: bold;
+        }
+        .trigger_popup_fricc1 {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 20px;
+        display: inline-block;
+        font-weight: bold;
+        }
+        .trigger_popup_dont {
+        cursor: pointer;
+        font-size: 20px;
+        margin: 20px;
+        display: inline-block;
+        font-weight: bold;
+        }
+        .hidden { display: none; }
+        .containerPopup {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        }
+        th, td {
+        padding: 5px;
+        }
+        /* Popup box BEGIN */
+    </style>
+</head>
+<body>
+
+	<div class="responsive_menu">
+        <ul class="main_menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Personal Banking</a>
+            </li>
+            <li><a href="#">Business Banking</a>
+            </li>
+            <li><a href="archives.html">My Account</a></li>
+            <li><a href="#targetHelp">Help</a></li>
+        </ul> <!-- /.main_menu -->
+    </div> <!-- /.responsive_menu -->
+
+	<header class="site-header clearfix">
+		<div class="container">
+
+			<div class="row">
+
+				<div class="col-md-12">
+
+					<div class="pull-left logo">
+						<a href="index.html">
+							
+                            <!--img src="{!URLFOR($Resource.cynergy)}" width="250" height="44" alt="Cynergy Bank"/-->
+                            <!--img src="{!URLFOR($Resource.Ford)}" width="100" height="71" alt="Ford Service"/-->
+                            <!--img src="{!URLFOR($Resource.jklogo)}" width="160" height="60" alt="Ford Service"/-->
+                            <img src="{!URLFOR($Resource.bankservice, 'images/union-bank.png')}" width="96" height="72" alt="Medigo by templatemo"/>
+                            <!--img src="{!URLFOR($Resource.icicilogo)}" width="96" height="72" alt="Medigo by templatemo"/-->
+                            <!-- img src="{!URLFOR($Resource.pnb)}" width="100" height="71" alt="PNB"/-->
+						</a>
+					</div>	<!-- /.logo -->
+
+					<div class="main-navigation pull-right">
+
+						<nav class="main-nav visible-md visible-lg">
+							<ul class="sf-menu">
+								<li class="active"><a href="index.html">Home</a></li>
+					            <!--li><a href="#">Personal Banking</a>
+					            	<ul>
+					            		<li><a href="portfolio.html">Portfolio Grid</a></li>
+					            		<li><a href="project-image.html">Project Image</a></li>
+					            		<li><a href="project-slideshow.html">Project Slideshow</a></li>
+					            	</ul>
+					            </li>
+					            <li><a href="#">Business Banking</a>
+									<ul>
+										<li><a href="blog.html">Blog Standard</a></li>
+										<li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="#">visit templatemo</a></li>
+									</ul>
+					            </li-->
+                                <li><a href="archives.html">About Us</a></li>
+                                <li><a href="archives.html">Products</a></li>
+					            <li><a href="archives.html">Investors</a></li>
+                                <li><a href="archives.html">Careers</a></li>
+                                <li><a href="archives.html">Locate Us</a></li>
+					            <li><a href="#targetHelp" onclick="helpfunction()">Help</a></li>
+							</ul> <!-- /.sf-menu -->
+						</nav> <!-- /.main-nav -->
+
+						<!-- This one in here is responsive menu for tablet and mobiles -->
+					    <div class="responsive-navigation visible-sm visible-xs">
+					        <a href="#nogo" class="menu-toggle-btn">
+					            <i class="fa fa-bars"></i>
+					        </a>
+					    </div> <!-- /responsive_navigation -->
+
+					</div> <!-- /.main-navigation -->
+
+				</div> <!-- /.col-md-12 -->
+
+			</div> <!-- /.row -->
+
+		</div> <!-- /.container -->
+	</header> <!-- /.site-header -->
+
+	<section id="homeIntro" class="parallax first-widget">
+	    <div class="parallax-overlay">
+		    <div class="container home-intro-content">
+		        <div class="row">
+		        	<div class="col-md-12">
+		        		<h2>With You, Right Through</h2>
+                        <p>Your satisfaction is important to us. We're here to help.<br/></p>
+                        <!--p>Excellent Service through Digital Channels<br/></p-->
+		        		<a href="https://dev2-udb.cs1.force.com/customerservice1/s/login/" class="large-button white-color">Sign In<i class="icon-button fa fa-sign-in"></i></a>
+		        	</div> <!-- /.col-md-12 -->
+		        </div> <!-- /.row -->
+		    </div> <!-- /.container -->
+	    </div> <!-- /.parallax-overlay -->
+	</section> <!-- /#homeIntro -->
+
+
+    <div >
+        <section class="light-content services">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box-wrap">
+                            <div class="service-icon-wrap trigger_popup_fricc1">
+                                <i class="fa fa-list fa-2x"></i>
+                            </div> <!-- /.service-icon-wrap -->
+                            <div class="service-cnt-wrap">
+                                <h3 class="service-title">Get Account Statement</h3>
+                                <p>We will send the account ststement details to your registered email-id.</p>
+                            </div> <!-- /.service-cnt-wrap -->
+                        </div> <!-- /.service-box-wrap -->
+                    </div> <!-- /.col-md-4 -->
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box-wrap">
+                            <div class="service-icon-wrap trigger_popup_fricc">
+                                <i class="fa fa-user fa-2x"></i>
+                            </div> <!-- /.service-icon-wrap -->
+                            <div class="service-cnt-wrap">
+                                <h3 class="service-title">Update Personal Details</h3>
+                                <p>Update personal details like Name, Date of birth etc.</p>
+                            </div> <!-- /.service-cnt-wrap -->
+                        </div> <!-- /.service-box-wrap -->
+                    </div> <!-- /.col-md-4 -->
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box-wrap">
+                            <div class="service-icon-wrap trigger_popup_dont">
+                                <a href="mailto:service.2021@p-jw6ssi8esedwgwezr02hv8vrdixhozy6re8z8cebqg8w9wybi.s-3ou24mag.cs1.case.sandbox.salesforce.com">
+                                    <i class="fa fa-envelope fa-2x"></i>
+                                </a>
+                            </div> <!-- /.service-icon-wrap -->
+                            <div class="service-cnt-wrap">
+                                <h3 class="service-title">Mail Us</h3>
+                                <p>Have an issue? drop us a mail.</p>
+                            </div> <!-- /.service-cnt-wrap -->
+                        </div> <!-- /.service-box-wrap -->
+                    </div> <!-- /.col-md-4 -->
+                    
+                </div>
+                
+                <div class="row">
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box-wrap">
+                            <div class="service-icon-wrap trigger_popup_fricc" id="upAddress">
+                                <i class="fa fa-map-marker fa-2x"></i>
+                            </div> <!-- /.service-icon-wrap -->
+                            <div class="service-cnt-wrap">
+                                <h3 class="service-title">Update Address</h3>
+                                <p>Update address details</p>
+                            </div> <!-- /.service-cnt-wrap -->
+                        </div> <!-- /.service-box-wrap -->
+                    </div> <!-- /.col-md-4 -->
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box-wrap">
+                            <div class="service-icon-wrap trigger_popup_dont">
+                                <i class="fa fa-comments-o fa-2x"></i>
+                            </div> <!-- /.service-icon-wrap -->
+                            <div class="service-cnt-wrap">
+                                <h3 class="service-title">Chat with Us</h3>
+                                <p></p>
+                            </div> <!-- /.service-cnt-wrap -->
+                        </div> <!-- /.service-box-wrap -->
+                    </div> <!-- /.col-md-4 -->
+                    
+                    <div class="col-md-4 col-sm-4">
+                        <div class="service-box-wrap">
+                            <div class="service-icon-wrap trigger_popup_fricc" id="regular">
+                                <i class="fa fa-exclamation fa-2x"></i>
+                            </div> <!-- /.service-icon-wrap -->
+                            <div class="service-cnt-wrap">
+                                <h3 class="service-title">Contact Support</h3>
+                                <p>Raise a case.</p>
+                            </div> <!-- /.service-cnt-wrap -->
+                        </div> <!-- /.service-box-wrap -->
+                    </div> <!-- /.col-md-4 -->
+                    
+                </div> <!-- /.row -->
+            </div> <!-- /.container -->
+        </section> <!-- /.services -->
+    </div>
+	<footer class="site-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<nav class="footer-nav clearfix">
+						<ul class="footer-menu">
+							<li><a href="index.html">Privacy Statement &amp; Site Terms and Conditions</a></li>
+							<li><a href="portfolio.html"> Site Map </a></li>
+							<li><a href="blog.html">Regulatory Information</a></li>
+							<li><a href="archives.html">Your Security</a></li>
+							<li><a href="contact.html">Media Page</a></li>
+						</ul> <!-- /.footer-menu -->
+					</nav> <!-- /.footer-nav -->
+				</div> <!-- /.col-md-12 -->
+			</div> <!-- /.row -->
+			<div class="row">
+				<div class="col-md-12">
+					<p class="copyright-text">&copy; HDB Financial Services Ltd. All rights reserved</p>
+				</div> <!-- /.col-md-12 -->
+			</div> <!-- /.row -->
+		</div> <!-- /.container -->
+	</footer> <!-- /.site-footer -->
+    
+    <!--New code for sending repayment schedule start -->
+    <div class="hover_bkgr_fricc1">
+        <span class="helper"></span>
+        <div>
+    <!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+    <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+    
+        
+    
+<form action="https://lexpsl--dev2.sandbox.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+    <input type="hidden" name="orgid" value="00DS0000003OU24" />
+    <input type="hidden" name="retURL" value="http://" />
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="pankaj_pandit@persistent.com">                                   -->
+<!--  ----------------------------------------------------------------------  -->
+
+    <input type="hidden" name="status" id="status" value="New"/>
+    <input type="hidden" name="type" id="type" value="Statement Request"/>
+    <input type="hidden" name="recordType" id="recordType" value="012S0000001fPbsIAE"/>
+
+    <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br/>
+
+    <input type="submit" name="submit" />
+
+</form>
+            </div>
+        </div>
+<!--New code for sending repayment schedule end -->
+    
+    
+    <div class="hover_bkgr_fricc">
+        <span class="helper"></span>
+        <div>
+            <div class="popupCloseButton">&times;</div>
+            <div class="enterEmail">
+                <p>Please enter your registered email-id here </p>
+                <input type="email" id="emailId" name="email" placeholder="customer@xyz.com" width="500"/>
+                <button type="button" onclick="openOTP()">Submit</button>
+            </div>
+            <div class="enterOtp hidden">
+                <p>Please enter your registered email-id here </p>
+                <input type="password" id="otp" name="otp" />
+                <button type="button" onclick="openWTL()">Validate OTP</button>
+            </div>
+            <div class="makeCase hidden containerPopup">
+                <!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <META> element to your page <HEAD>.      -->
+<!--  If necessary, please modify the charset parameter to specify the        -->
+<!--  character set of your HTML page.                                        -->
+<!--  ----------------------------------------------------------------------  -->
+
+                <META HTTP-EQUIV="Content-type" CONTENT="text/html; charset=UTF-8"/>
+
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: Please add the following <FORM> element to your page.             -->
+<!--  ----------------------------------------------------------------------  -->
+
+<form action="https://lexpsl--dev2.my.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8" method="POST">
+
+    <input type="hidden" name="orgid" value="00DS0000003OU24"/>
+    <input type="hidden" name="retURL" value="https://dev2-loans.cs1.force.com/newservices"/>
+   
+    <!--input type="hidden" id="recordTypeId" name="recordTypeId" value="012S0000001fPLj"/-->
+<!--  ----------------------------------------------------------------------  -->
+<!--  NOTE: These fields are optional debugging elements. Please uncomment    -->
+<!--  these lines if you wish to test in debug mode.                          -->
+<!--  <input type="hidden" name="debug" value=1>                              -->
+<!--  <input type="hidden" name="debugEmail"                                  -->
+<!--  value="pankaj_pandit@persistent.com">                                   -->
+<!--  ----------------------------------------------------------------------  -->
+
+    <table>
+  <caption>Case Details</caption>
+  <tr style="display: none;">
+    <td>
+        <label for="name">Contact Name</label>
+      </td>
+    <td>
+      <input  id="name" maxlength="80" name="name" size="20" type="text" />
+      </td>
+  </tr>
+  <tr style="display: none;">
+    <td>
+      <label for="email">Email</label>
+      </td>
+    <td>
+      <input id="email" maxlength="80" name="email" size="20" type="text" />
+      </td>
+  </tr>
+  <tr style="display: none;">
+    <td>
+      <label for="phone">Phone</label>
+      </td>
+    <td>
+        <input  id="phone" maxlength="40" name="phone" size="20" type="text" />
+         <input id="type" name="type" value="Update Address" type="text"/>
+      </td>
+  </tr>
+  <tr class="regularCase">
+    <td>
+        <label for="subject">Subject</label>
+      </td>
+    <td>
+        <input  id="subject" maxlength="80" name="subject" size="20" type="text" />
+      </td>
+  </tr>
+          <tr class="regularCase">
+    <td>
+        <label for="description">Description</label>
+        </td>
+              <td>
+        <textarea name="description"></textarea>
+      </td>
+  </tr>
+          <tr class="addressUpdate">
+    <td>
+      <label for="phone">Street Address</label>
+      </td>
+    <td>
+        <textarea  id="00NS000000CcR8e" name="00NS000000CcR8e" type="text" wrap="soft"></textarea>
+      </td>
+  </tr>
+  <tr class="addressUpdate">
+    <td>
+        <label for="subject">City</label>
+      </td>
+    <td>
+        <input  id="00NS000000CcR8K" maxlength="20" name="00NS000000CcR8K" size="20" type="text" />
+      </td>
+  </tr>
+          <tr class="addressUpdate">
+    <td>
+        <label for="description">State</label>
+        </td>
+              <td>
+        <input  id="00NS000000CcR8P" maxlength="50" name="00NS000000CcR8P" size="20" type="text" />
+      </td>
+  </tr>
+        <tr class="addressUpdate">
+    <td>
+        <label for="description">Country</label>
+        </td>
+              <td>
+        <input  id="00NS000000CcR8U" maxlength="50" name="00NS000000CcR8U" size="20" type="text" />
+      </td>
+  </tr>
+        <tr class="addressUpdate">
+    <td>
+        <label for="description">Postal Code</label>
+        </td>
+              <td>
+        <input  id="00NS000000CcR8Z" maxlength="20" name="00NS000000CcR8Z" size="20" type="text" />
+      </td>
+  </tr>
+</table>
+    <input type="hidden"  id="external" name="external" value="1" /><br/>
+
+    <input type="submit" name="submit"/>
+
+</form>
+            </div>
+        </div>
+    </div>
+	<!-- Scripts -->
+    <apex:includeScript value="{!URLFOR($Resource.bankservice, 'js/min/plugins.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.bankservice, 'js/min/medigo-custom.min.js')}"/>
+
+    <script>
+    var caseType = "";
+    $(window).load(function () {
+        $(".trigger_popup_fricc").click(function(){
+            $('.hover_bkgr_fricc').show();
+            var id = $(this).attr('id');
+            if(id=='regular'){
+                $('.addressUpdate').hide();
+                document.getElementById("type").value = 'General';
+            }
+            if(id=='upAddress'){
+                $('.regularCase').hide();
+                document.getElementById("type").value = 'Update Address';
+            }
+        });
+        // new code start
+        $(".trigger_popup_fricc1").click(function(){
+            // alert('got here!');
+            $('.hover_bkgr_fricc1').show();
+        });
+        // new code end
+        $('.popupCloseButton').click(function(){
+            $('.hover_bkgr_fricc').hide();
+        });
+    });
+    function openOTP() {
+        document.getElementById("email").value = document.getElementById("emailId").value;
+        $('.enterEmail').hide();
+        $('.enterOtp').removeClass('hidden');
+    }
+    function openWTL() {
+        $('.enterOtp').addClass('hidden');
+        $('.makeCase').removeClass('hidden');
+    }
+    
+    function helpfunction(e) {
+
+       window.location.href="#targetHelp";
+
+       /* need to stop the form sending of the form
+
+        UPDATE as comment: This may not be exactly correct syntax 
+        for stopping a form , look up preventing form submission */
+
+       e.preventDefault();
+       e.stopPropagation(); 
+
+       }
+    </script>
+</body>
+
+</html>
+</apex:page>

@@ -1,0 +1,18 @@
+<aura:component controller="OpportunityHelper" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="stages" type="Object[]" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="stage" type="String" />
+    
+    <div class="slds-clearfix">
+        <div class="slds-float_right">
+            <lightning:button label="Next" iconName="utility:right" iconPosition="right" 
+                              variant="brand" onclick="{! c.refreshComponents }" />
+        </div>
+    </div>
+    <div aura:id="container">
+        
+    <!--c:OpportunityWizard recordId="{!v.recordId}"></c:OpportunityWizard-->
+    </div>
+    
+</aura:component>

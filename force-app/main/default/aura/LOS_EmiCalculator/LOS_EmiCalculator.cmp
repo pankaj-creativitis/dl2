@@ -1,0 +1,119 @@
+<aura:component  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:isUrlAddressable" access="global">
+    <!--<lightning:navigation aura:id="navService"/>-->
+    <aura:attribute name="roiVal" default="0" type="Integer"/>
+    <aura:attribute name="requiredLoanAmtVal" default="75000" type="Integer"/>
+    <aura:attribute name="tentureVal" default="36" type="Integer"/>
+    <aura:attribute name="processingFeeVal" default="0" type="Integer"/>
+    <aura:attribute name="gstVal" default="18" type="Integer"/>
+    <aura:attribute name="emiVal" default="0" type="Integer"/>
+    <aura:attribute name="result" type="Boolean" default="false"/>
+    <aura:attribute name="existingCustomerNameVal" default="" type="String"/>
+    <aura:attribute name="newCustomerNameVal" default="" type="String"/>    
+    <aura:attribute name="loanApplicationDetailMap" type="map"/>
+    <aura:attribute name="opportunityId"  type="String"/>
+    <aura:attribute name="isExistingCustomer"  type="Boolean" default="false"/>   
+    <aura:attribute name="loanResult" type="String" default="" />
+    <aura:attribute name="maxLoanAmount" type="Integer" default="5000000" /> 
+    <aura:attribute name="emiDetails" type="String" /> 
+    <aura:attribute name="eliDetails" type="String" /> 
+    <aura:attribute name="processingFeeAmount" default="0" type="Integer"/>
+    
+    <aura:attribute name="IsROI" type="Boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <!--<aura:handler name="change" value="{!v.requiredLoanAmtVal}" action="{!c.loanAmtChangeValidation}"/>-->
+    <!-- KALPAK DSA -->
+    <aura:attribute name="isUserValidForOffer"  type="Boolean" default="false"/> 
+    <aura:attribute name="isUsingOffer" type="Boolean" default=""/>
+    <aura:attribute name="IsUsingNew" type="Boolean" default=""/>
+    <!-- KALPAK DSA -->
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <lightning:icon class="redOnYellow" iconName="action:record" size="small"/>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate" title="EMI Calculator">EMI Calculator</span>
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="slds-page-header__name-meta">Calculate Loan EMI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slds-page-header border-none slds-p-vertical_x-small bg-transparent slds-is-relative">
+        <div class="slds-form-element__control">
+            <div class="slds-form-element__group">
+                <div class="slds-form-element__control">
+                    <aura:if isTrue="{!v.isExistingCustomer}">
+                        <lightning:input aura:id="existingCustomer" type="text" label="CUSTOMER NAME" name="txtExiCustmerName" required="true" value="{!v.existingCustomerNameVal.Name}" />
+                        <aura:set attribute="else">
+                            <lightning:input aura:id="newCustomer" type="text" label="CUSTOMER NAME" name="txtCustmerName" required="true" value="{!v.newCustomerNameVal}" />
+                        </aura:set>
+                    </aura:if>
+                </div><br/>
+                <div class="slds-form-element__control">
+                    <lightning:slider aura:Id="sdrReqLoanAmt" step="5"   value="{!v.requiredLoanAmtVal}"
+                                      min="75000" max="{!v.maxLoanAmount}" 
+                                      label="LOAN AMOUNT"/>
+                    <lightning:input aura:Id="txtReqLoanAmt" type="number" label="" 
+                                     name="txtrequiredLoan" value="{!v.requiredLoanAmtVal}"
+                                     messageWhenBadInput="You must say foo" step="1" messageWhenPatternMismatch="Required Loan Amount should only accept Numeric values and decimal value should not be accepted"/>
+                </div><br/>
+                
+                <div class="slds-form-element__control">
+                    <lightning:input aura:id="roi" type="number" label="ROI %" name="txtroi" value="{!v.roiVal}" step="0.01" disabled="false"/>
+                </div><br/>
+                
+                <!--<div class="slds-form-element__control">
+                    <lightning:input aura:id="roi" type="number" label="ROI %" name="txtroi" value="{!v.roiVal}" step="0.01" disabled="{!v.IsROI}"/>
+                </div><br/> -->
+                
+                <div class="slds-form-element__control">
+                    <lightning:input aura:id="tenure" type="text" label="LOAN TENURE" name="txtTenture" value="{!v.tentureVal}" pattern="[0-9]{1,2}" messageWhenPatternMismatch="Tenure should take only numeric digits upto 2 digits and without decimals" />
+                </div><br/>
+                
+                <div class="slds-form-element_control">
+                    <lightning:input aura:id="pf" type="number" label="PROCESSING FEE %" name="txtProcessingFee" value="{!v.processingFeeVal}" />
+                </div><br/>
+                
+                <div class="slds-form-element_control">
+                    <lightning:input aura:id="gst" type="number" label="GST" name="txtGst" value="{!v.gstVal}" />
+                </div>                
+            </div>
+        </div>
+        <div class="slds-form-element__control slds-text-align_center">
+            <!--<lightning:button variant="brand" label="Submit" title="Submit" onclick="{! c.emiCalculate }"/> -->
+            <lightning:button class="slds-button slds-m-top--medium slds-button_brand"><a onclick="{!c.backBtn}">Back</a></lightning:button>
+            <lightning:button label="Submit" class="slds-button slds-m-top--medium slds-button_brand" onclick="{!c.calculateEMI}"/>
+            
+            <aura:if isTrue="{!v.result}">
+                <!--<div class="slds-badge slds-badge_lightest badge"><strong>EMI(Monthly Payment) - </strong>{!v.emiVal}</div>-->
+                
+                <div style="text-align: center">
+                    <div class="row">
+                        <div class="column">
+                            <div class="card">
+                                <p><i class="fa"></i></p>
+                                <h3>{!v.emiVal}</h3>
+                                <p>EMI(Monthly Payment)</p>
+                            </div>
+                        </div>                                
+                    </div>
+                </div>
+                <lightning:button label="Next" class="slds-button slds-m-top--medium slds-button_brand" onclick="{!c.handleNext}"/>
+            </aura:if>
+        </div>
+        
+        <!--<aura:set attribute="else">
+             <div class="slds-badge slds-badge_lightest badge"><strong>EMI(Monthly Payment) - </strong>{!v.emiVal}</div> 
+            </aura:set> -->
+    </div>
+</aura:component>

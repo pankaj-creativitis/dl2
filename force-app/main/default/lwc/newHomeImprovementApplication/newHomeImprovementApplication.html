@@ -1,0 +1,97 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card>
+        <template if:true={showModal1}>
+
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+                aria-describedby="modal-content-id-1"
+                class="slds-modal slds-modal_large slds-backdrop slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <!-- Modal header here -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                            title="Close" onclick={closeModal1}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                                size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">New Loan Initiation
+                        </h2>
+                    </header>
+                    <!-- Modal body starts here -->
+                    <div class="slds-modal__content slds-var-p-around_medium">
+                        <lightning-flow flow-api-name='LendKey_Proposal'></lightning-flow>
+                    </div>
+                </div>
+            </section>
+
+        </template>
+        <lightning-button label="Create New Home Improvement Application" variant="brand"
+            onclick={openModal1}></lightning-button>
+        <br />
+        <br />
+        <lightning-button label="Show Application Dashboard" variant="brand"
+            onclick={openApplicationDashboard}></lightning-button>
+    </lightning-card>
+
+
+    <!-- Application Dashboard -->
+
+
+    <lightning-card if:true={showModal} title="Application Dashboard">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-backdrop slds-fade-in-open">
+            
+            <div class="slds-modal__container">
+                <!-- Modal header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeAll}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+
+                    <h2 class="slds-text-heading_medium slds-hyphenate">Application Dashboard
+                    </h2>
+                </header>
+                <!-- Modal body starts here -->
+                <lightning-datatable data={data} columns={columns} key-field="id" onrowselection={getSelectedName}
+                    onrowaction={openModal}>
+                </lightning-datatable>
+            </div>
+            </div>
+
+        </section>
+    </lightning-card>
+
+
+
+    <lightning-card if:true={showCases}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+            aria-describedby="modal-content-id-1" class="slds-modal slds-modal_large slds-backdrop slds-fade-in-open">
+            <div class="slds-modal__container">
+                <!-- Modal header here -->
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                        title="Close" onclick={closeCases}>
+                        <lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+                            size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                </header>
+                <!-- Modal body starts here -->
+                <div class="slds-modal__content slds-var-p-around_medium">
+                    <lightning-datatable data={data} columns={columns} onrowselection={getSelectedName} key-field="id">
+                    </lightning-datatable>
+                    <lightning-button variant="brand" label="Go Back" onclick={closeModal}></lightning-button>
+                </div>
+            </div>
+
+        </section>
+
+
+    </lightning-card>
+
+
+</template>

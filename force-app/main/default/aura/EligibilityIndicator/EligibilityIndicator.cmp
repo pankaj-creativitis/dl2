@@ -1,0 +1,74 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" 
+                access="global">
+    <lightning:card>
+        <lightning:accordion allowMultipleSectionsOpen="true" aura:id="accordion" activeSectionName="A">
+            <lightning:accordionSection name="A" label="Eligibility Conditions">
+                <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                    <tbody>
+                        <tr>
+                            <td scope="row" style="width:100px">
+                                <div class="slds-truncate">
+                                    Age between 23 and 58 years
+                                </div>
+                            </td>
+                            <td scope="row" >
+                                
+                                
+                               
+                                    <div class="slds-truncate slds-clearfix"  >
+                                         <div class="slds-float_left">
+                                        <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Income above $60,000 per annum
+                                </div>
+                            </td>
+                            <td scope="row">
+                                <div class="slds-truncate">
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>               
+                            
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Employment stability
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Residence stability
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    <lightning:icon iconName="action:close" alternativeText="Fail" size="x-small" />
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!--lightning:button label="Download report here" title="Neutral action" /-->
+                
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>
+</aura:component>

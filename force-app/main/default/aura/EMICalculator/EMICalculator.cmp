@@ -1,0 +1,212 @@
+<aura:component Implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,forceCommunity:availableForAllPageTypes" access="global" >
+    
+    <ltng:require styles="/resource/jquery_ui/jquery-ui-1.12.1.custom/jquery-ui.css" 
+                  scripts="/resource/jquery3, /resource/Chart2, /resource/jquery_ui/jquery-ui-1.12.1.custom/jquery-ui.js"
+                  afterScriptsLoaded="{!c.safeToLoad}"/>
+    <aura:attribute name="scriptsLoaded" type="boolean" default="false"/>
+    <aura:attribute name="inLakhs" type="boolean" default="false"/>
+    <aura:attribute name="resetSummary" type="boolean" default="false"/>
+    <aura:attribute name="paymentFrequency" type="String" default=""/>
+    <aura:attribute name="installmentStartDate" type="Date" access="GLOBAL"/>
+    <aura:handler name="change" value="{!v.installmentStartDate}" action="{!c.calculateSummary}"/> 
+    <aura:attribute name="ChildRecordList" type="List" />
+    <!--aura:attribute name="Repaymentdata" type="Scheme__c[]" /-->
+    <aura:attribute name="paymentSchedule" type="Object" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="recordError" type="String" access="private"/>
+    <aura:attribute name="CheckBoxId" type="String"/>
+    <aura:attribute name="totalamount" type="String"/>
+    <aura:attribute name="permonth" type="String"/>
+    <aura:attribute name="interest" type="String"/>
+    <aura:attribute name="tenure" type="String"/>
+    <aura:attribute name="currency" type="String" default=""/>
+    <aura:attribute name="scale" type="String" default=""/>
+    <aura:attribute name="isOpen" type="boolean" default="false"/>
+    <aura:attribute name="generateSchedule" type="boolean" default="true"/>
+    <aura:attribute name="startDate" type="String[]" default=""/>
+    <aura:attribute name="cssStyle" type="String" /> 
+    
+    <!--aura:method name="sampleMethod" action="{!c.addSelected}" access="PUBLIC"/-->
+    
+    <!-- change scheme start -->
+    <aura:attribute name="stageName" type="String" default=""/> 
+    <aura:attribute name="valueChanged" type="Integer" default="0" /> 
+    
+    <!-- <aura:handler name="change" value="{!v.CheckBoxId}" action="{!c.schemeChanged}"/> -->
+    <!-- change scheme end -->
+    
+    <!--
+    Use a data table from the Lightning Design System:
+    https://www.lightningdesignsystem.com/components/data-tables/
+  -->
+    <div class="slds-m-around--x-small">       
+        <div class="slds-grid slds-grid--align-end slds-m-around--x-small"> 
+            <button class="slds-button slds-button--brand" onclick="{!c.addSelected}">Choose Scheme</button>
+        </div>
+        <div class="slds-grid slds-grid_vertical">
+
+            <div aura:id="setRepSumm" class="slds-box slds-section slds-is-open slds-p-bottom_large">
+                <h3 class="slds-section__title slds-theme_shade">
+                    <span class="slds-truncate slds-p-horizontal_small" title="Repayment Schedule">Set Repayment Schedule</span>
+                </h3>
+                <div aria-hidden="false" class="slds-section__content">
+                    
+                    <aura:if isTrue="{!not(empty(v.recordError))}">
+                        <div class="recordError">
+                            <ui:message title="Error" severity="error" closable="true">
+                                {!v.recordError}
+                            </ui:message>
+                        </div>
+                    </aura:if>
+                    <div class="slds-grid slds-p-bottom_large">
+                        <div class="slds-col slds-size--1-of-2">
+                            <div class="slds-form-element slds-p-left_medium">
+                                <ui:inputSelect required="true" label="Select Payment Frequency" multiple="false" value="{!v.paymentFrequency}"
+                                                class="multiple" aura:id="opportunityEmploymentType" change="{!c.calculateSummary}" >
+                                    <ui:inputSelectOption text="0" label="Choose one.." /> 
+                                    <ui:inputSelectOption label="Semi-Monthly" text="24"/> 
+                                    <ui:inputSelectOption label="Monthly" text="12"/> 
+                                    <ui:inputSelectOption label="Quarterly" text="4"/>
+                                    <ui:inputSelectOption label="Semi-Annually" text="2"/>
+                                    <ui:inputSelectOption label="Annually" text="1"/>
+                                </ui:inputSelect> 
+                                
+                            </div>
+                        </div>
+                        <div class="slds-col slds-size--1-of-2">
+                            
+                            <div class="slds-form-element slds-p-left_medium">
+                                <ui:inputDate aura:id="startDate" value="{!v.installmentStartDate}" change="{!c.calculateSummary}" label="Select Start Date" required="true" displayDatePicker="true"/>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--aura:if isTrue="{v.generateSchedule}"-->
+            <div aura:id="repSumm" class="slds-box slds-section slds-is-open slds-p-bottom_large">
+                
+                <div class="slds-page-header" role="banner" style="padding: 10px 15px 10px 15px">
+                    <div class="slds-media slds-media--center">
+                        <div class="slds-media__body">
+                            <p class="slds-page-header__title slds-truncate">Repayment Summary</p>
+                        </div>
+                        <div class="slds-media__figure slds-media__figure--reverse"> 
+                            <button class="slds-button slds-button--brand" onclick="{!c.openModel}">Repayment Schedule</button>
+                        </div>
+                    </div>
+                </div>
+                <div aria-hidden="false" class="slds-section__content">
+                    <div class="slds-grid slds-p-bottom_large slds-page-header slds-page-header_object-home">
+                        <div class="slds-col slds-size--1-of-2">
+                            <ul class="slds-has-dividers_bottom-space">
+                                <li class="slds-item">
+                                    <p class="slds-text-title_caps slds-line-height_reset slds-p-bottom_xx-small">Insatllment</p>
+                                    <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" >{!v.currency}&nbsp;{!v.permonth}&nbsp;{!v.inLakhs ? v.scale:''}</h1>
+                                </li>
+                                <li class="slds-item">   
+                                    <p class="slds-text-title_caps slds-line-height_reset slds-p-bottom_xx-small">Total Interest Payable</p>
+                                    <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" >{!v.currency}&nbsp;{!v.interest}&nbsp;{!v.inLakhs ? v.scale:''}</h1>
+                                    
+                                </li>
+                                <li class="slds-item">
+                                    <p class="slds-text-title_caps slds-line-height_reset slds-p-bottom_xxx-small">Total Payment</p>
+                                    <p class="slds-text-title_caps slds-line-height_reset slds-p-bottom_xx-small">(Principal + Interest)</p>
+                                    <h1 class="slds-page-header__title slds-m-right_small slds-align-middle slds-truncate" >{!v.currency}&nbsp;{!v.totalamount}&nbsp;{!v.inLakhs ? v.scale:''}</h1>
+                                </li>
+                            </ul>
+                            
+                        </div>
+                        <div class="slds-col slds-size--1-of-2">
+                            <div class="slds-col--padded">
+                                <!--div aura:id="delme">delme</div-->
+                                <canvas aura:id="doughnut_chart" id="doughnut_chart" width="400" height="400"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <!--/aura:if-->
+        </div>  
+        
+        <aura:if isTrue="{!v.isOpen}">
+            
+            
+            <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-backdrop slds-backdrop_open">
+                <div class="slds-modal__container">
+                    <div class="slds-modal__header">
+                        <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                            X
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 id="header99" class="slds-text-heading--small">Repayment Schedule</h2>
+                        
+                        <!--aura:if isTrue="{!v.generateSchedule}"-->
+                        
+                        
+                        <div class="slds-p-left--large slds-p-right--large slds-p-top--large" >
+                            <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout"> 
+                                <thead>
+                                    <tr class="slds-text-heading--label">
+                                        <!--th scope="col"><div class="slds-truncate" title="Select Schemas">Choose Scheme</div></th-->
+                                        <th scope="col" class="slds-text-align_center" style="width:3.25rem;" ><div class="slds-truncate" title="#">#</div></th>
+                                        <th scope="col"><div class="slds-truncate" title="Name">Date</div></th>
+                                        <th scope="col"><div class="slds-truncate" title="EMI">EMI</div></th>
+                                        <th scope="col"><div class="slds-truncate" title="Interest">Interest</div></th>
+                                        <th scope="col"><div class="slds-truncate" title="Principal">Principal</div></th>
+                                        <th scope="col"><div class="slds-truncate" title="Balance">Balance</div></th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        <!--/aura:if-->
+                    </div>
+                    <div class="slds-modal__content slds-p-left--large slds-p-right--large slds-p-bottom--large" >
+                        <!--aura:if isTrue="{!v.generateSchedule}"-->
+                        <table class="slds-table slds-table_bordered slds-table_resizable-cols slds-table_fixed-layout"> 
+                            
+                            <tbody>
+                                <aura:iteration items="{!v.paymentSchedule.arr}" var="repay" indexVar="index"> 
+                                    <!--tr style="{!if(scheme.pankaj2016__Scheme_Opportunity__c != v.recordId,'background: rgb(244, 246, 249);','')}"-->  
+                                    <tr>  
+                                        
+                                        <td style="width:3.25rem;" class="slds-text-align_right" >
+                                            <div class="slds-truncate" name="Role" >{!index+1}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" name="Role" >{!repay.Date}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" name="Role">{!repay.EMI}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" name="Role">{!repay.Interest}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" name="Role">{!repay.Principal}</div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate" name="Role">{!repay.Balance}</div>
+                                        </td>
+                                    </tr>
+                                </aura:iteration>
+                            </tbody>
+                        </table>
+                        <!--/aura:if-->
+                    </div>
+                    
+                    <div class="slds-modal__footer">
+                        <div class="slds-container_large slds-align-bottom">
+                            <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}" >Close</button>    
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            
+        </aura:if>
+    </div>
+    <!--style>{!v.cssStyle}</style-->
+</aura:component>

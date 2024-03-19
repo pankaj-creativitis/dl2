@@ -1,0 +1,46 @@
+<template>
+    <lightning-card>
+    <div class="slds-var-p-horizontal_medium">
+        <template if:true={isSingle}>
+          <lightning-record-edit-form
+            record-id={recordId}
+            object-api-name={objectApiName}
+            onsuccess={updateSuccess}
+          >
+            <lightning-messages> </lightning-messages>
+  
+            <lightning-layout multiple-rows>
+              <template if:true={fldSet}>
+                <template for:each={fldSet} for:item="fld">
+                  <!--temlpate key={fld}-->
+                  
+                  <lightning-layout-item
+                    key={fld}
+                    size="12"
+                    small-device-size="12"
+                    medium-device-size="6"
+                    large-device-size="6"
+                    
+                  >
+                  <div>
+                    <lightning-input-field field-name={fld}>
+                    </lightning-input-field>
+                </div>
+                  </lightning-layout-item>
+                  <!--/temlpate-->
+                </template>
+              </template>
+            </lightning-layout>
+            <lightning-button
+              variant="brand"
+              type="submit"
+              name="update"
+              label="Update"
+              class="slds-m-left_medium"
+            >
+            </lightning-button>
+          </lightning-record-edit-form>
+        </template>
+      </div>
+    </lightning-card>
+</template>

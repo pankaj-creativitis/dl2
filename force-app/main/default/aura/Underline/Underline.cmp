@@ -1,0 +1,14 @@
+<aura:component Implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="headerText" type="String"/>
+
+    <div class="slds-align_absolute-center">
+        <!--img style="width:117px;height:35px;" src="{!$Resource.lendkey1}" /-->
+        <!--img style="width:300px;height:63px;" src="{!$Resource.fordlogo1}" /-->
+        <!-- <img style="width:90px;height:90px;" src="{!$Resource.jklogo2}" />-->
+        <!--<img style="width:228px;height:84px;" src="{!$Resource.udblogo5}" />-->
+    </div>
+    <div class="slds-text-align_center slds-p-vertical_large">
+        <p class="slds-text-heading_medium" style="color:#181B58"> <strong>{!v.headerText}</strong></p>
+    </div>
+      
+</aura:component>

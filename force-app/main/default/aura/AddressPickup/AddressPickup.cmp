@@ -1,0 +1,27 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens"
+                access="global">
+    <aura:attribute name="state" type="String" ></aura:attribute>
+    <aura:attribute name="countryValue" type="String" ></aura:attribute>
+    <aura:attribute name="postalCodeValue" type="String" ></aura:attribute>
+    <aura:attribute name="cityValue" type="String" ></aura:attribute>
+    <aura:attribute name="streetValue" type="String" ></aura:attribute>
+    <div>
+        <lightning:inputAddress
+                                aura:id="myaddress"
+                                addressLabel="Address" showAddressLookup="true"
+                                streetLabel="Street"
+                                cityLabel="City"
+                                countryLabel="Country"
+                                provinceLabel="Province"
+                                postalCodeLabel="PostalCode"
+                                street=""
+                                city=""
+                                country=""
+                                province=""
+                                postalCode=""
+                                required="true"
+                                fieldLevelHelp="Help Text for inputAddress field"
+                                onchange="{!c.myAction}"
+                                />
+    </div>
+</aura:component>

@@ -1,0 +1,49 @@
+<aura:component controller="RuleEngineHelper" implements="force:hasRecordId,force:lightningQuickAction,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:actionOverride" access="global"  >
+	
+    <aura:attribute name="conditions" type="Condition__c[]" />
+   	<aura:attribute name="comments" type="String" default="" /> 
+    <aura:attribute name="exprObj" type="Expression__c[]"  />
+    <aura:attribute name="showMe" type="Boolean" default="false" />
+    
+    <lightning:button label="List of Conditions" variant="brand" title="List of Conditions" onclick="{!c.handleClick }"/><br/>
+    <br/>
+   <aura:if isTrue="{!v.showMe}">
+    <p aura:id="table" >
+<div class="slds-size_1-of-2">
+      <table class="slds-table slds-table--bordered slds-table--striped slds-table--cell-buffer slds-table--fixed-layout">
+        <thead>
+            <tr class="slds-text-heading--label ">
+                <th class="slds-table-data" scope="col"><div class="slds-truncate" title="S.No">S.no</div></th>
+                <th class="slds-table-data" scope="col"><div class="slds-truncate" title="Name">Name</div></th>
+            </tr>
+          </thead>
+           <tbody>
+            <aura:iteration items="{!v.conditions}" var ="x" indexVar="key">
+                <tr>
+                    <td class="slds-table-data"><div class="slds-truncate" >{!x.key} </div></td>
+                    <td class="slds-table-data"><div class="slds-truncate" title="{!x.value}">{!x.value.Name}<br/><br/></div></td>
+                </tr>
+               </aura:iteration>
+          </tbody>
+    </table>
+       </div>
+    </p>
+    </aura:if>
+
+    <div class="row">
+            <div class="slds-size_1-of-2">
+            <lightning:input  name="input1" label="Expression Name" variant="string" />
+        </div>
+           <div class="slds-size_1-of-2">
+   
+               <lightning:input  aura:id="comments" name="input2" label="Expression Logic" value="{!v.comments}"  placeholder="(1 AND 2) OR 3 ..."/>
+        </div>
+    </div><br/>
+    <div class="row">
+    
+         <lightning:button label="Save"  variant="brand" onclick="{!c.save}"/>
+    </div>
+    <div class="row">
+    
+    </div>
+</aura:component>

@@ -1,0 +1,44 @@
+<aura:component >    
+   
+    <aura:attribute name="sentimentWrap" type="SentimateUpdate.sentimentWrapper[]"/>
+    <aura:attribute name="rowIndex" type="String"/>
+    <aura:registerEvent name="DeleteRowEvt" type="c:DeleteRowEvent"/> 
+    <aura:registerEvent name="AddRowEvt" type="c:AddRowEvent"/> 
+    
+   
+    <tr class="slds-text-title_caps">
+        <td> 
+            {!v.rowIndex + 1}
+        </td>
+        <td>
+            <ui:inputText class="slds-input" value="{!v.sentimentWrap.sentimentText}"/>
+        </td>
+        <td>
+            <lightning:select name="selectItem" value="{!v.sentimentWrap.sentimentType}" class="label-hidden">
+                <option value="">Choose one.....</option>
+                <option value="SOA">SOA</option>
+                <option value="Password">Password Help</option>
+                <option value="Password">NOC</option>
+                <option value="Password">EMI</option>
+                <option value="Password">Settlement</option>
+            </lightning:select>
+        </td>
+        
+        <td>
+          
+            <aura:if isTrue="{!v.rowIndex == 0}">
+                <a onclick="{!c.AddRow}">
+                    <lightning:icon iconName="utility:add" class="slds-icon slds-icon_small" size="small" alternativeText="add"/>
+                    <span class="slds-assistive-text">Add</span>
+                </a>    
+                <aura:set attribute="else">
+                    
+                    <a onclick="{!c.removeRow}">
+                        <lightning:icon variant="error" iconName="utility:delete" class="slds-icon slds-icon_small" size="small" alternativeText="icon"/>
+                        <span class="slds-assistive-text">Delete</span>
+                    </a>
+                </aura:set> 
+            </aura:if>
+        </td> 
+    </tr>
+</aura:component>

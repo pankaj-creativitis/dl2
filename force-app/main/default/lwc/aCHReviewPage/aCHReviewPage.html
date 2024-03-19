@@ -1,0 +1,27 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        
+        <div class="slds-col slds-size_1-of-3  center grey" >
+            <h3>Review Details</h3>
+            <br/>
+            
+            <div class="slds-border_left">
+                <label class="black-text"> <span class="grey-text">Name of Account</span>  {accountName}</label><br/>
+                <label class="black-text"> <span class="grey-text">Account Holder Type</span>  {accountHolderType}</label><br/>
+                <label class="black-text"> <span class="grey-text">Bank Name</span>  {bankName}</label><br/>
+                <label class="black-text"> <span class="grey-text">Account Number</span>  {accountNumber}</label><br/>
+                <label class="black-text"> <span class="grey-text">Routing Number</span>  {routingNumber}</label><br/>
+                <label class="black-text"> <span class="grey-text">Start Date of ACH</span>  {dateACH}</label><br/>
+                <label class="black-text"> <span class="grey-text">ACH Amount</span>  {aCHAmount}</label>
+            </div>
+            <br/>
+            <p class="small-text">
+                I (We) hereby authorize and request Spendgo Inc. to debit funds from my (our) account at the Financial Institution indicated, and credit the funds. I (we) authorize Spendgo Inc. to take any and all action required to correct any errors.<br/>By clicking the button below, you certify that the information you have given on this ACH Debit Authorization Agreement for Direct Payments is complete, true, and submitted for the purpose selected above. It will remain in effect until I (we) notify Spendgo Inc. that I (we) wish to revoke this authorization by contacting accounting@spendgo.com or 4159065250.
+            </p>
+            <br/>
+            <div class="slds-m-around_xx-small">
+                <lightning-button variant="brand" label="Add" class="slds-align_absolute-center" onclick={handleGoNext}></lightning-button>
+            </div>
+        </div>
+    </div>
+</template>

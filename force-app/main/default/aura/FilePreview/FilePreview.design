@@ -1,0 +1,7 @@
+<design:component>
+	<design:attribute name="nfileId" label="File Id" description="ContentDocument Id of the file"/>
+    <design:attribute name="objName" label="Obj Name" description="object name"/>
+    <design:attribute name="fldArray" label="Fields (Comma separated)" description="fields"/>
+    <design:attribute name="recordId" label="Rec Id" description="Rec Id of the file"/>
+    <design:attribute name="docName" label="Doc Name" description="Doc Name of the file"/>
+</design:component>

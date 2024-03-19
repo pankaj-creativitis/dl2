@@ -1,0 +1,116 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="slds-popover "
+         role="tooltip" id="help" style="position: absolute; width: 80rem; padding-bottom: 1rem;">
+        <lightning:layout >
+            <lightning:layoutItem padding="around-small">
+                <b>First Name</b>: Steve
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <b>Last Name</b>: Smithersonvillestrong
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <b>DOB</b>: 12/31/1965
+            </lightning:layoutItem>
+            <lightning:layoutItem padding="around-small">
+                <b>Gender</b>: Male
+            </lightning:layoutItem>
+        </lightning:layout>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-text-align_center columnHeaderClass">
+                        <span>TRANSPLANT</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Tx Date</b>: 11/19/2020</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Tx Type</b>: Left Kidney</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Donor Type</b>: Living</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Donor Relation</b>: Unrelated</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-text-align_center columnHeaderClass">
+                        <span>RESEARCH</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Post-Tx Time</b>: 0 years 3 months 3 days</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Program</b>: KOAR</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Protocol</b>: Stanford 2x weekly</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Diagnosis</b>: Acute Rejection</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-text-align_center columnHeaderClass">
+                        <span>BILLING</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Insurance</b>: BSBC - Arizona</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Group #</b>: GN-09887-3000</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Policy #</b>: SID-0098-23435</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Relationship</b>: Self</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-text-align_center columnHeaderClass">
+                        <span>APPOINTMENT</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Patient Status</b>: Outpatient</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>RemoTraC Opt-Out</b>: No</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Preferred Draw Site</b>: LABCORP</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Standing Order End Date</b>: 11/30/2021</span>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-col">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col slds-text-align_center columnHeaderClass">
+                        <span>ORDER</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Current Test Status</b>: Lab In Process</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Last Report Date</b>: 02/17/2021</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Completed Orders</b>: 6</span>
+                    </div>
+                    <div class="slds-col">
+                        <span><b>Active Orders</b>: 1</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</aura:component>

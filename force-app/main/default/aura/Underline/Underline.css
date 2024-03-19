@@ -1,0 +1,6 @@
+.THIS .slds-text-heading_large{
+  -webkit-text-decoration: #82819C solid underline;
+  text-decoration: #82819C solid underline;
+  -webkit-text-decoration-skip: ink;
+  text-decoration-skip: ink;
+}

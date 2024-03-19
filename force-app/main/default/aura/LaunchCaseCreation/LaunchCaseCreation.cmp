@@ -1,0 +1,9 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <aura:attribute name="launched" type="Boolean" default="true" />
+    <article class="slds-card">
+   <lightning:flow aura:id="flowData"/>
+        <aura:if isTrue="{!v.launched}">
+    <lightning:button variant="brand-outline" label="Log Payment Request" title="Brand action" onclick="{! c.handleClick }" />
+            </aura:if>
+        </article>
+</aura:component>

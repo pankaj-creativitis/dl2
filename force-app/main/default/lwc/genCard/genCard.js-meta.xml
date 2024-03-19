@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__HomePage,lightning__AppPage,lightning__FlowScreen,lightning__RecordPage">
+            <property name="header" type="String" default="Card Header" label="Enter Card Title"/>
+            <property name="iconName" type="String" label="Icon Name" default="standard:account"/>
+            <property name="hasBody" type="Boolean" default="false" label="Has Body"/>
+            <property name="description" type="String" label="description"/>
+            <property name="content1" type="String" label="content1"/>
+            <property name="content1Class" type="String" label="content1 Class"/>
+            <property name="content2" type="String" label="content2"/>
+            <property name="content2Class" type="String" label="content2 Class"/>
+            <property name="content3" type="String" label="content3"/>
+            <property name="content3Class" type="String" label="content3 Class"/>
+            <property name="footerContent" type="String" label="Footer Content"/>
+            <property name="gaugeType" type="String" label="gauge Type"/>
+            <property name="footerDescription" type="String" label="footer Description"/>
+            <property name="footerContentClass" type="String" label="footer content class"/>
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

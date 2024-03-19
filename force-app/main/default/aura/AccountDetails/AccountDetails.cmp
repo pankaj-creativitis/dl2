@@ -1,0 +1,7 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+	                <article class="slds-card slds-card_boundary slds-p-bottom_medium">
+                        <p class="slds-p-horizontal_large">
+
+                        </p>
+                </article>
+</aura:component>

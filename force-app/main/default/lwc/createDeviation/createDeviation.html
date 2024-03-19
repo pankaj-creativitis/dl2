@@ -1,0 +1,43 @@
+<template>
+    <lightning-record-edit-form object-api-name="Deviations__c" onsuccess={handleSuccess}>
+
+        <lightning-messages>
+        </lightning-messages>
+        <lightning-input-field class="slds-hide" field-name="Assessment__c" value="a3KS00000016TY9MAM">
+        </lightning-input-field>
+        <lightning-layout multiple-rows>
+        <lightning-layout-item
+                  size="12"
+                  small-device-size="6"
+                  medium-device-size="6"
+                  large-device-size="3"
+            >
+            <lightning-input-field field-name="Description__c">
+            </lightning-input-field>
+        </lightning-layout-item>
+        <lightning-layout-item
+                  size="12"
+                  small-device-size="6"
+                  medium-device-size="6"
+                  large-device-size="3"
+            >
+            <lightning-input-field field-name="Justification_Rationale__c">
+            </lightning-input-field>
+        </lightning-layout-item>
+        <lightning-layout-item
+                  size="12"
+                  small-device-size="6"
+                  medium-device-size="6"
+                  large-device-size="3"
+            >
+            <lightning-input-field field-name="Mandate__c">
+            </lightning-input-field>
+        </lightning-layout-item>
+        </lightning-layout>
+            <lightning-button
+                class="slds-m-top_small"
+                type="submit"
+                label="Add Deviation">
+            </lightning-button>
+    </lightning-record-edit-form>
+</template>

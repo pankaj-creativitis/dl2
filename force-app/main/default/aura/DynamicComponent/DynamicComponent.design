@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="objectName" label="Object Name" description="Name of the Object" />
+    <design:attribute name="rawflds" label="Fields (Comma separated)" />
+</design:component>

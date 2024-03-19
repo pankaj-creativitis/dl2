@@ -1,0 +1,111 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+            <div class="slds-page-header__col-title">
+                <div class="slds-media">
+                    <div class="slds-media__figure">
+                        <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+
+                            <lightning-icon icon-name="standard:orders" alternative-text="Event" title="Event">
+                            </lightning-icon>
+                            <span class="slds-assistive-text">opportunity</span>
+                        </span>
+                    </div>
+                    <div class="slds-media__body">
+                        <div class="slds-page-header__name">
+                            <div class="slds-page-header__name-title">
+                                <h1>
+                                    <span class="slds-page-header__title slds-truncate"
+                                        title="Rohde Corp - 80,000 Widgets">Facility Structure</span>
+                                </h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-page-header__col-actions">
+                <div class="slds-page-header__controls">
+                    <div class="slds-page-header__control">
+                        <lightning-button label="Add MOF" title="Non-primary action" class="slds-m-right_small">
+                        </lightning-button>
+                        <lightning-button label="Save" title="Non-primary action" class="slds-m-right_small">
+                        </lightning-button>
+                        <lightning-button variant="base" title="Download action with base variant" icon-name={icnName}
+                            onclick={bodyMgmt}></lightning-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <template if:true={showbody}>
+        <lightning-accordion active-section-name="4218">
+            <lightning-accordion-section name="4218" label="4218">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <span>
+                            <div class="slds-float--right">
+                                <lightning-button label="Add Node" title="Non-primary action"
+                                    class="slds-m-right_small">
+                                </lightning-button>
+                                <lightning-button label="Edit MOF" title="Non-primary action"
+                                    class="slds-m-right_small">
+                                </lightning-button>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="slds-col">
+                        <span>
+                            <lightning-datatable key-field="id" data={data} columns={columns}>
+                            </lightning-datatable>
+                        </span>
+                    </div>
+                </div>
+
+            </lightning-accordion-section>
+            <lightning-accordion-section name="4219" label="4219">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <span>
+                            <div class="slds-float--right">
+                                <lightning-button label="Add Node" title="Non-primary action"
+                                    class="slds-m-right_small">
+                                </lightning-button>
+                                <lightning-button label="Edit MOF" title="Non-primary action"
+                                    class="slds-m-right_small">
+                                </lightning-button>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="slds-col">
+                        <span>
+                            <lightning-datatable key-field="id" data={data1} columns={columns}>
+                            </lightning-datatable>
+                        </span>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+            <lightning-accordion-section name="4220" label="4220">
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                        <span>
+                            <div class="slds-float--right">
+                                <lightning-button label="Add Node" title="Non-primary action"
+                                    class="slds-m-right_small">
+                                </lightning-button>
+                                <lightning-button label="Edit MOF" title="Non-primary action"
+                                    class="slds-m-right_small">
+                                </lightning-button>
+                            </div>
+                        </span>
+                    </div>
+                    <div class="slds-col">
+                        <span>
+                            <lightning-datatable key-field="id" data={data2} columns={columns}>
+                            </lightning-datatable>
+                        </span>
+                    </div>
+                </div>
+            </lightning-accordion-section>
+        </lightning-accordion>
+    </template>
+</template>

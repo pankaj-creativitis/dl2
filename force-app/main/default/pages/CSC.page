@@ -1,0 +1,105 @@
+<apex:page >
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style>
+    p {
+  padding-bottom: 1px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+select, input{background-color: #f2f2f2;}
+
+div.c {
+  font-size: 180%;
+}
+
+.button {
+  
+  border: none;
+
+  padding: 8px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button4 {
+   background-color: white;
+  color: #3C99DC;
+  border: 2px solid #e7e7e7;
+}
+.button4{background-color: white;}
+.wrapper {
+    text-align: center;
+}
+
+.button {
+    position: absolute;
+   
+}
+</style>
+</head>
+
+<body>
+<div class="wrapper">
+<input type="button" class="button button4" value="Run Eligibility Check" />
+</div><br/>
+<h2> Integration Status</h2><br/><br/>
+<p>Eligibility Check Integration Status <br/>
+Sucess</p>
+
+<div class="c">Enterprise OD Eligibility Checks</div>
+<br/>
+<table>
+  <tr>
+    <th>No.</th>
+    <th>Parameters</th>
+    <th>Thresh-hold Value</th>
+    <th>Output</th>
+    <th>Remarks</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>Minimum CIBIL score of proprietors / gurantors</td>
+    <td>>=630</td>
+    <td>Norms met</td>
+    <td><input type="text" id="country" name="country" value="Enter Remark" /></td>    
+  </tr>
+  
+  <tr>
+    <td>2</td>
+    <td>PD score as per Credit Model</td>
+    <td></td>
+    <td>Specific Deviation Needed to Proceed</td>
+    <td><input type="text" id="country" name="country" value="Enter Remark" /></td>    
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>Number of facilities in sub-standard category or below as per Commercial CIBIL of Borrower R Group Firm</td>
+    <td>>=630</td>
+    <td>Norms met</td>
+    <td><input type="text" id="country" name="country" value="Enter Remark" /></td>    
+  </tr>
+  
+</table>
+</body>
+</apex:page>

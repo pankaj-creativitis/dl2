@@ -1,0 +1,145 @@
+<apex:page showHeader="false" cache="false" expires="0" standardstylesheets="false" controller="BankWebsitePreChatController" id="page"> 
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script>
+        jQuery.noConflict();
+        jQuery(function(){
+            jQuery("#page\\:prechatFormInput\\:FirstName").attr("placeholder", "First Name");
+            jQuery("#page\\:prechatFormInput\\:LastName").attr("placeholder", "Last Name");
+            jQuery("#page\\:prechatFormInput\\:Email").attr("placeholder", "Email Address");
+            jQuery("#page\\:prechatFormInput\\:Amount").attr("placeholder", "Amount");    
+        });
+    </script>
+
+    <style type="text/css"> 
+        body {
+            text-align: left;
+            font-family: Helvetica, Arial, 'Sans Serif';
+        }
+        
+        td.header { 
+            font-size: 16px;
+            font-weight: bold;
+        }
+        
+        input.sales, select.sales {
+            border: 1px solid #898989;
+            padding: 0;
+            margin: 0;
+            color: #707070;
+            border-style: solid;
+            width: 189px;
+            font-size: 15px;
+            line-height: 15px;
+            height: 15px;
+            padding-top: 8px;
+            padding-bottom: 7px;
+            padding-left: 8px;
+            padding-right: 8px;
+            -webkit-border-radius: 2px; 
+            -moz-border-radius: 2px; 
+            border-radius: 2px;
+            -webkit-box-shadow: inset 1px 2px 2px 0px #dddddd;
+            -moz-box-shadow: inset 1px 2px 2px 0px #dddddd;
+            box-shadow: inset 1px 2px 2px 0px #dddddd;      
+        }
+        
+        select.sales.picklist {
+            width: 205px;
+            height: 35px;   
+        }
+        
+        input.error {
+            border: 1px solid red;
+            background-color: #FEF5F1;
+        }
+        
+        div.errorMsg {
+            margin-left: 10px;  
+            font-size: 70%;
+            color: red;
+            display: inline-block;
+        }
+        
+        label {
+            color: #707070;
+            font-size: 15px;
+            padding-top: 8px;
+            padding-bottom: 7px;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+    </style> 
+</head>
+
+<body>
+    <div style="padding: 5px;" id="padDiv"> 
+        <apex:form styleClass="prechatFormInput" id="prechatFormInput"> 
+            <apex:outputPanel rendered="{!IF(ISNULL(theLead.ID), 'True', 'False')}">  
+                    <table cellpadding="8">
+                        <tr>
+                            <td>
+                                <apex:inputField id="FirstName" value="{!theLead.FirstName}" required="true" styleClass="sales" />
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:inputField id="LastName" value="{!theLead.LastName}" required="true" styleClass="sales" />                
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:inputField id="Email" value="{!theLead.Email}" required="true" styleClass="sales" />              
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:inputField id="LoanType" value="{!theLead.Loan_Type__c}" styleClass="sales picklist" />              
+                            </td>   
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <apex:inputField id="Amount" value="{!theLead.Expected_Loan_Amount__c}" required="true" styleClass="sales" />              
+                            </td>   
+                        </tr>
+                        <tr>
+                            <td>
+                                <apex:commandButton reRender="prechatJS,prechatFormPanel,prechatFormInput" 
+                                    image="{!URLFOR($Resource.SalesChatNow)}" style="width:200px" 
+                                    action="{!clickChat}" 
+                                    value="Chat Now" alt="Chat Now" 
+                                    id="prechat_submit" />
+                            </td>   
+                        </tr>
+                    </table>     
+             </apex:outputPanel>
+        </apex:form>
+    </div>
+    
+    <apex:outputPanel id="prechatFormPanel">
+        <form method='post' id='prechatForm' action="{!endpoint}">      
+            <input type="hidden" name='liveagent.prechat:FirstName' value="{!theLead.FirstName}"/>
+            <input type="hidden" name='liveagent.prechat:LastName' value="{!theLead.LastName}"/>
+            <input type="hidden" name='liveagent.prechat:Email' value="{!theLead.Email}"/>  
+            <input type="hidden" name='liveagent.prechat:Id' value="{!theLead.Id}"/>
+            
+            <input
+                type="hidden"
+                name="liveagent.prechat.findorcreate.map:Lead"
+                value="Id,Id;LastName,LastName;FirstName,FirstName;Email,Email"
+            />
+
+            <input
+                type="hidden"
+                name="liveagent.prechat.findorcreate.map.doFind:Lead" value="Id,true;"
+            />
+        </form> 
+        <script>
+            {!jsSubmitForm}
+        </script>
+    </apex:outputPanel>
+
+</body>
+</apex:page>

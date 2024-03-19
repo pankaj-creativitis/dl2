@@ -1,0 +1,78 @@
+<aura:component controller="SentimateUpdate"
+	Implements="flexipage:availableForRecordHome,force:hasRecordId, force:appHostable">
+
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+	<aura:handler name="DeleteRowEvt" event="c:DeleteRowEvent"
+		action="{!c.removeDeletedRow}" />
+	<aura:handler name="AddRowEvt" event="c:AddRowEvent"
+		action="{!c.addNewRow}" />
+
+	<aura:attribute name="sentimentWrapList"
+		type="SentimateUpdate.sentimentWrapper[]" />
+	<aura:attribute name="modelIdForTrainingStatus" type="String" />
+	<aura:attribute name="trainingStatusAttr" type="String" />
+	<aura:attribute name="newDataSetID" type="String" />
+
+	<aura:handler event="aura:waiting" action="{!c.showSpinner}" />
+	<aura:handler event="aura:doneWaiting" action="{!c.hideSpinner}" />
+
+	<div class="slds-page-header">
+		<h1 class="slds-page-header__title">Intent Update</h1>
+	</div>
+
+	<div class="slds-box slds-theme_default">
+		<table class="slds-table slds-table_bordered slds-table_cell-buffer">
+			<thead>
+				<tr class="slds-text-title_caps">
+					<th scope="col">
+						<div class="slds-truncate">S.No</div>
+					</th>
+					<th scope="col">
+						<div class="slds-truncate" title="First Name">Intent Text</div>
+					</th>
+					<th scope="col">
+						<div class="slds-truncate" title="First Name">Intent Type</div>
+					</th>
+
+				</tr>
+			</thead>
+			<tbody>
+
+				<aura:iteration items="{!v.sentimentWrapList}" var="item"
+					indexVar="index">
+					<c:sentimateAddRow sentimentWrap="{!item}" rowIndex="{!index}" />
+				</aura:iteration>
+			</tbody>
+		</table>
+		<br />
+
+		<button class="slds-button slds-button_brand" onclick="{!c.Save}">Save</button>
+		<button class="slds-button slds-button_brand" onclick="{!c.trainNow}">Train
+			now</button>
+
+
+		<div class="slds-form">
+			<div class="slds-size--1-of-2">
+				<lightning:input value="{!v.newDataSetID}" label="New Dataset ID"
+					disabled="true" />
+			</div>
+			<br/>
+			<div class="slds-size--1-of-2">
+				<lightning:input value="{!v.modelIdForTrainingStatus}"
+					label="Enter model Id for training status" />
+				<button class="slds-button slds-button_brand"
+					onclick="{!c.trainingStatus}">Get Training Status</button>
+			</div>
+			<br/>
+			<div class="slds-size--1-of-2">
+				<lightning:input value="{!v.trainingStatusAttr}"
+					label="Training Status" disabled="true" />
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+</aura:component>

@@ -1,0 +1,38 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" 
+                access="global" >
+            <aura:attribute name="objectName" type="String" default="Property_Detail__c" />
+            <aura:attribute name="recordId" type="String" access="global"/>
+            <aura:attribute name="sectionHeader" type="String" />
+            <aura:attribute name="sectionDetails" type="String" />
+            <aura:attribute name="iconName" type="String" />
+            <aura:attribute name="propertyDetails" type="String[]" default="['Name','Property_ID__c',
+                                 'Type_of_Property__c','Plot_no_Flat_no__c','Address_Line_1__c',
+                                 'Address_Line_2__c','City__c','State__c','Country__c',
+                                 'Pin_Code__c','Purpose_of_Purchase__c']"/>  
+            <aura:attribute name="showSpinner" type="Boolean" default="true" />	
+        
+            <lightning:notificationsLibrary aura:id="notificationsLibrary"/>   
+            <lightning:recordEditForm recordId="{!v.recordId}" 
+                                      objectApiName="{!v.objectName}"
+                                      onsuccess="{!c.handleOnSuccess}"
+                                      onerror="{!c.handleOnError}"
+                                      class="slds-card__body_inner">            
+                <lightning:messages/>
+                <lightning:card iconName="action:new_person_account" title="Property Details">              
+                    <lightning:layout horizontalAlign="spread" multipleRows="true">       
+                        <aura:iteration items="{!v.propertyDetails}" var="PropertyIndex">
+                            <lightning:layoutItem flexibility="grow" padding="around-small" size="12" 
+                                                  smallDeviceSize="6" mediumDeviceSize="6" 
+                                                  largeDeviceSize="6">
+                                <lightning:inputField fieldName="{!PropertyIndex}" />
+                            </lightning:layoutItem>
+                        </aura:iteration>
+                    </lightning:layout>
+               
+                    <div class="slds-m-top_medium slds-p-around_medium">
+                        <lightning:button variant="brand" type="submit" label="Save"/>
+                        <lightning:button label="Cancel" onclick="{!c.handleCancel}"/>
+                    </div>
+                </lightning:card>
+        </lightning:recordEditForm>
+ </aura:component>

@@ -1,0 +1,21 @@
+<template>
+    <template if:true={cntDocIds}>
+        <div class="slds-size_3-of-4">
+            <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Review Documents
+                <lightning-carousel>
+                    <template for:each={cntDocIds} for:item="fId">
+                            <lightning-carousel-image
+                            key={fId.Id} 
+                            src={fId.src}
+                                alternative-text="First card accessible description." href="javascript:void(0);">
+                                
+                            </lightning-carousel-image>
+                    </template>
+                </lightning-carousel>
+            </div>
+        </div>
+    </template>
+    <lightning-file-upload label="Upload documents (max 5)" name="fileUploader" accept={acceptedFormats} record-id={recordId}
+            onuploadfinished={handleUploadFinished} multiple>
+        </lightning-file-upload>
+</template>

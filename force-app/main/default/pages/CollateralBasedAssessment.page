@@ -1,0 +1,184 @@
+<apex:page lightningStylesheets="true" >
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style>
+    p {
+  padding-bottom: 1px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+
+div.c {
+  font-size: 140%;
+}
+
+
+</style>
+</head>
+<apex:form >
+<body>
+
+<br/>
+<apex:commandButton styleclass="slds-button slds-button_brand" value="Check Eligibility" style="float: right;"/>
+<br/>
+<br/>
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Valuation(₹Lacs)</th>
+    <th>LTV</th>
+    <th>Basket</th>
+    <th>Eligible</th>
+    <th>Remarks</th>
+    <th>Is Deviation Required</th>
+    <th>Add Deviation</th>
+    
+  </tr>
+  <tr>
+    <td>Residential Property</td>
+    <td>12.00</td>
+    <td><input type="text" id="country" name="country" value="75.00" readonly="readonly" disabled="disabled"/></td>
+    <td>100</td>
+    <td>9.00</td>
+    <td><input type="text" id="country" name="country" value="-" readonly="readonly" disabled="disabled"/></td>
+    <td>
+      <input type="checkbox" name="vehicle3" value="Boat" checked="" />
+    </td>
+    <td><button type="button" class="btn danger" >Add Deviation</button></td>
+    
+    
+    
+  </tr>
+  
+  
+    
+    <tr>
+    <td>Resi Cum Commercial</td>
+    <td>34.00</td>
+    <td><input type="text" id="country" name="country" value="20.55" readonly="readonly" disabled="disabled" /></td>
+    <td>100.00</td>
+    <td>9.00</td>
+    <td><input type="text" id="country" name="country" value="-" readonly="readonly" disabled="disabled" /></td>
+    <td>
+      <input type="checkbox" name="vehicle3" value="Boat" checked="" />
+    </td>
+    <td><button type="button" class="btn danger" >Add Deviation</button></td>
+    
+   
+  </tr>
+  
+     
+     <tr>
+    <td>NA Plot</td>
+    <td>100.00</td>
+    <td><input type="text" id="country" name="country" value="77.00" readonly="readonly" disabled="disabled"/></td>
+    <td><input type="text" id="country" name="country" value="50.00" readonly="readonly" disabled="disabled"/></td>
+    <td>77.00</td>
+    <td><input type="text" id="country" name="country" value="HAZARESHWAR" readonly="readonly" disabled="disabled"/></td>
+    <td>
+      <input type="checkbox" name="vehicle3" value="Boat" checked="checked" />
+    </td>
+    <td><button type="button" class="btn danger" >Add Deviation</button></td>
+    
+    
+  </tr>
+  
+      
+   <tr>
+    <td>NA Plot</td>
+    <td>222.00</td>
+    <td><input type="text" id="country" name="country" value="300.00" readonly="readonly" disabled="disabled"/></td>
+    <td><input type="text" id="country" name="country" value="50.00" readonly="readonly" disabled="disabled"/></td>
+    <td>264.01</td>
+    <td><input type="text" id="country" name="country" value="HAZARESHWAR" readonly="readonly" disabled="disabled"/></td>
+    <td>
+      <input type="checkbox" name="vehicle3" value="Boat" checked="checked" />
+    </td>
+    <td><button type="button" class="btn danger" >Add Deviation</button></td>
+    
+   
+  </tr>
+  
+  <tr>
+     
+    <td>NA Plot</td>
+    <td>124.00</td>
+    <td><input type="text" id="country" name="country" value="200.00" readonly="readonly" disabled="disabled"/></td>
+    <td><input type="text" id="country" name="country" value="50.00" readonly="readonly" disabled="disabled"/></td>
+    <td>24.00</td>
+    <td><input type="text" id="country" name="country" value="-" readonly="readonly" disabled="disabled" /></td>
+    <td>
+      <input type="checkbox" name="vehicle3" value="Boat" checked="checked" />
+    </td>
+    <td><button type="button" class="btn danger" >Add Deviation</button></td>
+    
+ 
+  </tr>
+  
+  <tr>
+    
+    <td>Residential Property</td>
+    <td>12.00</td>
+    <td><input type="text" id="country" name="country" value="75.00" readonly="readonly" disabled="disabled"/></td>
+    <td>100</td>
+    <td>9.00</td>
+    <td><input type="text" id="country" name="country" value="-" readonly="readonly" disabled="disabled"/></td>
+    <td>
+      <input type="checkbox" name="vehicle3" value="Boat" checked="checked" />
+    </td>
+    <td><button type="button" class="btn danger" >Add Deviation</button></td>
+    
+    
+  </tr>
+</table>
+<br/>
+<div class="c">Eligible Exposure Basis Collateral Assessment(Lacs): ₹605</div>
+
+</body>
+<apex:commandButton styleclass="slds-button slds-button_brand" value="Save" style="float: right;"/>
+
+</apex:form> 
+</apex:page>

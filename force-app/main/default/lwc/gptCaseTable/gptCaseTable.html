@@ -1,0 +1,22 @@
+<template>
+    <template if:true={relatedCase}>
+        <div class="divColor" key={relatedCase.caseNumber}>
+           <lightning-layout if:false={isDisabled}>
+            <lightning-layout-item size="10">
+                <span>Case Number</span> 
+                &nbsp;
+                <b><p class="caseNumber">{relatedCase.CaseNumber}</p></b>
+                &nbsp; 
+                <p class="caseSubject">{relatedCase.Subject}</p>
+            </lightning-layout-item>
+            <lightning-layout-item size="2">
+                <lightning-input class="slds-p-left_xx-large" type="checkbox" onchange={handleClick}></lightning-input>
+            </lightning-layout-item>
+           </lightning-layout>
+            <span>
+           
+           </span>
+           
+        </div>
+    </template>
+</template>

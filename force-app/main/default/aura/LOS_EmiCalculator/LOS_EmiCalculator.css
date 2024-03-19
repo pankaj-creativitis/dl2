@@ -1,0 +1,96 @@
+.THIS {
+}
+
+.THIS.redOnYellow svg {
+    fill : #193F85;
+}
+
+.THIS .badge
+{
+    text-align : center;
+    padding : 10px;
+    margin : 10px 0 10px 0;
+}
+
+.THIS .slds-form-element__label{
+    font-size : 15px;
+}
+
+.THIS .column {
+  /*float: left;*/
+  width: 25%;
+  padding: 0 5px;
+}
+
+
+.THIS .row {
+    width: 882px;
+    margin: 20px 41% 0 42%;
+}
+
+/* Clear floats after the columns */
+.THIS .row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media (max-width: 600px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 16%;
+    }
+}
+@media (max-width: 768px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 35%;
+    }
+}
+@media (max-width: 360px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 14%;
+    }
+}
+@media (max-width: 411px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 19%;
+    }
+}
+@media (max-width: 320px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 9%;
+    }
+}
+@media (max-width: 768px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 35%;
+    }
+}
+@media (max-width: 375px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 16%;
+    }
+}
+@media (max-width: 414px) {
+  .THIS .row {
+    	width: 882px;
+        margin: 20px 19% 0 19%;
+    }
+}
+/* Style the counter cards */
+.THIS .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  text-align: center;
+  background-color: #255B8E;
+  color: white;
+}
+
+.THIS .fa {font-size:30px;}
+.THIS .fa h3 {font-size:20px;}

@@ -1,0 +1,56 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+          <div class="slds-page-header__col-title">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                    <lightning-icon icon-name="standard:product_request" alternative-text="Event" title="Event"></lightning-icon>
+                  <span class="slds-assistive-text">opportunity</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <div class="slds-page-header__name">
+                  <div class="slds-page-header__name-title">
+                    <h1>
+                      <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Limits Proposed By RM</span>
+                    </h1>
+                  </div>
+                </div>
+                <p class="slds-page-header__name-meta">Amit Nagar • XYZ LLC • 26/12/20</p>
+              </div>
+            </div>
+          </div>
+          <div class="slds-page-header__col-actions">
+            <div class="slds-page-header__controls">
+                <div class="slds-page-header__control">
+                    <lightning-button variant="base" title="Download action with base variant" icon-name={icnName} onclick={bodyMgmt}></lightning-button>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <template if:true={showbody}>
+    <div class="slds-grid slds-var-p-bottom_medium slds-border_bottom">
+        <div class="slds-col slds-m-around_x-small">
+            <span>
+                <c-gen-card icon-name="standard:category" header="Facility Type (in Lacs)" content1="OD ₹150" content2="CC ₹150" content3="LC ₹150"
+                    footer-description="Total ₹450"></c-gen-card>
+            </span>
+        </div>
+
+        <div class="slds-col slds-m-around_x-small">
+            <span>
+                <c-gen-card icon-name="custom:custom17" header="FB/Non FB Amount (in Lacs)" content1="Fund Based ₹200"
+                    content2="Non Fund Based ₹250" footer-description="Total ₹450"></c-gen-card>
+            </span>
+        </div>
+        <div class="slds-col slds-m-around_x-small">
+            <span>
+                <c-gen-card icon-name="standard:product_transfer" header="WC/Non WC Amount (in Lacs)" content1="WC Based ₹350"
+                    content2="Non WC ₹100" footer-description="Total ₹450"></c-gen-card>
+            </span>
+        </div>
+    </div>
+  </template>
+</template>

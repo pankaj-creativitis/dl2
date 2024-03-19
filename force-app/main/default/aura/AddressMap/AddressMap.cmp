@@ -1,0 +1,16 @@
+<aura:component implements="lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="mapMarkers" type="Object[]"/>
+    <aura:attribute name="selectedMarkerValue" type="String" default="SF1" />
+    
+    <aura:handler name="init" value="{! this }" action="{! c.init }"/>
+    
+    <div class="slds-p-bottom_medium">
+        <lightning:map
+                       mapMarkers="{!v.mapMarkers}"
+                       markersTitle="Address Verification"
+                       onmarkerselect="{!c.handleMarkerSelect}"
+                       selectedMarkerValue="{!v.selectedMarkerValue}">
+        </lightning:map>
+    </div>
+    <lightning:button variant="brand" label="Use Another Address" title="Another Address" />
+</aura:component>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>57.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>ACH Account Details</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__FlowScreen">
+            <property name="accountName" type="String" label="Account Name" />
+            <property name="accountHolderType" type="String" label="Account Holder Type" role="outputOnly"/>
+            <property name="bankName" type="String" label="Bank Name" role="outputOnly"/>
+            <property name="routingNumber" type="String" label="Routing Number" role="outputOnly"/>
+            <property name="dateACH" type="String" label="Start Date of ACH " role="outputOnly"/>
+            <property name="accountNumber" type="String" label="Account Number" role="outputOnly"/>
+            <property name="aCHAmount" type="String" label="ACH Amount" role="outputOnly"/>
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

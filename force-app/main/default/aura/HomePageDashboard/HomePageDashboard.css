@@ -1,0 +1,50 @@
+.THIS {
+   background-color: blue;
+   
+}
+
+.THIS .light-green {
+    background-color : #CBE7D1;
+    height :12.25em;
+    width : 12.25em;
+	margin : 0.25em;
+	text-align: center;
+    font-weight : 600;
+  	border-style: solid;
+    
+}
+
+.THIS .light-blue {
+    background-color : #D9EBF9;
+    height :12.25em;
+    width : 12.25em;
+	margin : 0.25em;
+  	border-style: solid;
+    font-weight : 600;
+    text-align: center;
+}
+
+.THIS .gray {
+    background-color : #F0F1F3;
+   	height :12.25em;
+    width : 12.25em;
+	margin : 0.25em;
+  	border-style: solid;
+    font-weight : 600;
+    text-align: center;
+}
+
+.THIS .data-text {
+    
+    font-weight : bold;
+    text-align: center;
+}
+
+.THIS .card-header{
+   	font-weight : 500;
+    text-align: center;
+}
+.THIS .card-label{
+   	font-weight : 600;
+    color : #037BD9;
+}

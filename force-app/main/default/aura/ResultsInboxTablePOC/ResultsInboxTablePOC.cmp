@@ -1,0 +1,125 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="hoveredRecId" type="Id" />
+    <aura:attribute name="patientNameToggleHover" type="boolean" default="false"/>
+    <aura:attribute name="reportIdToggleHover" type="boolean" default="false"/>
+    
+    <!-- Lightning Libraries	-->
+    <lightning:overlayLibrary aura:id="overlayLib" />
+    
+    <lightning:card title="Results Inbox">
+        <table class="slds-table slds-table_bordered slds-table_striped slds-table_cell-buffer slds-table_fixed-layout" ><!--style="position: relative;z-index: 2;"-->
+            <thead>
+                <tr class="slds-text-heading_label">
+                    <th scope="col"><div class="slds-truncate" title="Patient" style="text-align: center">Patient</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Test" style="text-align: center">Test</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Provider" style="text-align: center">Provider</div></th>
+                    <th scope="col"><div class="slds-truncate" title="TRF ID" style="text-align: center">TRF ID</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Report Date" style="text-align: center">Report Date</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Flag" style="text-align: center">Flag</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Report ID" style="text-align: center">Report ID</div></th>
+                    <th scope="col"><div class="slds-truncate" title="Reviewed" style="text-align: center">Reviewed</div></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><div class="slds-truncate" style="text-align: center">
+                        <a id="con1" onmouseenter="{!c.handleMouseHoverPatient}" onmouseout="{!c.handleMouseOutPatient}" tabindex="-1">Smithersonvillestrong, Steve</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con1'}">
+                            <aura:if isTrue="{!v.patientNameToggleHover}">
+                                <c:ResultsInboxPatientPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="KidneyCare" style="text-align: center">KidneyCare</div></td>
+                    <td><div class="slds-truncate" title="Surgeon 3" style="text-align: center">Surgeon 3</div></td>
+                    <td><div class="slds-truncate" title="CD-24321" style="text-align: center">CD-24321</div></td>
+                    <td><div class="slds-truncate" title="02/16/2021" style="text-align: center">02/16/2021</div></td>
+                    <td><div class="slds-truncate" title="High Delta" style="text-align: center; color: red;">High Delta</div></td>
+                    <td><div class="slds-truncate" title="RP-24321" style="text-align: center">
+                        <a id="con1" onmouseenter="{!c.handleMouseHoverReportId}" onmouseout="{!c.handleMouseOutReportId}" onclick="{!c.handleClickReportId}" tabindex="-1">RP-24321</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con1'}">
+                            <aura:if isTrue="{!v.reportIdToggleHover}">
+                                <c:ResultsInboxReportIdPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="No" style="text-align: center">No</div></td>
+                </tr>
+                <tr>
+                    <td><div class="slds-truncate" title="Wells, Wendy" style="text-align: center">
+                        <a id="con2" onmouseenter="{!c.handleMouseHoverPatient}" onmouseout="{!c.handleMouseOutPatient}" tabindex="-1">Wells, Wendy</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con2'}">
+                            <aura:if isTrue="{!v.patientNameToggleHover}">
+                                <c:ResultsInboxPatientPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="AlloSure Kidney" style="text-align: center">AlloSure Kidney</div></td>
+                    <td><div class="slds-truncate" title="Surgeon 3" style="text-align: center">Surgeon 3</div></td>
+                    <td><div class="slds-truncate" title="CD-21621" style="text-align: center">CD-21621</div></td>
+                    <td><div class="slds-truncate" title="01/28/2021" style="text-align: center">01/28/2021</div></td>
+                    <td><div class="slds-truncate" title="High Delta" style="text-align: center; color: red;">High Delta</div></td>
+                    <td><div class="slds-truncate" title="RP-21621" style="text-align: center">
+                        <a id="con2" onmouseenter="{!c.handleMouseHoverReportId}" onmouseout="{!c.handleMouseOutReportId}" tabindex="-1">RP-21621</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con2'}">
+                            <aura:if isTrue="{!v.reportIdToggleHover}">
+                                <c:ResultsInboxReportIdPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="Yes" style="text-align: center">Yes</div></td>
+                </tr>
+                <tr>
+                    <td><div class="slds-truncate" title="Mouse, Minnie" style="text-align: center">
+                        <a id="con3" onmouseenter="{!c.handleMouseHoverPatient}" onmouseout="{!c.handleMouseOutPatient}" tabindex="-1">Mouse, Minnie</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con3'}">
+                            <aura:if isTrue="{!v.patientNameToggleHover}">
+                                <c:ResultsInboxPatientPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="KidneyCare" style="text-align: center">KidneyCare</div></td>
+                    <td><div class="slds-truncate" title="Clinician 2" style="text-align: center">Clinician 2</div></td>
+                    <td><div class="slds-truncate" title="CD-23214" style="text-align: center">CD-23214</div></td>
+                    <td><div class="slds-truncate" title="02/7/2021" style="text-align: center">02/7/2021</div></td>
+                    <td><div class="slds-truncate" title="No" style="text-align: center">No</div></td>
+                    <td><div class="slds-truncate" title="RP-23214" style="text-align: center">
+                        <a id="con3" onmouseenter="{!c.handleMouseHoverReportId}" onmouseout="{!c.handleMouseOutReportId}" tabindex="-1">RP-23214</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con3'}">
+                            <aura:if isTrue="{!v.reportIdToggleHover}">
+                                <c:ResultsInboxReportIdPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="No" style="text-align: center">No</div></td>
+                </tr>
+                <tr>
+                    <td><div class="slds-truncate" title="Bloomberg, Brandon" style="text-align: center">
+                        <a id="con4" onmouseenter="{!c.handleMouseHoverPatient}" onmouseout="{!c.handleMouseOutPatient}" tabindex="-1">Bloomberg, Brandon</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con4'}">
+                            <aura:if isTrue="{!v.patientNameToggleHover}">
+                                <c:ResultsInboxPatientPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="AlloSure Kidney" style="text-align: center">AlloSure Kidney</div></td>
+                    <td><div class="slds-truncate" title="Prescriber 1" style="text-align: center">Prescriber 1</div></td>
+                    <td><div class="slds-truncate" title="CD-26212" style="text-align: center">CD-26212</div></td>
+                    <td><div class="slds-truncate" title="02/20/2021" style="text-align: center">02/20/2021</div></td>
+                    <td><div class="slds-truncate" title="No" style="text-align: center">No</div></td>
+                    <td><div class="slds-truncate" title="RP-26212" style="text-align: center">
+                        <a id="con4" onmouseenter="{!c.handleMouseHoverReportId}" onmouseout="{!c.handleMouseOutReportId}" tabindex="-1">RP-26212</a></div>
+                        <aura:if isTrue="{!v.hoveredRecId == 'con4'}">
+                            <aura:if isTrue="{!v.reportIdToggleHover}">
+                                <c:ResultsInboxReportIdPopUpPOC />
+                            </aura:if>
+                        </aura:if>
+                    </td>
+                    <td><div class="slds-truncate" title="No" style="text-align: center">No</div></td>
+                </tr>
+            </tbody>
+        </table>
+        <c:Lightning_PaginationForDataTable aura:id="cPagination" totalRecords="100" recordsPerPage="10"/>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,319 @@
+<apex:page >
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style>
+    p {
+  padding-bottom: 1px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+
+<table>
+  <tr>
+      <th>
+<p>Year</p> 
+<p>Type</p>
+<p>No of Months</p>
+
+
+</th>
+    <th>
+<p>2020</p> 
+<p>Provisional</p>
+<p>12</p></th>
+    <th>
+<p>2019</p> 
+<p>Audited</p>
+<p>12</p></th>
+<th>
+<p>2018</p> 
+<p>Audited</p>
+<p>12</p></th>
+<th>
+<p>2017</p> 
+<p>Audited</p>
+<p>12</p></th>
+<th>
+<p>2016</p> 
+<p>Audited</p>
+<p>12</p></th>
+  </tr>
+<tr><td colspan="6">
+<strong>Profit &amp; Loss Related</strong>
+</td>
+</tr>
+  <tr>
+    <td>Sales</td>
+    <td>530.22</td>
+    <td>1000.00</td>
+<td>95.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+  <tr>
+    <td>PBDIT</td>
+    <td>530.22</td>
+    <td>1000.00</td>
+<td>1.00</td>
+<td>0.00</td>
+<td>0.00</td>
+\
+  </tr>
+  <tr>
+    <td>Depriciation</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+  <tr>
+    <td>Interest Cost</td>
+    <td>2.59</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+  <tr>
+    <td>Tax</td>
+    <td>3.00</td>
+    <td>3.00</td>
+<td>3.00</td>
+<td>3.00</td>
+<td>0.00</td>
+  </tr>
+  <tr>
+    <td>PAT</td>
+    <td>515.22</td>
+    <td>829.00</td>
+<td>-2.00</td>
+<td>-3.00</td>
+<td>0.00</td>
+  </tr>
+<tr>
+    <td>Net Cash Accruals</td>
+    <td>515.22</td>
+    <td>829.00</td>
+<td>-2.00</td>
+<td>-3.00</td>
+<td>0.00</td>
+  </tr>
+    <tr><td colspan="6">
+<strong>Balance Sheet Related</strong>
+</td>
+</tr>
+  <tr>
+    <td>Tangible Networth</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Quasi Equity (Subordinate)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>TNW (Including QE)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Adjustable Tangible Networth (ATNW)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Total Debt</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Total Current Liabilities</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Total Current Assets</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Total Outside Liability (TOL)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Total Fixed Assets</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <!-- Financial Ratios-->
+     <tr><td colspan="6">
+<strong>Financial Ratios</strong>
+</td>
+</tr>
+  <tr>
+    <td>Sales Growth (YoY)(%)</td>
+    <td>-47.83</td>
+    <td>591.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+        <td>Operating Profit/Sales (%)</td>
+    <td>100.00</td>
+    <td>82.27</td>
+<td>1.05</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Net Profir Margin (%)</td>
+    <td>98.77</td>
+    <td>82.34</td>
+<td>-2.11</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+        <td>TOL/ATNW [Leverage]</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+        <td>IBD/ATNW[Debt/Equity]</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>ISCR-Existing Cash Flow</td>
+    <td>166.43</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>DSCR</td>
+    <td>166.43</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Current Ratio</td>
+    <td>0.00</td>
+    <td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+  </tr>
+    <tr>
+    <td>Debtors Turnover Period (days)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+     <tr>
+    <td>Stock Turnover Period (days)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+     <tr>
+    <td>Payable Turnover Period (days)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <!--Additional Information-->
+       <tr><td colspan="6">
+<strong>Additional Information</strong>
+</td>
+</tr>
+  <tr>
+    <td>Debtors Greater Than 6 months</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+    <td>Non Business Fixed Assets</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+    <tr>
+        <td>Loans and Advances/Investments (Non Business)</td>
+    <td>0.00</td>
+    <td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+<td>0.00</td>
+  </tr>
+</table>
+</body>
+</apex:page>

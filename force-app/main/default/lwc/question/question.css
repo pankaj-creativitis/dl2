@@ -1,0 +1,9 @@
+.highlight:hover {
+    border-color: #79dbb5;
+    box-shadow: 0 0 5px #5ebd96;
+    border-radius: 5px;
+  }
+
+  .colwidth{
+    min-width: 800px;
+  }

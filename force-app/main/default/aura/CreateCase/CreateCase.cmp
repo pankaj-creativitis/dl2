@@ -1,0 +1,37 @@
+<aura:component controller="CreateCaseController" 
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" 
+				access="global" >
+    <ltng:require> 
+		 styles="{!$Resource.SLDS2100}"
+        </ltng:require>
+        
+
+    <!-- img align="center" width="250" height="100" src="{!$Resource.AllOfUsLogo}" style="display: block;
+  margin-left: auto; margin-right: auto;"/-->
+    <aura:attribute name="userId" type="Id" default="005S000000JCSnSIAX"/>
+    <aura:attribute name="case" type="sObject" default="{'sobjectType': 'Case',
+                         'Subject': '',
+                         'Description': '',
+                         'ContactId': '005S000000JCSnSIAX'
+                       }"/> 
+    <!-- div style="margin: 0 auto; display: inline-block; padding-left: 40%" -->
+    <div>
+     <table>
+       <!--th align="center"><b>Raise a Case</b></th-->
+        <tr align="center">
+            
+            <td><ui:inputText class="form-control slds-text-heading_medium" value="{!v.case.Subject}" placeholder="Enter Subject"/> </td>
+        </tr>
+        <br />
+        <tr align="center">
+           
+            <td><ui:inputTextArea  class="form-control slds-text-heading_medium" value="{!v.case.Description}" placeholder="Enter Description"/></td>
+        </tr>
+ 		<tr align="center">
+             <br />
+        <ui:button press="{!c.create}" class="slds-text-heading_medium">Create</ui:button>
+        </tr>
+    </table>
+        </div>
+	
+</aura:component>

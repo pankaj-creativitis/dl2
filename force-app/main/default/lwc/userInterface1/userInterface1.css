@@ -1,0 +1,123 @@
+.mainCard{
+    padding-top: 5px;
+  }
+  .chartContainer {
+    width: 100%;
+    height: 300px;
+  }
+  .message-time {
+    margin: auto 0 0;
+    font-weight: 400;
+    padding: 0 0.5rem;
+    padding-bottom: 0.20rem;
+    font-size: 0.70rem;
+    color: rgb(70, 70, 70);
+  }
+  
+  .scrollable-content {
+      height: 500px; /* Set the desired height of the scrollable area */
+      overflow-y: scroll; /* Enable vertical scrolling */
+    }
+    .div-8 {
+      display: block;
+      margin-right: -80%;
+      margin-left: 5%;
+      padding-right: 33%;
+  }
+  
+  .textArea{
+    --sds-c-textarea-color-background:  white;
+  }
+  
+  .div-9 {
+      display: block;
+      margin-top: 6%;
+      text-align: right;
+     
+  }
+  .div-1 {
+    text-align: center;
+    display: block;
+    margin-bottom: var(--lwc-spacingLarge);
+    padding-top: var(--lwc-spacingXxSmall);
+    padding-bottom: var(--lwc-spacingXxSmall);
+    /*background-color: #ffffff;*/
+    background-image: linear-gradient(270deg, rgb(13, 157, 218), rgb(13, 157, 218), rgb(13, 157, 218));
+    color: #ffffff;
+    font-weight: 500;
+    border-radius: 12px;
+  }
+  .slds-chat-message__text_inbound{
+    background-color: #6CA5D3;
+    color: #ffffff;
+    
+  }
+  .slds-chat-message__text_outbound-agent{
+    background-color: rgb(139, 139, 139);
+    color:#ffffff;
+  }
+  
+  .cardBox{
+    display: inline-block;
+    padding: -5px;
+  }
+  
+  .slds-text-heading_small{
+    padding-bottom: 7px;
+    color: maroon;
+  }
+  
+  .container{
+    background-color: white ; 
+    /* background-color:#f1f0f1 ;  */
+    content: "";
+    overflow: auto; 
+    height: 300px;
+    /* padding: 10px;
+    padding-bottom: 12rem;
+    margin-bottom: 4rem; */
+  }
+   
+  .slds-table {
+    width: 100%;
+    border-style: solid;
+    border-color: black;
+  }
+  
+  .slds-table td,
+  .slds-table th {
+    padding: 0.5rem 0.75rem;
+    word-wrap: break-word;
+  }
+  
+  .slds-text-title_caps {
+    text-transform: uppercase;
+    word-wrap: break-word;
+  }
+
+  .virIcon{
+    color: darkblue;
+  }
+  
+  .chatBox{
+    bottom: 0px;
+    /* margin-top: 7rem; */
+    position: absolute;
+    width: 95%;
+    padding: 10px;
+    z-index: 9999;
+    overflow: hidden;
+    /* border-top: 1px solid #ccc; */
+  }
+
+  .small-spinner {
+    width: 80px; /* Set the desired width */
+    height: 50px;
+    margin-left: 5px;
+  }
+
+  .logo-icon {
+    width: 50px;  
+    height: 50px;  
+    margin-right: 10px; /* Add margin to separate the logo from the text */
+}

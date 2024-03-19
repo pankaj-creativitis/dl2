@@ -1,0 +1,32 @@
+<template>
+    <template if:true={loaded}>
+        <lightning-card>
+          <div>
+            <template if:true={isList}>
+              <lightning-record-view-form
+                record-id={recordId}
+                object-api-name={objectApiName}
+              >
+                <lightning-messages> </lightning-messages>
+                <div class="slds-grid slds-grid_vertical">
+                    <div class="slds-col">
+                    <template for:each={fldSet} for:item="fld">
+                        <!--temlpate key={fld}-->
+                        
+                          <lightning-output-field
+                          key={fld}
+                            field-name={fld}
+                          >
+                          </lightning-output-field>
+
+                        <!--/temlpate-->
+                      </template>
+                    </div>
+                    
+                </div>
+              </lightning-record-view-form>
+            </template>
+          </div>
+        </lightning-card>
+      </template>
+</template>

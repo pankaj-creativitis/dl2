@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__FlowScreen,lightningCommunity__Default,lightning__AppPage">
+            <property name="otpLength" type="Integer" label="OTP Length" description="OTP Length" default="6"/>
+            <property name="timer" type="Integer" label="Timer Limit" description="Timer Limit - 60 seconds / 120 seconds" default="120" />
+            <property name="otpVal" type="String" label="OTP from User" description="Verify OTP from User with the OTP sent" />
+            <property name="resend" type="Boolean" label="Resend OTP" description="Resend OTP" />
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

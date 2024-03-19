@@ -1,0 +1,101 @@
+<template>
+    <lightning-card title={strTitle} icon-name="standard:record">
+        <!--div class="slds-var-m-around_medium"-->
+        <!--template if:true={addNew}>
+          <c-dyna-lds-lwc
+            object-api-name={objectName}
+            parent-id={recordId}
+            parent-field={parentFieldAPIName}
+            fld-str={fieldsList}
+            oncreatedrecord={handleCreatedRecord}
+          ></c-dyna-lds-lwc>
+        </template-->
+    
+        <div if:true={showRecs} >
+          <template for:each={showRecs} for:item="rec">
+            <div key={rec.Id} class="slds-box slds-m-vertical_x-small">
+              <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                  <c-question-answer-view
+                    object-api-name={objectName}
+                    fld-str={fieldsList}
+                    record-id={rec.Id}
+                    render-type="list"
+                  ></c-question-answer-view>
+                </div>
+                <div class="slds-col">
+                  <div class="slds-grid slds-grid_align-end">
+                    <div class="slds-col">
+                      <lightning-button-icon
+                        icon-name="utility:question_mark"
+                        alternative-text="Raise a query"
+                        size="small"
+                        name={rec.Id}
+                        title="small size"
+                        onclick={openModal}
+                      ></lightning-button-icon>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+        <!--/div-->
+      </lightning-card>
+      <template if:true={loadMoreFlag}>
+        <p slot="footer">
+          <lightning-button label="Load more" onclick={loadMore}></lightning-button>
+        </p>
+      </template>
+      <!--Use template if:true to display/hide popup based on isModalOpen value-->
+      <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+              <button
+                class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                title="Close"
+                onclick={closeModal}
+              >
+                <lightning-icon
+                  icon-name="utility:close"
+                  alternative-text="close"
+                  variant="inverse"
+                  size="small"
+                ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+              </button>
+              <h2
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                Raise a Query
+              </h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div
+              class="slds-modal__content slds-var-p-around_medium"
+              id="modal-content-id-1"
+            >
+              <c-create-task
+              parent-id={newId}
+              prtc-id="005S000000HJap6"
+              oncreatedrecord={handleCreatedRecord}
+              ></c-create-task>
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+</template>

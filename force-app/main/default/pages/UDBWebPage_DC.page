@@ -1,0 +1,669 @@
+<apex:page showheader="false" standardStylesheets="false"
+    doctype="HTML-5.0" applyHtmltag="false" applybodyTag="false">
+    <html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <title>UDB</title>
+        
+        <!-- Bootstrap -->
+        <link rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+            integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu"
+            crossorigin="anonymous" />
+        
+        <apex:stylesheet value="{!URLFOR($Resource.UDBwebpage, 'vendor/css/rangeslider.css')}" />
+        <apex:stylesheet value="{!URLFOR($Resource.UDBwebpage, 'css/ubl-styles.css')}" />
+        <script type='text/javascript' src='https://c.la1-c2cs-ph2.salesforceliveagent.com/content/g/js/46.0/deployment.js'></script>
+        <script type='text/javascript'>
+            liveagent.init('https://d.la1-c2cs-ph2.salesforceliveagent.com/chat', '572S00000008Pha', '00DS0000003OU24');
+        </script>
+        <script type ="text/javascript" src="https://cdn.c360a.salesforce.com/beacon/c360a/8a7ac9dc-8416-4f83-b322-aaffd53b8e10/scripts/c360a.min.js"></script>
+        <script>
+            function getDeviceId() {
+                return navigator.userAgent
+        }
+    document.getElementById('device-id').textContent = getDeviceId();
+</script>
+    </head>
+
+    <body>
+        
+        <header class="header dark-green-bg">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12 clearfix">
+                        <div class="pull-left header__label">PNB</div>
+                        <div class="pull-right header__login-nav">
+                            <a class="header__link" href="JavaScript:Void(0)">Register</a> <span
+                                class="header__link-seperator"></span> <a class="header__link"
+                                href="JavaScript:Void(0)">Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <nav class="navbar navbar-default nav-primary">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#udb-navbar-collapse"
+                        aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span> <span
+                            class="icon-bar"></span> <span class="icon-bar"></span> <span
+                            class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand nav-primary__brand" href="#"> 
+                        <span
+                        class="nav-primary__triangle"></span> 
+                        <!--img
+                        class="nav-primary__brand-img"
+                        src="{!URLFOR($Resource.UDBwebpage, 'img/logo.jpg')}"
+                        alt="United Digital Bank Logo" title="United Digital Bank Logo" /-->
+                        <img
+                        class="nav-primary__brand-img"
+                        src="{!URLFOR($Resource.pnb)}"
+                        alt="United Digital Bank Logo" title="United Digital Bank Logo" />
+                    </a>
+                </div>
+    
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="udb-navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a data-toggle="tab" href="#udb-home">Home</a></li>
+                        <li><a data-toggle="tab" href="#udb-products">Products
+                                &amp; Services</a></li>
+                        <li><a data-toggle="tab" href="#udb-about-us">About Us</a></li>
+                        <li><a data-toggle="tab" href="#udb-contact-us">Contact
+                                Us</a></li>
+                        <li><a data-toggle="tab" href="#udb-articles">Articles
+                                and Blogs</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
+        
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 query-sec">
+                    <p class="query-sec__text pull-right">
+                        <span class="glyphicon glyphicon-search"></span> <span
+                            class="query-sec__link-seperator"></span> <span
+                            class="query-sec__txt"> For Queries + 1800- 20459283</span>
+                    </p>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="udb-home" class="tab-pane fade in active">
+                        <div class="row loan-types">
+                            <div class="col-sm-12 text-center">
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-10">
+                                        <div class="jcarousel-wrapper loan-types__carousel-wrap">
+                                            <div class="jcarousel loan-types__carousel"
+                                                id="loan-types__carousel">
+                                                <ul>
+                                                    <li><a class="loan-types__link "
+                                                        href="JavaScript:Void(0)"> <span
+                                                            class="loan-types__link-icon"> <span
+                                                                class="medical-loan-svg svg-icon"></span>
+                                                        </span> <span class="loan-types__link-txt">Medical Loan</span>
+                                                    </a></li>
+        
+                                                    <li><a class="loan-types__link "
+                                                        href="JavaScript:Void(0)"> <span
+                                                            class="loan-types__link-icon"> <span
+                                                                class="education-loan-svg svg-icon"></span>
+                                                        </span> <span class="loan-types__link-txt">Education Loan</span>
+                                                    </a></li>
+                                                    <li><a class="loan-types__link "
+                                                        href="JavaScript:Void(0)"> <span
+                                                            class="loan-types__link-icon"> <span
+                                                                class="travel-loan-svg svg-icon"></span>
+                                                        </span> <span class="loan-types__link-txt">Travel Loan</span>
+                                                    </a></li>
+                                                    <li><a class="loan-types__link "
+                                                        href="JavaScript:Void(0)"> <span
+                                                            class="loan-types__link-icon"> <span
+                                                                class="home-loan-svg svg-icon"></span>
+                                                        </span> <span class="loan-types__link-txt">Home Loan</span>
+                                                    </a></li>
+                                                    <li><a class="loan-types__link "
+                                                        href="JavaScript:Void(0)"> <span
+                                                            class="loan-types__link-icon"> <span
+                                                                class="car-loan-svg svg-icon"></span>
+                                                        </span> <span class="loan-types__link-txt">Car Loan</span>
+                                                    </a></li>
+                                                </ul>
+                                            </div>
+                                            <a href="#" class="jcarousel-control-prev"> <span
+                                                class="previous-arrow svg-icon"></span>
+                                            </a> <a href="#" class="jcarousel-control-next"> <span
+                                                class="next-arrow svg-icon"></span>
+                                            </a>
+                                            <!--<p class="jcarousel-pagination"></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                        </div>
+        
+                        <div class="row callback-sec">
+        
+                            <div class="callback-sec__txt">
+                                Home is where<span class="callback-sec__line-break"></span> your
+                                heart truly is
+        
+                            </div>
+                            <button type="button"
+                                class="btn btn-primary btn-md callback-sec__btn" data-toggle="tab"
+                                href="#udb-get-call-back">
+                                <span class="glyphicon glyphicon-earphone"></span> Get a Callback
+                            </button>
+                            <!--a href="#" class="callback-sec__contact-link"-->
+                            <a class="callback-sec__contact-link" id="liveagent_button_online_573S00000008Ps9" href="javascript://Chat" style="display: none;" onclick="liveagent.startChat('573S00000008Ps9')">
+                                <span class="msg-svg svg-icon"></span>
+                            </a>
+                        </div>
+        
+        
+                        <div class="row company-intro text-center">
+                            <div class="company-intro__txt col-sm-4">
+                                <span class="company-intro__green-txt">3000 +</span>
+                                <span class="company-intro__label-txt">Happy Customers</span>
+                                <svg class="company-intro__grey-border hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none" width="2" height="52"><line stroke-width="2" x1="1" y1="1" x2="1" y2="50.99999999999999" style="opacity: 0.8; fill: rgba(255, 255, 255, 0); stroke: rgb(226, 226, 226); stroke-opacity: 1;"></line></svg>
+                            </div>
+                            <div class="company-intro__txt col-sm-4">
+                                <span class="company-intro__green-txt">$ 1.5 Million </span>
+                                <span class="company-intro__label-txt">Worth Loan Distributed</span>
+                                <svg class="company-intro__grey-border hidden-xs" xmlns="http://www.w3.org/2000/svg" version="1.1" preserveAspectRatio="none" width="2" height="52"><line stroke-width="2" x1="1" y1="1" x2="1" y2="50.99999999999999" style="opacity: 0.8; fill: rgba(255, 255, 255, 0); stroke: rgb(226, 226, 226); stroke-opacity: 1;"></line></svg>
+                            </div>
+                            <div class="company-intro__txt col-sm-4">
+                                <span class="company-intro__green-txt">50 +</span>
+                                <span class="company-intro__label-txt">Branches Accross USA</span>
+                            </div>
+                        </div>
+        
+                        <div id="comments-carousel"
+                            class="carousel slide row comments-carousel" data-ride="carousel">
+                            <!-- Indicators -->
+        
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div
+                                        class="comments-carousel__txt col-xs-2 hidden-sm hidden-md hidden-lg">
+                                    </div>
+                                    <div
+                                        class="comments-carousel__txt col-sm-offset-3 col-sm-6 col-xs-8">
+                                        <p>"Very happy with your services and hassle free process.
+                                            They helped me to find the best home loan package."</p>
+                                        <p>- Manoj Mehta</p>
+                                    </div>
+                                </div>
+        
+                                <div class="item">
+                                    <div
+                                        class="comments-carousel__txt col-xs-2 hidden-sm hidden-md hidden-lg">
+                                    </div>
+                                    <div
+                                        class="comments-carousel__txt col-sm-offset-3 col-sm-6 col-xs-8">
+                                        <p>"Very happy with your services and hassle free process.
+                                            They helped me to find the best home loan package."</p>
+                                        <p>- Manoj Mehta</p>
+                                    </div>
+                                </div>
+        
+                                <div class="item">
+                                    <div
+                                        class="comments-carousel__txt col-xs-2 hidden-sm hidden-md hidden-lg">
+                                    </div>
+                                    <div
+                                        class="comments-carousel__txt col-sm-offset-3 col-sm-6 col-xs-8">
+                                        <p>"Very happy with your services and hassle free process.
+                                            They helped me to find the best home loan package."</p>
+                                        <p>- Manoj Mehta</p>
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <!-- Left and right controls -->
+                            <a class="left carousel-control" href="#comments-carousel"
+                                data-slide="prev"> <span
+                                class="glyphicon glyphicon-chevron-left"> <span
+                                    class="previous-arrow svg-icon"></span>
+                            </span> <span class="sr-only">Previous</span>
+                            </a> <a class="right carousel-control" href="#comments-carousel"
+                                data-slide="next"> <span
+                                class="glyphicon glyphicon-chevron-right"> <span
+                                    class="next-arrow svg-icon"></span>
+                            </span> <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+        
+                        <div class="row loan-calculator">
+                            <div class="col-sm-12 text-center">
+                                <h2 class="loan-calculator__h2">EMI Calculator</h2>
+        
+                                <div class="row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-10">
+                                        <div class="jcarousel-wrapper loan-calculator__carousel-wrap">
+                                            <div class="jcarousel loan-calculator__carousel"
+                                                id="loan-calculator__carousel">
+                                                <ul>
+                                                    <li>Car Loan</li>
+                                                    <li>Home Loan</li>
+                                                    <li>Education Loan</li>
+                                                    <li>Gold Loan</li>
+                                                    <li>Business Loan</li>
+                                                </ul>
+                                            </div>
+                                            <a href="#" class="jcarousel-control-prev"> <span
+                                                class="previous-arrow svg-icon"></span>
+                                            </a> <a href="#" class="jcarousel-control-next"> <span
+                                                class="next-arrow svg-icon"></span>
+                                            </a>
+                                            <!--<p class="jcarousel-pagination"></p>-->
+                                        </div>
+                                    </div>
+                                </div>
+        
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-1"></div>
+                                <div class="col-sm-5 md-border-right">
+                                    <div class="range-slider form-group">
+                                        <div class="range-slider__label-box clearfix">
+                                            <label class="range-slider__label pull-left"
+                                                for="amount-slider">Select Loan Amount</label> <span
+                                                class="range-slider__value pull-right">₹ <span
+                                                id="amount-slider-val">75,000</span></span>
+                                        </div>
+                                        <input id="amount-slider" name="amount-slider" type="range"
+                                            class="range-slider__input" min="75000" max="2500000"
+                                            step="100" value="75000"/>
+                                        <div class="range-slider__label-box clearfix">
+                                            <label
+                                                class="range-slider__label range-slider__range-label pull-left">75,000</label>
+                                            <label
+                                                class="range-slider__label range-slider__range-label pull-right">25,00,000</label>
+                                        </div>
+                                    </div>
+                                    <div class="range-slider form-group">
+                                        <div class="range-slider__label-box clearfix">
+                                            <label class="range-slider__label pull-left"
+                                                for="duration-slider">Select Loan Duration</label> <span
+                                                class="range-slider__value pull-right"><span
+                                                id="duration-slider-val">12</span> Months</span>
+                                        </div>
+                                        <input id="duration-slider" name="duration-slider" type="range"
+                                            min="12" max="90" step="3" value="0"/>
+                                        <div class="range-slider__label-box clearfix">
+                                            <label
+                                                class="range-slider__label range-slider__range-label pull-left">12
+                                                Months</label> <label
+                                                class="range-slider__label range-slider__range-label pull-right">90
+                                                Months</label>
+                                        </div>
+                                    </div>
+                                    <div class="range-slider form-group">
+                                        <div class="range-slider__label-box clearfix">
+                                            <label class="range-slider__label pull-left"
+                                                for="interest-slider">Rate of Interest</label> <span
+                                                class="range-slider__value pull-right"><span
+                                                id="interest-slider-val">11.25</span>% p.a.</span>
+                                        </div>
+                                        <input id="interest-slider" type="range" min="11.25" max="19"
+                                            step="0.25" value="0"/>
+                                        <div class="range-slider__label-box clearfix">
+                                            <label
+                                                class="range-slider__label range-slider__range-label pull-left">11.25%
+                                                p.a.</label> <label
+                                                class="range-slider__label range-slider__range-label pull-right">19%
+                                                p.a.</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="row apply-form-box text-center">
+                                        <div class=" col-sm-6 ">
+                                            <div class="apply-form-box__label-wrap">
+                                                <strong class="apply-form-box__value">₹<span
+                                                    id="emi-amount">35,534</span></strong> <label
+                                                    class="apply-form-box__label">EMI Amount</label>
+                                            </div>
+                                        </div>
+                                        <div class=" col-sm-6 ">
+                                            <div class="apply-form-box__label-wrap">
+                                                <strong class="apply-form-box__value">₹<span
+                                                    id="total-interest">92,306</span></strong> <label
+                                                    class="apply-form-box__label">Total Interest Payable</label>
+                                            </div>
+                                        </div>
+                                        <div class=" col-sm-6 ">
+                                            <div class="apply-form-box__label-wrap">
+                                                <strong
+                                                    class="apply-form-box__value apply-form-box__green-value">₹<span
+                                                    id="total-amount">8,52,806</span></strong> <label
+                                                    class="apply-form-box__label">Total Amount</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 ">
+                                            <div
+                                                class="apply-form-box__label-wrap apply-form-box__btn-wrap">
+                                                <button type="button"
+                                                    class="btn btn-primary btn-md apply-form-box__btn" href="#">Apply
+                                                    Now</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+        
+                        <div class="row benefits-sec">
+                            <div class="benefits-sec__txt col-sm-7">
+                                <p class="benefits-sec__txt-heading ">Benefits of Applying for
+                                    a Loan</p>
+                                <p class="benefits-sec__text">United digital bank brings
+                                    together a selection of professionals at the pinnacle of their
+                                    respective fields. We leverage diverse experiences and individual
+                                    expertise to come together as a team with one common purpose -
+                                    achieving a shared vision of making finance accessible to all.</p>
+                                <p class="benefits-sec__text">
+                                    <a href="#" class="benefits-sec__text-read-more">Read More..</a>
+                                </p>
+                            </div>
+                            <div class="col-sm-5 benefits-sec__img-container clearfix">
+                                <img src="{!URLFOR($Resource.UDBwebpage, 'img/benefits_bg.jpg')}"
+                                    alt="Benefits of Applying for a Loan"
+                                    class="benefits-sec__img pull-right"/>
+                            </div>
+                        </div>
+        
+                    </div>
+                    <div id="udb-products" class="tab-pane fade">udb-products</div>
+                    <div id="udb-get-call-back" class="tab-pane fade">
+                        <div class="row get-call-back">
+                            <div class="get-call-back__txt col-sm-6 col-md-7">
+                                <p class="get-call-back__txt-heading">Benefits of Applying for
+                                    a Loan</p>
+                                <p class="get-call-back__text">United digital bank brings
+                                    together a selection of professionals at the pinnacle of their
+                                    respective fields. We leverage diverse experiences and individual
+                                    expertise to come together as a team with one common purpose -
+                                    achieving a shared vision of making finance accessible to all.</p>
+                                <p class="get-call-back__text">
+                                    <a href="#" class="get-call-back__text-read-more">Read More..</a>
+                                </p>
+                            </div>
+                            <div class="col-sm-6 col-md-5 get-call-back__img-container">
+                                <img src="{!URLFOR($Resource.UDBwebpage, 'img/callback.jpg')}"
+                                    alt="callback" class="get-call-back__img" />
+                            </div>
+                        </div>
+                        <div class="row get-call-back get-call-back-form">
+                            <div class="col-md-10">
+        
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <h2 class="get-call-back-form__h2">Get a Call Back</h2>
+                                    </div>
+                                    <!-- Web to lead start -->
+                                    <form id="form1"
+                                        action="https://test.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8"
+                                        method="POST">
+                                        <input type="hidden" name="oid" value="00DS0000003OU24" /> <input
+                                            type="hidden" name="retURL"
+                                            value="https://dev2-loans.cs1.force.com/UDBank" /> <input
+                                            type="hidden" id="company" name="company" />
+        
+                                        <div class="col-sm-6 col-md-4">
+                                            <input id="first_name" type="text" class="form-control"
+                                                name="first_name" placeholder="First Name" required="true" />
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <input type="text" class="form-control" name="last_name"
+                                                id="last_name" placeholder="Last Name" required="true" />
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <input type="text" class="form-control" name="mobile"
+                                                id="mobile" placeholder="Mobile Number" required="true" 
+                                                maxlength="10"/>
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <input type="email" id="email" class="form-control"
+                                                name="email" placeholder="Email" required="true" />
+                                        </div>
+                                        <div class="col-sm-6 col-md-4">
+                                            <select class="form-control" id="00NS0000004zVgT" name="00NS0000004zVgT" title="Loan Type"><option value="">Select Loan Type</option><option value="Business Loan">Business Loan</option>
+                                                <option value="Home Loan">Home Loan</option>
+                                                <option value="PNB Offers">PNB Offers</option>
+                                                <option value="PNB Promotions">PNB Promotions</option>
+                                            </select>
+                                        </div>
+                                        <!--div class="col-sm-6 col-md-4">
+                                        <span class="dateInput dateOnlyInput">
+                                            <input class="form-control" placeholder="Date of Birth" id="00NS000000BXjnh" name="00NS000000BXjnh" size="12" type="text" />
+                                            </span>
+                                        </div-->
+                                        <div class="col-sm-12">
+                                            <input type="button" value="Submit"
+                                                class="btn btn-primary btn-md get-call-back-form__btn"
+                                                onclick="copyFirstLastNameToCompany()" />
+                                        </div>
+        
+                                        <script type="text/javascript">
+                                            function copyFirstLastNameToCompany(){
+                                                var firstLastName = document.getElementById('first_name').value + ' ' + document.getElementById('last_name').value;
+                                                document.getElementById('company').value = firstLastName;
+                                                // alert(firstLastName);
+                                                Confirm(document.getElementById('form1'));
+                                            }
+                                            function Confirm(form1) {
+                                                alert("Thank you for Contacting us. Our Bank Representative will respond to you shortly!");
+                                                form1.submit();
+                                            }
+                                        </script>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
+                </div>
+        
+            </div>
+            
+        
+            <!-- Copyright -->
+            
+<p>
+    <strong>Device ID(User Agent):</strong><span id="device-id"></span>
+</p>
+            <div class="footer-bg">
+                <div class="container-fluid">
+                    <div class="row clearfix">
+                        <a class="footer__link " href="JavaScript:Void(0)">
+                            <span class="footer__link-icon">
+                                <span class="locate-us-svg svg-icon small-svg-icon"></span>
+                            </span>
+                            <span class="footer__link-txt">Find Us</span>
+                        </a>
+                        <a class="footer__link" href="JavaScript:Void(0)">
+                            <span class="footer__link-icon">
+                                <span class="chat-icon-svg svg-icon small-svg-icon"></span>
+                            
+                            </span>
+                            <span class="footer__link-txt">Chat with Us</span>
+                        </a>
+                        <a class="footer__link " href="JavaScript:Void(0)">
+                            <span class="footer__link-icon">
+                                <span class="call-back-svg svg-icon small-svg-icon"></span>
+                            </span>
+                            <span class="footer__link-txt">Get Callback</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Copyright -->
+        
+            <div class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <p class="footer__text">
+                                Copyright @ 2019 <a href="#">IndusInd Bank</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            
+        
+        
+            <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+            <!-- Include all compiled plugins (below), or include individual files as needed -->
+            <apex:includescript value="{!URLFOR($Resource.UDBwebpage, 'js/jquery-1.12.4.min.js')}" />
+            <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"/> -->
+            <script
+                src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"
+                integrity="sha384-aJ21OjlMXNL5UyIl/XNwTMqvzeRMZH2w8c5cRVpzpU8Y5bApTppSuUkhZXN0VxHd"
+                crossorigin="anonymous" />
+            <apex:includescript value="{!URLFOR($Resource.UDBwebpage, 'vendor/js/rangeslider.min.js')}" />
+            <apex:includescript value="{!URLFOR($Resource.UDBwebpage, 'vendor/js/jquery.jcarousel.min.js')}" />
+                        <script>
+                (function($) {
+                    $(function() {
+                        var jcarousel = $('.jcarousel');
+                
+                        jcarousel
+                            .on('jcarousel:reload jcarousel:create', function () {
+                                var carousel = $(this),
+                                    width = carousel.innerWidth();
+                                
+                                if (width >= 768) {
+                                    width = width / 5;
+                                }
+                                else if (width >= 600) {
+                                    width = width / 3;
+                                } else if (width >= 350) {
+                                    width = width / 3;
+                                }
+                
+                                carousel.jcarousel('items').css('width', Math.ceil(width) + 'px');
+                            })
+                            .jcarousel({
+                                wrap: 'circular'
+                            });
+                
+                        $('.jcarousel-control-prev')
+                            .jcarouselControl({
+                                target: '-=1'
+                            });
+                
+                        $('.jcarousel-control-next')
+                            .jcarouselControl({
+                                target: '+=1'
+                            });
+                
+                        $('.jcarousel-pagination')
+                            .on('jcarouselpagination:active', 'a', function() {
+                                $(this).addClass('active');
+                            })
+                            .on('jcarouselpagination:inactive', 'a', function() {
+                                $(this).removeClass('active');
+                            })
+                            .on('click', function(e) {
+                                e.preventDefault();
+                            })
+                            .jcarouselPagination({
+                                perPage: 1,
+                                item: function(page) {
+                                    return '<a href="#' + page + '">' + page + '</a>';
+                                }
+                            });
+                    });
+                    $("#amount-slider").rangeslider({
+                        polyfill: false,
+                        onSlideEnd: function(position, value){
+                            var x = value;
+                            x = x.toString();
+                            var lastThree = x.substring(x.length-3);
+                            var otherNumbers = x.substring(0,x.length-3);
+                            if(otherNumbers != '')
+                                lastThree = ',' + lastThree;
+                            var rsString = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+                            $("#amount-slider-val").html(rsString)
+                            //console.log('Position', position, 'Value', rsString);
+                        }
+                    });
+                    $("#duration-slider").rangeslider({
+                        polyfill: false,
+                        onSlideEnd: function(position, value){
+                            $("#duration-slider-val").html(value)
+                            //console.log('Position', position, 'Value', rsString);
+                        }
+                    });
+                    $("#interest-slider").rangeslider({
+                        polyfill: false,
+                        onSlideEnd: function(position, value){
+                            $("#interest-slider-val").html(value)
+                            //console.log('Position', position, 'Value', rsString);
+                        }
+                    });
+                    
+                })(jQuery);
+                
+                
+                
+                var rangeSlider = function(){
+                var slider = $('.range-slider'),
+                  range = $('.range-slider__range'),
+                  value = $('.range-slider__value');
+                
+                slider.each(function(){
+                
+                value.each(function(){
+                  var value = $(this).prev().attr('value');
+                  $(this).html(value);
+                });
+                
+                range.on('input', function(){
+                  $(this).next(value).html(this.value);
+                });
+                });
+                };
+                
+                rangeSlider();
+                /*$('#v-pills-tab a').on('click', function (e) {
+                e.preventDefault()
+                $(this).tab('show')
+                });
+                $('#myTab a[href="#profile"]').tab('show') // Select tab by name
+                $('#myTab li:first-child a').tab('show') // Select first tab
+                $('#myTab li:last-child a').tab('show') // Select last tab
+                $('#myTab li:nth-child(3) a').tab('show') // Select third tab*/
+            </script>
+<script type="text/javascript">
+if (!window._laq) { window._laq = []; }
+window._laq.push(function(){liveagent.showWhenOnline('573S00000008Ps9', document.getElementById('liveagent_button_online_573S00000008Ps9'));
+                            liveagent.showWhenOffline('573S00000008Ps9', document.getElementById('liveagent_button_offline_573S00000008Ps9'));
+                           });</script>
+            <!-- <apex:includescript
+                value="{!URLFOR($Resource.UDBwebpage, 'js/script.js')}" /> -->
+        </body>
+    </html>
+</apex:page>

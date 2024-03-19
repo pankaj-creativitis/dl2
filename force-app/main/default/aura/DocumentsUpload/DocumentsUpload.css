@@ -1,0 +1,12 @@
+.THIS .slds-form-element__control
+{
+    margin-top: 10px;
+}
+.THIS .approval-btns {
+    float: left;
+}
+
+.THIS .btn {
+    width: 125px;
+    margin-right: 5px;
+}

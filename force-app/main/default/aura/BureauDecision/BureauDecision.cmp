@@ -1,0 +1,106 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" 
+                access="global">
+<lightning:card>
+        <lightning:accordion allowMultipleSectionsOpen="true" aura:id="accordion" activeSectionName="A">
+            <lightning:accordionSection name="A" label="Bureau Decision">
+                <table class="slds-table slds-table--bordered slds-table--cell-buffer">
+                    <tbody>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Applicant Name
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Pankaj Pandit
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Hunter Decision
+                                </div>
+                            </td>
+                            <td scope="row">
+                                <div class="slds-truncate">
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>               
+                            
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Iden Decision
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Totalkyc Decision
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Cibil Decision
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Applicant Result
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    <lightning:icon iconName="action:approval" alternativeText="Pass" size="x-small" />
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    Bureau Score
+                                </div>
+                            </td>
+                            
+                            <td scope="row">
+                                <div class="slds-truncate" >
+                                    711
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <lightning:button label="Download report here" title="Neutral action" />
+                
+            </lightning:accordionSection>
+        </lightning:accordion>
+    </lightning:card>	
+</aura:component>

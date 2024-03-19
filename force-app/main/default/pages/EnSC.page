@@ -1,0 +1,30 @@
+<apex:page lightningStylesheets="true">
+<style>
+.div1 {
+  width: 100%;
+  height:250px;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+   padding-top: 25px;
+    padding-left: 10px;
+}
+
+div.c {
+  font-size: 180%;
+}
+</style>
+  <!-- Begin Default Content REMOVE THIS -->
+  <div class="div1">
+  <div class="c">Environment and Social Checklist</div>
+  
+  
+  <h1>Applicability</h1>
+ 
+  <select name="Exception" id="exception">
+    <option value="No">Applicable</option>
+    <option value="Yes">Not Applicable</option>
+ 
+  </select>
+  </div>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>

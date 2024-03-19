@@ -1,0 +1,187 @@
+<aura:component controller="DocumentUploadController" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens" access="global" >
+	<aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+	<aura:attribute name="isOpen" type="boolean" default="false"/>
+	<aura:attribute name="showSpinner" type="boolean" default="false"/>
+	<aura:attribute name="imageModal" type="boolean" default="false"/>
+	<aura:attribute name="reviewer" type="boolean" default="false"/>
+    <aura:attribute name="notRM" type="boolean" default="false"/>
+    <aura:attribute name="stageName" type="String" />
+	<aura:attribute name="documentTypes" type="DocumentUploadController.DocInfo[]" />  
+	<aura:attribute name="comments" type="DocumentUploadController.DocCommentInfo[]" />
+	<aura:attribute name="recordId" type="String" />
+	<aura:attribute name="attchid" type="Id" />
+	<aura:attribute name="docId" type="Id" />
+
+    <div class="slds-box slds-theme--shade slds-scrollable_x slds-size_1-of-1"> 
+        <div class="slds-p-vertical_xx-small slds-border_bottom">
+            <div class="slds-media slds-m-right_x-small">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container" title="opportunity">
+                        <ul class="slds-list_horizontal slds-align_absolute-center">
+                            <li> 
+                                <lightning:icon id="document" iconName="utility:dash" size="xx-small" class="slds-m-right_x-small slds-show" onclick="{!c.toggle}"/>
+                            </li>
+                            <li>
+                                <lightning:icon iconName="standard:file" size="small" />
+                            </li>
+                        </ul>
+                        <span class="slds-assistive-text">opportunity</span>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                        <div class="slds-page-header__name-title">
+                            <h1>
+                                <span class="slds-text-heading_small slds-hyphenate" title="Personal and Orgnization docs">Personal and Orgnization documents</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="documentsummary" style="display:block;">
+            <table class="slds-table slds-table_bordered"> 
+                <thead>
+                    <tr class="slds-text-heading--label">
+                        <th scope="col"><div class="slds-truncate" title="Document">Document</div></th>
+                        <th scope="col"><div class="slds-truncate" title="Uploaded">Uploaded</div></th>
+                        <th scope="col"><div class="slds-truncate" title="Verification Status">Verification Status</div></th>
+                        <!--aura:if isTrue="{!v.reviewer}"-->
+                            <aura:if isTrue="{!and(v.reviewer, v.notRM)}">
+                            <th scope="col"><div class="slds-truncate" title="Review">Review</div></th>
+                            <aura:set attribute="else">
+                                <th scope="col"><div class="slds-truncate" title="View">View</div></th>
+                            </aura:set>
+                        </aura:if>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <aura:iteration items="{!v.documentTypes}" var="item">                   
+                        <tr>
+                            <td>
+                                <div class="slds-truncate slds-clearfix" name="Role" title="Required">
+                                    <div class="slds-float_none">
+                                        <p>{!item.label}<aura:if isTrue="{!item.required}">*</aura:if></p>
+                                    </div>
+                                </div>
+                                
+                            </td>
+                            <!--Uploaded-->
+                            <td class="slds-media__figure">
+                                <aura:if isTrue="{!item.hasFile}">
+                                    <lightning:icon iconName="action:approval" size="xx-small" />
+                                </aura:if>
+                            </td>
+                            <!--Review-->
+                            <td class="slds-media__figure">
+                                <aura:if isTrue="{!item.hasReview}">
+                                    <aura:if isTrue="{!item.reviewOutcome}">
+                                        <lightning:icon iconName="action:approval" size="xx-small" />
+                                        <aura:set attribute="else">
+                                            <lightning:icon iconName="action:reject" size="xx-small" />
+                                        </aura:set>
+                                    </aura:if>
+                                </aura:if>
+                            </td>
+                            <td>
+                                <div>
+                                    <aura:if isTrue="{!item.hasFile}">
+                                        <aura:if isTrue="{!v.reviewer}">
+                                            <lightning:button variant="brand" label="Review" title="{!item.attachmentId}" onclick="{!c.handleView }"/>
+                                            <aura:set attribute="else">
+                                                <lightning:button variant="brand" label="View" title="{!item.attachmentId}" onclick="{!c.handleView }"/>
+                                            </aura:set>
+                                        </aura:if>
+                                    </aura:if>
+                                </div>
+                            </td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <lightning:input aura:id="uploadedDocument" type="file" label="Upload Document for Verification" name="file" onchange="{!c.openModal}"></lightning:input>
+        </div>
+    </div>
+
+    <aura:if isTrue="{!v.imageModal}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+			<div class="slds-modal__container">
+				<div class="slds-modal__header">
+					<button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeImageModel}">
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="header99" class="slds-text-heading--medium">Image Preview</h2>
+				</div>
+				<div class="slds-modal__content slds-p-around--medium  slds-is-relative">
+					<img src="{!'/servlet/servlet.FileDownload?file='+v.attchid}"/>
+					<!--BEGIN SAMPLE COMMENTS NEED TO ITTERATE LATER -->
+					<aura:iteration items="{!v.comments}" var="comment">
+						<label class="slds-form-element__label" for="textarea-id-01">Comment From: {!comment.userName} - {!comment.commentTime}</label>
+						<div class="slds-text-body_small">{!comment.commentText}</div>
+					</aura:iteration>
+					<!--END SAMPLE COMMENTS NEED TO ITTERATE LATER -->
+					<div class="slds-form-element__control">
+						<ui:inputTextArea aura:id="commentBox" placeholder="Add a New Comment...." rows="2"/>
+					</div>
+				</div>
+				<div class="slds-modal__footer">
+					<aura:if isTrue="{!v.reviewer}">
+						<button class="slds-button slds-button_success approval-btns btn" onclick="{!c.approveImage}" >Approve</button>
+						<button class="slds-button slds-button_destructive approval-btns btn" onclick="{!c.rejectImage}" >Reject</button>
+					</aura:if>
+					<button class="slds-button slds-button_outline-brand approval-btns btn" onclick="{!c.commentImage}" >Comment</button>
+					<button class="slds-button slds-button--neutral btn" onclick="{!c.closeImageModel}" >Cancel</button>
+				</div>
+			</div>
+        </div>
+	</aura:if>
+
+    <aura:if isTrue="{!v.isOpen}">
+        <!--###### MODAL BOX Start From Here ######--> 
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+            <div class="slds-modal__container">
+                <!-- ###### MODAL BOX HEADER Part Start From Here ######-->
+                <div class="slds-modal__header">
+                    <button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeModel}">
+                        X
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="header99" class="slds-text-heading--medium">Select Document Type</h2>
+                </div>
+                <!--###### MODAL BOX BODY Part Start From Here ######-->
+                <div class="slds-modal__content slds-p-around--medium  slds-is-relative">
+                    <aura:if isTrue="{!v.showSpinner}">
+                        <div class="demo-only" style="height:6rem;">
+                            <div role="status" class="slds-spinner slds-spinner_medium slds-spinner_brand">
+                                <span class="slds-assistive-text">Loading</span>
+                                <div class="slds-spinner__dot-a"></div>
+                                <div class="slds-spinner__dot-b"></div>
+                            </div>
+                        </div>
+                        <aura:set attribute="else">
+                            <div class="slds-form-element__control">
+                                <ui:inputSelect class="single" aura:id="selectDocType" change="{!c.handleFilesChange}">
+                                    <ui:inputSelectOption text="Choose one." value=""/>
+									<aura:iteration items="{!v.documentTypes}" var="item">
+										<ui:inputSelectOption text="{!item.label}" value=""/>
+									</aura:iteration>
+                                </ui:inputSelect>
+                            </div>
+                        </aura:set>
+                    </aura:if>
+                    
+                    <div class="slds-form-element">
+                        
+                    </div>
+                </div>
+                <!--###### MODAL BOX FOOTER Part Start From Here ######-->
+                <div class="slds-modal__footer">
+                    <button class="slds-button slds-button--neutral" onclick="{!c.closeModel}" >Cancel</button>
+                </div>
+            </div>
+        </div>
+        <div class="slds-backdrop slds-backdrop--open"></div>
+        <!--###### MODAL BOX Part END Here ######-->
+    </aura:if>
+
+</aura:component>

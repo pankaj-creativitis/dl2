@@ -1,0 +1,22 @@
+.textAreaBody {
+    --sds-c-textarea-sizing-min-height:500px;
+}
+
+.spinner{
+    position: absolute;
+    /*display: inline-block;*/
+}
+
+.articleNote {
+    font-size: small;
+    color: red;
+}
+
+.flexArticle {
+
+    display:inline-flex;
+}
+
+.articleTitle {
+   background-color: rgb(36, 136, 136); 
+}

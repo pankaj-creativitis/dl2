@@ -1,0 +1,20 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <div class="slds-align_absolute-center">
+        <div class="slds-grid slds-grid_vertical">
+            <div >
+                <article class="slds-card slds-card_boundary slds-p-bottom_medium">
+                    <lightning:card variant="Narrow" title="HSBC - Orlando" iconName="custom:custom16">
+                        <p class="slds-p-horizontal_large">
+                            $ 1,35,028.45<br></br>
+                            HSBC, USA
+                        </p>
+                    </lightning:card>
+                    
+                </article>
+            </div>
+            <div class="slds-p-around_small">
+                <lightning:button label="Add another bank" variant="brand"></lightning:button>
+            </div>
+        </div>
+    </div>
+</aura:component>

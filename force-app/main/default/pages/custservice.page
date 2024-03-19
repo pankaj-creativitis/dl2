@@ -1,0 +1,18 @@
+<apex:page showheader="false" sidebar="false" standardStylesheets="false">
+    <apex:includeLightning />
+
+    <div id="lightning" />
+
+    <script>
+        $Lightning.use("c:LtngOutApp", function() {
+          $Lightning.createComponent("c:CreateCase",
+              { },
+              "lightning",
+              function(cmp) {
+                console.log("button was created");
+                // do some stuff
+              }
+          );
+        });
+    </script>
+</apex:page>

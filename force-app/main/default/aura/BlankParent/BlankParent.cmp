@@ -1,0 +1,12 @@
+<aura:component controller="DocumentUploadController" implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="stage" type="String" />
+    
+    <aura:if isTrue="{!v.stage == 'Documents Upload'}">
+	<c:DocumentsUpload reviewer="false" recordId="{!v.recordId}"></c:DocumentsUpload>
+        </aura:if>
+    <aura:if isTrue="{!v.stage == 'Document Review'}">
+	<c:DocumentsUpload reviewer="true" recordId="{!v.recordId}"></c:DocumentsUpload>
+        </aura:if>
+</aura:component>

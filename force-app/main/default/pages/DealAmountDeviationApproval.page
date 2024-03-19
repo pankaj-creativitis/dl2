@@ -1,0 +1,12 @@
+<apex:page controller="DeviationEmailTemplate">
+    <apex:form >
+        <apex:pageBlock >
+         <apex:pageBlockButtons >
+            <apex:commandButton value="Do some Action" />
+        </apex:pageBlockButtons>   
+  
+        <apex:outputText escape="false" value="{!emailBody}" label="Email Template" rendered="{!emailBody != Null}">
+            </apex:outputText>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

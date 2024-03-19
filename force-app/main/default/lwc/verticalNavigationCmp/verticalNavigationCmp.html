@@ -1,0 +1,87 @@
+<template>
+  <div style="width:220px;background-color:#FAFAFB">
+    <lightning-vertical-navigation selected-item={selectedStage}>
+      <lightning-vertical-navigation-section label="Application Number: LA00837454">
+        <lightning-vertical-navigation-item-icon
+          label="Application Details"
+          name="application_details"
+          icon-name="utility:file" class="1"
+        >
+        
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Loan Details"
+          name="loan_details"
+          icon-name="utility:moneybag" class="2"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Add Related Parties"
+          name="add_related_parties"
+          icon-name="utility:add" class="3"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Income Details"
+          name="income_details"
+          icon-name="utility:money"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Portfolio Details"
+          name="portfolio_details"
+          icon-name="utility:collection"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Security Details"
+          name="security_details"
+          icon-name="utility:lock"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="ESG Declaraction"
+          name="ESG_declaration"
+          icon-name="utility:profile"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="DIP Declaraction"
+          name="dip_declaration"
+          icon-name="utility:signature"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Loan Agreement"
+          name="Loan Agreement"
+          icon-name="utility:contract_doc"
+        >
+        </lightning-vertical-navigation-item-icon>
+      </lightning-vertical-navigation-section>
+
+      <lightning-vertical-navigation-section label="Folders">
+        <lightning-vertical-navigation-item-icon
+          label="Created by Me"
+          name="folders_usercreated"
+          icon-name="utility:open_folder"
+        >
+        </lightning-vertical-navigation-item-icon>
+
+        <lightning-vertical-navigation-item-icon
+          label="Shared with Me"
+          name="folders_shared"
+          icon-name="utility:open_folder"
+        >
+        </lightning-vertical-navigation-item-icon>
+      </lightning-vertical-navigation-section>
+    </lightning-vertical-navigation>
+  </div>
+</template>

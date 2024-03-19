@@ -1,0 +1,13 @@
+.THIS .slds-form-element__label{
+    font-size:medium;
+}
+.THIS .slds-table--fixed-layout {
+    border: 1px solid blue;
+}
+.THIS .slds-text-heading--label {
+    border: 1px solid red;
+}
+
+.THIS .slds-table-data {
+    border-right: 1px solid;
+}

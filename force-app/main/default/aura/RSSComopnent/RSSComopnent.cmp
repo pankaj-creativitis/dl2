@@ -1,0 +1,4 @@
+<aura:component implements="forceCommunity:availableForAllPageTypes" access="global">
+	<LC_Rss:RSSViewer URL="https://news.google.com/rss?hl=en-US&amp;gl=US&amp;ceid=US:en" includeDesc="False" numberOfEntries="10">
+    </LC_Rss:RSSViewer>
+</aura:component>

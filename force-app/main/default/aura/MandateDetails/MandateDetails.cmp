@@ -1,0 +1,138 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Net Banking', 'value': 'option1'},
+                                                        {'label': 'Debit Card', 'value': 'option2'}
+                                                        ]"/>
+    <aura:attribute name="value" type="String" default="option1"/>
+    <aura:attribute name="showdebitdetails" type="Boolean" default="false" />
+    <aura:attribute name="showotp" type="Boolean" default="false" />
+    <div class="slds-grid slds-grid_align-center slds-grid_vertical">
+        <aura:if isTrue="{!v.showdebitdetails}">
+            <aura:if isTrue="{!v.showotp}">
+                <lightning:card title="User Response">
+                    <p class="slds-p-horizontal_small">
+                        <lightning:input name="otp" label="Please enter OTP" />
+                    </p>
+                    <!--div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+                        <lightning:buttonGroup>
+                            <lightning:button label="Validate Otp" variant="brand" onclick="{! c.showLinkedBank }" />
+                        </lightning:buttonGroup>
+                    </div-->
+                </lightning:card>
+                <aura:set attribute="else">
+                    <lightning:card title="Input Debit Card Details">
+                <p class="slds-p-horizontal_small">
+                    <lightning:input name="password" label="Debit Card Number" value="7463748590003982"/>
+                    <lightning:input type="password" name="password1" label="PIN" value="6475"/>
+                    <lightning:input type="date" name="expiry" label="Expiry date"  />
+                    
+                    <lightning:input type="checkbox" label="The information is accurate as per best of my knowledge. I wish to proceed with net-banking for registering my e-mandate. By clicking Submit, I agree to Yes Bank's Data Privacy Note, Global Privacy Note." name="input1"/>
+                    
+                </p>
+                <div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+                    <lightning:buttonGroup>
+                        <lightning:button label="Submit" variant="brand" onclick="{! c.showOtpComp }" />
+                        <lightning:button label="Cancel" />
+                    </lightning:buttonGroup>
+                </div>
+            </lightning:card>
+                </aura:set>
+            </aura:if> 
+            <aura:set attribute="else">
+                <div class="slds-col">
+             <div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-size_1-of-3">                
+            <thead>
+                <tr class="slds-line-height_reset slds-text-heading_medium" >
+                    <th class="slds-text-align_right slds-text-title_caps slds-text-heading_medium"  >
+                        Mandate
+                    </th>
+                    <th class="slds-text-align_left slds-text-title_caps slds-text-heading_medium"  >
+                        Details
+                    </th>
+                </tr>
+            </thead>     
+            <tbody >
+                <tr class="slds-hint-parent">
+                    <td>Maximum Amount (in Rs.)</td>
+                    <td>₹ 2,197</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Debit Frequency</td>
+                    <td>Monthly</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Purpose</td>
+                    <td>Others</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Start Date</td>
+                    <td>15-08-2020</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>End Date</td>
+                    <td>15-08-2030</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Utility Code</td>
+                    <td>NACH0000010238001</td>
+                </tr>
+            </tbody>               
+            <thead>
+                <tr class="slds-line-height_reset slds-text-heading_medium" >
+                    <th class="slds-text-align_right slds-text-title_caps slds-text-heading_medium"  >
+                        Customer
+                    </th>
+                    <th class="slds-text-align_left slds-text-title_caps slds-text-heading_medium"  >
+                        Details
+                    </th>
+                </tr>
+            </thead>     
+            <tbody >
+                <tr class="slds-hint-parent">
+                    <td>Bank Name</td>
+                    <td>HDFC</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Account Number</td>
+                    <td>3098456372849003</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Account Type</td>
+                    <td>Savings</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Customer Name</td>
+                    <td>Pankaj Pandit</td>
+                </tr>
+                <tr class="slds-hint-parent">
+                    <td>Verify Using</td>
+                    <td><lightning:radioGroup name="radioGroup"
+                                              label="Radio Group"
+                                              options="{! v.options }"
+                                              value="{! v.value }"
+                                              type="radio"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+            </div>
+        </div>
+        <div class="slds-col">
+         <div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+        <lightning:input type="checkbox" label="This is to confirm that the declaration has been carefully read" name="input1"/>
+        </div>
+        </div>
+        <div class="slds-col">
+        <div class="slds-grid slds-gutters slds-grid slds-grid_align-space slds-p-around_small">
+                            <lightning:buttonGroup>
+                                <lightning:button label="Submit" variant="brand" onclick="{! c.DebitDetails }" />
+                                <lightning:button label="Cancel" />
+                            </lightning:buttonGroup>
+                        </div>
+            </div>
+            </aura:set>
+        </aura:if> 
+    </div>
+                            
+</aura:component>

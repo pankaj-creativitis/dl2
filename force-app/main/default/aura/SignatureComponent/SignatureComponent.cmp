@@ -1,0 +1,9 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens" access="global">
+    <aura:attribute name="recId" type="String" default=""/>
+    <BGSIGCAP:SignatureCapture recordId="{!v.recId}"
+                               startMsg="Click the button to get started"
+                               enterMsg="Please sign below"
+                               completeMsg="Here is the signature you entered"
+                               width="50%"
+                               height="200px"/>
+</aura:component>

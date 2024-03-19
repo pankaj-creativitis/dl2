@@ -1,0 +1,47 @@
+<template>
+  <div class="slds-grid slds-var-p-bottom_medium slds-border_bottom">
+    <div class="slds-col" style="width: 30%;">
+      <span>
+        <c-vertical-navigation-cmp selected-stage={currentStage}></c-vertical-navigation-cmp>
+      </span>
+    </div>
+
+    <div class="slds-col" style="width: 70%;">
+        <template if:true={showDetails}>
+      <span>
+        <div class="slds-m-top_large">
+          <c-generic-l-d-s
+            object-api-name={objectApi}
+            record-id={recId}
+            fld-str={fldArray}
+          ></c-generic-l-d-s>
+        </div>
+      </span>
+    </template>
+    <template if:true={showRelated}>
+        <span>
+          <div class="slds-m-top_large">
+            <c-dyna-lwc-lds-list
+            str-title={title}
+                record-id={recId}
+                object-name={childObjectName}
+                parent-object-name={objectApi}
+                relationship-api-name={parentFieldAPI}
+                parent-field-a-p-i-name={parentFieldAPI}
+                fields-list={fieldsArray}
+                >
+                
+            </c-dyna-lwc-lds-list>
+          </div>
+        </span>
+      </template>
+      <template if:true={showEsg}>
+        <span>
+          <div class="slds-m-top_medium">
+            <c-esg-summary></c-esg-summary>
+          </div>
+        </span>
+      </template>
+    </div>
+  </div>
+</template>

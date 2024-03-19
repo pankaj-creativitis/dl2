@@ -1,0 +1,71 @@
+<aura:component controller="Einstein_Sentiment_Intent_DisplayCtrl" 
+	implements="force:appHostable,flexipage:availableForRecordHome,force:hasRecordId">
+
+	<ltng:require scripts="{!$Resource.ChartJs}" afterScriptsLoaded="{!c.afterChartLibLoaded}"/>
+	
+	<aura:attribute name="sentiment_intent_Response" 
+		type="EinsteinCalloutWrapper.EinsteinCalloutProbablityWrapper[]" description="" />
+
+	<aura:attribute name="sentiment_intent_Response_label" type="String" description="" />
+	<aura:attribute name="probability_percentage" type="String" description="" />
+	
+	<div class="slds slds-box slds-theme_default">
+		<div class="slds-text-align_center slds-text-heading_small">
+			<b>Intent Analyzer</b>
+		</div>
+		<br/>
+		<div class="slds-grid">
+			<div class="slds-size_1-of-2">
+				<b>Intent : </b> {!v.sentiment_intent_Response_label}
+			</div>
+			<div class="slds-size_1-of-2">
+				<b>Probability Percentage : </b> {!v.probability_percentage}
+			</div>
+		</div>	
+		
+		<canvas id="myChart" responsive = "true"/>
+		
+		<br/>
+		<div class="slds-text-align_center">
+			<b>Quick Actions</b>
+		</div>
+		<div class="slds-grid">
+			<div class="slds-size_1-of-1 slds-text-align_center">
+				<aura:iteration items="{!v.sentiment_intent_Response}" var="item">
+					<input type="button" class="slds-button slds-button_neutral" value="{!item.label}"/>					
+				</aura:iteration>
+			</div>
+		
+		</div>	
+		
+		
+		<br/>
+		<div class="slds-text-align_center">
+			<b>Update Intent</b>
+		</div>
+		<div class="slds-grid">
+			<div class="slds-size_1-of-2">
+				<input type="text" class="slds-input" placeholder="Enter paraphrase"/>
+			</div>
+			<div class="slds-size_1-of-2">
+				<select class="slds-select">
+					<option value="">Choose one.....</option>
+					<option value="SOA">SOA</option>
+					<option value="Password">Password Help</option>
+					<option value="Password">NOC</option>
+					<option value="Password">EMI</option>
+					<option value="Password">Settlement</option>
+				</select>
+			</div>
+		</div>
+		<div class="slds-grid">
+			<div class="slds-size_1-of-1 slds-text-align_center">
+				<input value="Save" type="button" class="slds-button slds-button_brand"/>			
+			</div>
+		</div>
+		
+	</div>
+	
+	
+	
+</aura:component>

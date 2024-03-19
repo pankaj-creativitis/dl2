@@ -1,0 +1,5 @@
+<apex:page renderAs="PDF">
+<!-- Begin Default Content REMOVE THIS -->
+<h1>Statement of Account</h1>
+<!-- End Default Content REMOVE THIS -->
+</apex:page>

@@ -1,0 +1,77 @@
+<template>
+
+    <!--lightning-slider label="Loan Amount" value={loanAmt} min="200000" max="5000000" step="50000"
+    onchange={handleAmtChange}></lightning-slider>
+    <lightning-slider label="Tenure" value={tenure} min="2" max="15" onchange={handleTenureChange}></lightning-slider-->
+
+      <div class="slds-var-p-bottom_medium slds-align_absolute-center">
+        <lightning-button
+        variant="brand"
+        type="submit"
+        name="update"
+        label="INCREASE MY ELIGIBILITY"
+      >
+      </lightning-button>
+      <!--input type="button" class="button" value="INCREASE MY ELIGIBILITY"-->
+    </div>
+    <div class="slds-grid slds-grid_vertical">
+      <div class="slds-col slds-align_absolute-center">
+        <div class="slds-align_absolute-center slds-col slds-size_1-of-1 slds-var-p-bottom_medium">          
+          
+              <div class="slds-text-heading_small">Amount you wish to apply for:&nbsp; <strong>₹ {formattedLoanAmt}</strong></div>
+                  </div>
+        </div>
+        <div class="slds-align_absolute-center slds-col slds-size_1-of-1 slds-var-p-bottom_medium">
+              <input class="slider-Amt-width __range" data-id="amountCtrl" type="range" min="200000" max={maxLoanAmount} step="50000" 
+            oninput={setAmount} onchange={setAmount} value={loanAmt}>
+        </div>
+        <div class="slds-align_absolute-center slds-col slds-size_1-of-1 slds-var-p-top_medium slds-p-bottom_x-small">
+                <div class="slds-text-heading_small">For a tenure of:&nbsp; <strong>{tenure} Years </strong></div>
+        </div>
+        <div class="slds-align_absolute-center slds-col slds-size_1-of-1 slds-var-p-bottom_medium">
+            <input class="slider-Tenure-width __range" data-id="trnureCtrl" type="range" min="2" max={maxTenure} step="1" 
+            oninput={setTenure} onchange={setTenure} value={tenure}>
+        </div>
+        <div class="slds-col">
+          <div class="slds-grid slds-var-p-vertical_medium slds-var-m-bottom_x-large slds-grid_align-spread slds-border_bottom">
+            <div class="slds-col slds-var-p-left_medium" >
+              <span>
+                EMI*<br>
+              <strong>₹{emiValue}</strong>
+            </span>
+            </div>
+            <div class="slds-col" >
+              <span>
+                Interest Rate<br>
+                <strong> {annualROI}% p.a.</strong>
+            </span>
+            </div>
+            <div class="slds-col slds-var-p-right_medium" >
+              <span>
+                Processing fee + GST<br>
+                 <strike>₹2150</strike>&nbsp;<strong> ₹0</strong>
+            </span>
+            </div>
+          </div>
+          
+        </div>
+</div>
+<div class="slds-grid slds-grid_vertical slds-var-p-bottom_medium">
+  <div class="slds-col slds-align_absolute-center slds-var-p-bottom_xx-small">
+  Looks good? Get your Final Sanction letter
+</div>
+<div class="slds-col slds-align_absolute-center">
+  <lightning-button
+        variant="brand"
+        type="submit"
+        name="update"
+        label="APPLY FOR FINAL SANCTION"
+      >
+      </lightning-button>
+  <!--input type="button" class="button" value="APPLY FOR FINAL SANCTION"-->
+</div>
+</div>
+    
+   
+  
+</template>

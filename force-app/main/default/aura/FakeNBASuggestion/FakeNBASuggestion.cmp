@@ -1,0 +1,23 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    <article class="slds-card">
+        <img src="{!$Resource.fakeSuggestion}" style="height:auto;width:550px"/>
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-p-around_xxx-small">
+                <span>
+                    <div class="slds-text-heading_medium slds-m-horizontal_x-small">Suggest Shorter Duration</div></span>
+            </div>
+            <div class="slds-col slds-p-around_xxx-small slds-m-horizontal_x-small">
+                <span>The likelihood of default is high due to longer term of the loan. Reduce the term of the loan to 12 months</span>
+            </div>
+            
+            <div class="slds-col slds-p-around_medium slds-m-horizontal_x-small">
+                <span>
+                    <div class="slds-button-group" role="group">
+                        <button class="slds-button slds-button_brand">Reduce Duration</button>
+                        <button class="slds-button slds-button_neutral">Reject</button>
+                    </div>
+                </span>
+            </div>
+        </div>
+    </article>
+</aura:component>

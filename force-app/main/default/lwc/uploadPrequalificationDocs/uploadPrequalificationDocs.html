@@ -1,0 +1,12 @@
+<template>
+    <lightning-file-upload
+    label="Upload"
+    name="fileUploader"
+    accept={acceptedFormats}
+    record-id={myRecordId}
+    onuploadfinished={handleUploadFinished}
+    multiple>
+</lightning-file-upload>
+<input type='file' onchange={readURL} />
+<img id="blah" src="http://placehold.it/180" alt="your image" />
+</template>

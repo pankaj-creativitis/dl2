@@ -1,0 +1,54 @@
+<apex:page lightningStylesheets="true">
+<style>
+.div1 {
+
+  width: 100%;
+  height:300px;
+  border: 1px solid #f2f2f2;
+  box-sizing: border-box;
+   padding-top: 50px;
+    padding-left: 10px;
+}
+
+
+
+div.c {
+  font-size: 120%;
+}
+
+
+
+</style>
+  <!-- Begin Default Content REMOVE THIS -->
+<apex:form >
+<body>
+  <apex:commandButton styleclass="slds-button slds-button_brand" value="Edit" style="float: right;"/>
+  <apex:commandButton styleclass="slds-button slds-button_brand" value="Refresh" style="float: right;"/>
+<br/>
+
+
+ 
+  
+  
+  <h3>Pre-Disbursement Conditions</h3>
+  
+  <h2>RM to Ensure</h2><br/>
+ <div class="c">
+  <p>
+  1. Copies of all Permission / Approvals required to run the activity be kept on record <br/>
+  2. NO TOD / Adhoc to be considered till first six months from takeover of facilities <br/>
+  3. Processing Fees / Interest Rate to be approved by completent authority <br/>
+  4. All other terms and conditions as per banks norms, manual of Instruction and credit policy to be followed <br/>
+  5. Classification of Exposure as Priority Sector Advance shall be stricly as per RBI / CO Guidelines; RH-BB to ensure same <br/>
+  6. EM Creation is done with stipulated timelines (applicable in case of takeover) <br/>
+  7. Stock Audit to be conducted before limit release and as per Banks guidelines with due timelines provided <br/>
+  8. Satisfactory CIR in standardized format existing lenders to be obtained before limit release <br/>
+  9. Satisfactory RCU Chcek to be held on record
+   </p>
+   
+  
+  </div>
+  <!-- End Default Content REMOVE THIS -->
+  </body>
+</apex:form>
+</apex:page>

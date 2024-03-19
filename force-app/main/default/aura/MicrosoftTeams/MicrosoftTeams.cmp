@@ -1,0 +1,4 @@
+<aura:component Implements="flexipage:availableForRecordHome,force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes,force:lightningQuickAction,forceCommunity:availableForAllPageTypes" access="global">
+	 <!--iframe src="https://teams.microsoft.com/_?threadId=19:d8a09edb34874e22856f107640eb9b4a@thread.skype" width="100%" height="100%" frameBorder="0"/-->
+    <iframe src="https://google.com/" width="100%" height="100%" frameBorder="0"/>
+</aura:component>

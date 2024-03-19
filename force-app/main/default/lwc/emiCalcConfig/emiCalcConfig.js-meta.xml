@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>56.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Configurable EMI Calculator</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__FlowScreen,lightningCommunity__Default,lightning__AppPage">
+            <property name="eligibleLoanAmt" type="Integer" label="Eligible Loan Amount" description="Eligible Loan Amount" default="1000000"/>
+            <property name="tenure" type="Integer" label="Repayment Tenure" description="Repayment Tenure" default="15" />
+            <property name="annualROI" type="String" label="Annual Rate of Interest" description="Annual Rate of Interest" default="12.5" />
+            <property name="lineColor" type="String" label="Slider line color" description="Slider line color" default="#D3D3D3" />
+            <property name="thumbColor" type="String" label="Slider Thumb color" description="Slider Thumb color" default="#00B2EE" />
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

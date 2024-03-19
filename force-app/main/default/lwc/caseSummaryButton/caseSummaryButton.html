@@ -1,0 +1,12 @@
+<template>
+
+    <lightning-card>
+        <lightning-button class="slds-align_absolute-center" onclick={doSummary}
+            label="Create Case Summary"></lightning-button>
+    </lightning-card>
+
+    <template if:true={isSpinner}>
+        <lightning-spinner class="slds-is-fixed" alternative-text="Loading" size="large"></lightning-spinner>
+   </template>
+    
+</template>

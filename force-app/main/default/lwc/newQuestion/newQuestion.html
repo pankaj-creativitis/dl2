@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-m-around_large">
+        <div class="highlight">
+            <div class="slds-p-around_large">
+                <div class="slds-align_absolute-center">
+                    <div class="slds-grid slds-grid_vertical">
+
+
+                        <template if:true={isText}>
+                            <div class="slds-col">
+                                <!--div class="slds-text-body_regular">{queryText}</div-->
+                                <lightning-formatted-rich-text value={queryText}></lightning-formatted-rich-text>
+                            </div>
+                            <div class="slds-col">
+                                <lightning-textarea name="input3" value={answer} onchange={handle_answer_Change}
+                                    placeholder="type answer here..." disabled={disabledProp}></lightning-textarea>
+                            </div>
+                        </template>
+
+                        <template if:true={isDropdown}>
+                            <div class="slds-col">
+                                <lightning-formatted-rich-text value={queryText}></lightning-formatted-rich-text>
+                                <lightning-radio-group name="radioGroup" options={options} value={selectedOptions}
+                                    onchange={changedValue} required type="radio" disabled={disabledProp}>
+                                </lightning-radio-group>
+                            </div>
+                        </template>
+
+                        <template if:true={isMulti}>
+                            <lightning-formatted-rich-text value={queryText}></lightning-formatted-rich-text>
+                            <lightning-checkbox-group name="Checkbox Group" options={options} value={values}
+                                onchange={handleChange} disabled={disabledProp}></lightning-checkbox-group>
+                            <!--p>Selected Values are: {selectedValues}</p-->
+                        </template>
+
+                        <template if:false={disabledProp}>
+                            <div class="slds-col slds-p-top_x-small">
+                                <lightning-button variant="brand" label="Submit & Next" onclick={handle_Submit}>
+                                </lightning-button>
+                            </div>
+                        </template>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,27 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+<apex:image url="{!$Resource.BSV}"/>
+  <!-- End Default Content REMOVE THIS -->
+</apex:page>
+
+<!--<apex:page standardController="Account" docType="html-5.0" >
+    <apex:form id="changeStatusForm">
+        <apex:pageBlock >
+          <apex:pageblocksection title="Entity Information">
+      
+               <apex:inputfield value="{!account.name}"/>
+               <apex:inputfield value="{!account.accountnumber}"/>
+               <apex:inputfield value="{!account.rating}"/>
+               <apex:inputfield value="{!account.industry}"/>
+               <apex:inputfield value="{!account.type}"/>
+             <apex:inputfield value="{!account.AnnualRevenue}"/>
+        </apex:pageblocksection>
+        
+             
+        
+        <apex:pageBlockButtons >
+             <apex:commandButton value="Save" action="{!save}"/>
+        </apex:pageBlockButtons>
+       </apex:pageBlock>
+    </apex:form>
+</apex:page>-->

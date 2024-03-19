@@ -1,0 +1,63 @@
+<template>
+    <div class="slds-col slds-p-around_x-small">
+        <lightning-card variant="Narrow" title={header} icon-name={iconName}>
+
+            <template if:true={hasActionButton}>
+                <lightning-button label="New" slot="actions"></lightning-button>
+            </template>
+            <template if:true={hasActionIcon}>
+                <lightning-button label="New" slot="actions"></lightning-button>
+            </template>
+            <template if:true={description}>
+                <div class="slds-p-horizontal_small">
+                    <p class="desc slds-text-align--center">{description}</p>
+                </div>
+            </template>
+            <template if:true={gst}>
+                <div class="slds-p-horizontal_small slds-text-align--center">
+
+                    <lightning-input type="number" placeholder="Total GST Amount" formatter="currency" step="0.01">
+
+                    </lightning-input>
+                    <div class="slds-grid">
+                        <div class="slds-col slds-p-horizontal_small">
+                            <span>
+                                <lightning-input type="number" placeholder="Net GST" formatter="currency"
+                                    step="0.01">
+
+                                </lightning-input>
+                            </span>
+                        </div>
+                        <div class="slds-col slds-p-horizontal_small">
+                            <span>
+                                <lightning-input type="number" placeholder="Gross GST" formatter="currency"
+                                    step="0.01">
+
+                                </lightning-input>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </template>
+            <template if:true={itr}>
+                <div class="slds-p-horizontal_small slds-text-align--center">
+
+                    <lightning-input type="number" placeholder="Total ITR Amount" formatter="currency" step="0.01">
+                    </lightning-input>
+                </div>
+            </template>
+            <div class="slds-grid">
+                <div class="slds-col slds-p-horizontal_small">
+                    <span><lightning-input type="date" name="input4" placeholder="From Date"></lightning-input></span>
+                </div>
+                <div class="slds-col slds-p-horizontal_small">
+                    <span><lightning-input type="date" name="input5" placeholder="To Date"></lightning-input></span>
+                </div>
+
+            </div>
+
+            
+        </lightning-card>
+    </div>
+</template>

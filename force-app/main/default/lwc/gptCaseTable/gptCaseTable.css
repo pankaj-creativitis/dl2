@@ -1,0 +1,17 @@
+.caseNumber{
+    display: inline;
+    color: rgb(49, 92, 187);
+}
+
+.divColor{
+    display: inline;
+    /* background-color: linear-gradient(180deg, rgb(74, 199, 248),rgb(143, 143, 249)) ; */
+    background-color: linear-gradient(red, yellow);
+    border-radius: 5px;
+    
+}
+
+.caseSubject{
+    display: inline;
+    color: maroon;
+}

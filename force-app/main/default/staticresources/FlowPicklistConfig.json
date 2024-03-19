@@ -1,0 +1,139 @@
+[ {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "Personal Loan",
+    "optionLabel" : "Personal Loan",
+    "imageUrl" : "standard",
+    "iconName" : "standard:avatar"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "Auto Loan",
+    "optionLabel" : "Auto Loan",
+    "imageUrl" : "https://img.freepik.com/free-vector/car-dealer-s-sale-car_37895-208.jpg?size=626&ext=jpg",
+    "iconName" : "custom:custom31"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "TWL Loan",
+    "optionLabel" : "TWL Loan",
+    "imageUrl" : "https://sarkaribank.com/wp-content/uploads/2018/08/Two-wheeler-loan.png",
+    "iconName" : "custom:custom17"
+  } ],
+  "objectName" : "qsydApps_AO__Flow_Session__c",
+  "fieldName" : "Products__c"
+}, {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "eKYC",
+    "optionLabel" : "eKYC",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:connected_apps"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "vKYC",
+    "optionLabel" : "vKYC",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:video"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "manual KYC",
+    "optionLabel" : "manual KYC",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:resource_territory"
+  } ],
+  "objectName" : "Opportunity",
+  "fieldName" : "KYC_Type__c"
+}, {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "eKYC",
+    "optionLabel" : "eKYC",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:connected_apps"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "vKYC",
+    "optionLabel" : "vKYC",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:video"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "In person KYC",
+    "optionLabel" : "In person KYC",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:resource_territory"
+  } ],
+  "objectName" : "qsydApps_AO__Flow_Session__c",
+  "fieldName" : "KYC_Preference__c"
+}, {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "VID",
+    "optionLabel" : "VID",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:identity"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "OTP Authentication",
+    "optionLabel" : "OTP Authentication",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:live_message"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "Biometric Authentication",
+    "optionLabel" : "Biometric Authentication",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:touch_action"
+  } ],
+  "objectName" : "Lead",
+  "fieldName" : "Aadhaar_Preference__c"
+}, {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "PayU",
+    "optionLabel" : "PayU",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:new_window"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "Cancelled Cheque",
+    "optionLabel" : "Cancelled Cheque",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:deprecate"
+  } ],
+  "objectName" : "Lead",
+  "fieldName" : "Funding_Type__c"
+}, {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "OTP Authentication",
+    "optionLabel" : "OTP Authentication",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:live_message"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "Biometric Authentication",
+    "optionLabel" : "Biometric Authentication",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:touch_action"
+  } ],
+  "objectName" : "Lead",
+  "fieldName" : "Aadhaar_Type__c"
+}, {
+  "picklistValues" : [ {
+    "useIcon" : "true",
+    "optionValue" : "OCR",
+    "optionLabel" : "OCR",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:cases",
+    "description" : "Extract data from customer documents"
+  }, {
+    "useIcon" : "true",
+    "optionValue" : "Manually",
+    "optionLabel" : "Manually",
+    "imageUrl" : "https://www.lightningdesignsystem.com/assets/images/logo.svg",
+    "iconName" : "utility:record_update",
+    "description" : "Enter data manually"
+  } ],
+  "objectName" : "Opportunity",
+  "fieldName" : "Process_Type__c"
+} ]

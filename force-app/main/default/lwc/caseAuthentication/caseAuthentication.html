@@ -1,0 +1,98 @@
+<template>
+<div class="slds-grid slds-grid_align-center slds-p-bottom_large setHeight">
+    <div class="slds-col">
+    <lightning-record-edit-form object-api-name="Case" onsuccess={handleAccountCreated}>
+        <lightning-messages></lightning-messages>
+        <lightning-input-field field-name="ContactId" onchange={handleChange} value={contact.Id}> </lightning-input-field>
+        <!--
+        <div class="slds-text-heading_small slds-p-left_x-small slds-m-vertical_small">OR</div>
+        <div class="slds-p-left_xxx-small slds-p-bottom_large">
+        <lightning-button variant="brand" label="Add New Contact">
+        </lightning-button>
+    </div>
+    -->
+        <template if:true={show}>
+            <div class="slds-m-vertical_medium slds-m-left_small">
+                <!--<p>{contact.Name}</p> -->
+                {contact.Title} | {contact.Employer_Name__c}
+                <div class="slds-text-heading_small slds-m-top_x-small">Select below options to send OTP</div>
+                <div class="slds-grid slds-grid_vertical slds-p-top_x-small">
+                    <div class="slds-col">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col">
+                                <div class="slds-p-right_x-small"><lightning-input type="checkbox" checked> </lightning-input>
+                            </div>
+                        </div>
+                    <div class="slds-col">
+                        <lightning-formatted-phone value={contact.MobilePhone}></lightning-formatted-phone>
+                    </div>
+                        
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col">
+                                <div class="slds-p-right_x-small"><lightning-input type="checkbox" checked> </lightning-input>
+                            </div>
+                        </div>
+                    <div class="slds-col">
+                        <lightning-formatted-phone value="4844678846"></lightning-formatted-phone>
+                    </div>
+                        
+                        </div>
+                    </div>
+                    <div class="slds-col">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col">
+                            <div class="slds-p-right_x-small"><lightning-input type="checkbox" checked> </lightning-input>
+                            </div>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-formatted-email value={contact.Email}></lightning-formatted-email>
+                        </div>
+                    </div>
+                </div>
+                  </div>
+<!--
+                <p><lightning-formatted-phone value={contact.MobilePhone}></lightning-formatted-phone></p>
+                <p><lightning-formatted-email value={contact.Email}></lightning-formatted-email></p>
+                -->
+                <template if:true={verified}>
+                        <p><img style="width:15px;px;height:auto;" src={icnCheck} /> OTP Verified</p>
+                </template>
+                <template if:true={showOTPButton}>
+                    <div class="slds-grid slds-gutters slds-p-top_medium">
+                        <div class="slds-col">
+                            <lightning-button variant="brand" disabled={disabled} label="Send OTP" slot="actions" onclick={handleGoNext}>
+                            </lightning-button>
+                        </div>
+                        <div class="slds-col">
+                            <lightning-button variant="brand-outline" disabled={disabled} label="Skip Verification" slot="actions">
+                            </lightning-button>
+                        </div>
+                      </div>
+            </template>
+           
+            
+        </div>
+    </template>
+        <!--lightning-input-field field-name="Wire_Amount__c" value={wireAmt} onchange={handleNumberChange}>
+        </lightning-input-field-->
+        <lightning-input-field field-name="Withdraw_Amount__c" value={withdrawAmt} onchange={handleNumberChange}>
+        </lightning-input-field>
+        <lightning-input-field field-name="RecordTypeId" class="slds-hidden" value="012S0000003Uc5l"> </lightning-input-field>
+        <template if:true={showSave}>
+       <lightning-button
+       variant="brand"
+            type="submit"
+            name="submit"
+            label="Create Case"
+        >
+        </lightning-button>
+    </template>
+    </lightning-record-edit-form>
+</div>
+</div>
+        
+
+</template>

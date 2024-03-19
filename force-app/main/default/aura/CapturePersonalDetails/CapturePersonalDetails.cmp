@@ -1,0 +1,53 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickActionWithoutHeader">
+    
+    <aura:attribute name="filetype" type="List" default="['.png', '.jpg', '.jpeg']" />
+    <aura:attribute name="multiple" type="Boolean" default="true" />
+    <aura:attribute name="disabled" type="Boolean" default="true" />
+    <aura:attribute name="recordId" type="String" default="001S000000zP91ZIAS" />
+    <aura:attribute name="aadhaarId" type="String" />
+    <aura:attribute name="aadhaar" type="Boolean" default="false" />
+    <aura:attribute name="panId" type="String" />
+    <aura:attribute name="pan" type="Boolean" default="false" />
+    
+    <article class="slds-card">
+        <div class="slds-grid slds-wrap slds-border_bottom">
+            <div class="slds-col slds-p-around_small">
+                <div class="slds-p-around_small">
+                    <lightning:fileUpload label="Upload Aadhaar Card"
+                                          name="fileUploader"
+                                          multiple="true"
+                                          accept="{!v.filetype}"
+                                          recordId="{!v.recordId}"
+                                          onuploadfinished="{!c.aadhaarUploadFinished}" />
+                </div>
+                <aura:if isTrue="{!v.aadhaar}">
+                    <div class="slds-p-around_small">
+                        <lightning:fileCard fileId="{!v.aadhaarId}" description="Aadhaar Card"/>
+                    </div>
+                    <!--aura:set attribute="else">
+                        
+                    </aura:set-->
+                </aura:if>  
+            </div>
+            <div class="slds-col slds-p-around_small">
+                <div class="slds-p-around_small">
+                    <lightning:fileUpload label="Upload PAN Card"
+                                          name="fileUploader"
+                                          multiple="true"
+                                          accept="{!v.filetype}"
+                                          recordId="{!v.recordId}"
+                                          onuploadfinished="{!c.panUploadFinished}" />
+                </div>
+                <aura:if isTrue="{!v.pan}">
+                    <div class="slds-p-around_small">
+                        <lightning:fileCard fileId="{!v.panId}" description="PAN Card"/>
+                    </div>
+                    <!--aura:set attribute="else">
+                        
+                    </aura:set-->
+                </aura:if>  
+            </div>
+        </div>
+        <c:dynaLdsLwc objectApiName="Account" recordId="001S000000zP91ZIAS" fldStr="Name,AccountNumber,Account_Type__c,PersonAssistantPhone,AnnualRevenue,PersonBirthdate" />
+    </article>
+</aura:component>

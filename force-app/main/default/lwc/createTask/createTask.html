@@ -1,0 +1,33 @@
+<template>
+    <lightning-record-edit-form object-api-name="Case"
+    onsuccess={handleSuccess}>
+        <lightning-messages ></lightning-messages>
+        <lightning-input-field
+              class="slds-hidden"
+              field-name="Query__c"
+              value={parentId}
+            >
+            </lightning-input-field>
+            <lightning-input-field
+              class="slds-hidden"
+              field-name="RecordTypeId"
+              value="012S0000002QT7m"
+            >
+            </lightning-input-field>
+            <lightning-input-field
+              class="slds-hidden"
+              field-name="OwnerId"
+              value={prtcId}
+            >
+            </lightning-input-field>
+            <div class="slds-grid slds-grid_vertical">
+                <div class="slds-col">
+                    <lightning-input-field field-name="Subject"></lightning-input-field>
+                </div>
+                <div class="slds-col">
+                    <lightning-input-field field-name="Description"></lightning-input-field>
+                </div>
+            </div>
+        <lightning-button class="slds-m-top_small" type="submit" label="Rais a Query" ></lightning-button>
+    </lightning-record-edit-form>
+</template>

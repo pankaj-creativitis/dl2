@@ -1,0 +1,105 @@
+<aura:component controller="GenericHelper" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,lightning:availableForFlowScreens,force:lightningQuickAction" access="global" >
+    <aura:handler event="force:refreshView" action="{!c.doInit}" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:handler event="force:showToast" action="{!c.doInit}"/>
+    
+    <!--aura:method name="refreshMe" access="PUBLIC"> 
+    </aura:method-->
+        
+    <ltng:require scripts="{!$Resource.lodash}" afterScriptsLoaded="{!c.afterScriptsLoaded}" />
+    <aura:attribute name="recordId" type="String" />
+    <aura:attribute name="stg" type="String" />
+    <aura:attribute name="currentTarget" type="String" />
+    <aura:attribute name="block" type="String" default="block"/>
+    <aura:attribute name="none" type="String" default="none"/>
+    <aura:attribute name="recMetadatas" type="Object[]" />
+    <aura:attribute name="lstMetadatas" type="Object[]" />
+
+    <article class="slds-card slds-box slds-theme_default">
+        <!-- Document Stages -->
+        <aura:if isTrue="{!v.stg == 'Documents Upload'}">
+            <c:DocumentsUpload reviewer="false" recordId="{!v.recordId}"></c:DocumentsUpload>
+        </aura:if>
+        <aura:if isTrue="{!v.stg == 'Document Review'}">
+            <c:DocumentsUpload reviewer="true" recordId="{!v.recordId}"></c:DocumentsUpload>
+        </aura:if>
+        <aura:if isTrue="{!v.stg == 'Eligibility Details'}">
+            <c:EligibilityStatus ></c:EligibilityStatus>
+        </aura:if>
+        <!-- Record/Parent Record detail info -->
+        <aura:if isTrue="{!not(empty(v.recMetadatas))}">
+            <aura:iteration items="{!v.recMetadatas}" var="recMetadata" indexvar="index">
+             
+                <!--div class="demo-only" style="width:100%"-->
+                    <!--div class="slds-page-header slds-page-header_vertical"-->
+                        <div class="slds-p-vertical_xx-small slds-border_bottom">
+                        <div class="slds-media slds-m-right_x-small">
+                            <div class="slds-media__figure">
+                                <span class="slds-icon_container" title="opportunity">
+                                    <ul class="slds-list_horizontal slds-align_absolute-center">
+                                        <li> 
+                                            <lightning:icon id="{!recMetadata.sectionHeader}" iconName="{!((recMetadata.order == 1.0) ? 'utility:dash' : 'utility:add')}" size="xx-small" class="slds-m-right_x-small slds-show" onclick="{!c.toggle}"/>
+                                        </li>
+                                        <li>
+                                            <lightning:icon iconName="{!recMetadata.sectionIcon}" size="small" />
+                                        </li>
+                                    </ul>
+                                    <span class="slds-assistive-text">opportunity</span>
+                                </span>
+                            </div>
+                            <div class="slds-media__body">
+                                <div class="slds-page-header__name">
+                                    <div class="slds-page-header__name-title">
+                                        <h1>
+                                            <span class="slds-text-heading_small slds-hyphenate" title="Personal Details">{!recMetadata.sectionHeader}</span>
+                                        </h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            </div>
+                    <!--/div-->
+                <!--/div-->
+                
+                <div id="{!recMetadata.sectionHeader + 'body'}" class="slds-show" style="{!'display:' + ((recMetadata.order == 1.0) ? v.block : v.none)}">
+                    <!--lightning:accordion aura:id="accordion"-->
+                    <lightning:tabset variant="scoped">
+                    <aura:iteration items="{!recMetadata.sections}" var="section">
+                        <lightning:tab label="{!section.sectionName}" id="{!section.sectionName}">
+                        <!--lightning:accordionSection name="sectionName" label="{!section.sectionName}"-->
+                            
+                            <c:RecordDetail objectName="{!recMetadata.objName}" recordId="{!recMetadata.objId}"
+                                            flds="{!section.flds}"></c:RecordDetail>
+                        <!--/lightning:accordionSection-->
+                            </lightning:tab>
+                    </aura:iteration>
+                        </lightning:tabset>
+                <!--/lightning:accordion-->
+                </div>
+            </aura:iteration>
+        </aura:if>
+        
+        <!-- Child Record List View info -->
+        <aura:if isTrue="{!not(empty(v.lstMetadatas))}">
+            <aura:iteration items="{!v.lstMetadatas}" var="lstMetadata">
+                
+                <!--lightning:accordion aura:id="accordion">
+                    <lightning:accordionSection name="sectionName" label="{!lstMetadata.sectionName}"-->
+                        <div class="slds-scrollable_x" style="width:100rem">
+                        <c:DynamicTable object="{!lstMetadata.objectName}" fieldSetName="{!lstMetadata.fldSet}" 
+                                        prev="{!lstMetadata.recsPerPage}" parentField="{!lstMetadata.parentFldName}"
+                                        recordId="{!lstMetadata.recId}" secHeader="{!lstMetadata.sectionHeader}" 
+                                        secIcon="{!lstMetadata.sectionIcon}">
+                        </c:DynamicTable>
+                    </div>
+                        <!--/lightning:accordionSection>
+                </lightning:accordion-->
+                    
+            </aura:iteration>
+        </aura:if>
+    </article>
+    <!--div class="slds-scrollable">
+        <c:RelatedListView objectInfo="Property_Detail__c"></c:RelatedListView>
+    </div-->
+    
+</aura:component>

@@ -1,0 +1,5 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+ 
+    <force:canvasApp developerName="MicrosoftTeams"
+        height="400px" width="750px"/>
+</aura:component>

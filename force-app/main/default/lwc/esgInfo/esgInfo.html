@@ -1,0 +1,23 @@
+<template>
+    <div class="slds-grid slds-gutters slds-m-vertical_medium">
+        <div class="slds-col slds-size--2-of-3">
+            <div class="slds-grid slds-wrap slds-grid--pull-padded">
+                <div if:true={isChartJsInitialized} class="slds-col--padded slds-size--1-of-1">
+                    <canvas class="barchart" lwc:dom="manual"></canvas>
+                </div>
+                <div if:false={isChartJsInitialized} class="slds-col--padded slds-size--1-of-1">
+                    ChartJs Not loaded yet
+                </div>
+                <div class="slds-col--padded slds-size--1-of-1">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="slds-col slds-size--1-of-3">
+            <article class="slds-card">
+                <div class="slds-card__body slds-card__body_inner">
+                    Your ESG score has been diagnosed as <strong>very low</strong> on account of Carbon emissions being very high on a 3 month basis. As per industry standards we estimate 6 tonnes/£m as the carbon emissions threshold for your organization. </div>
+              </article>
+</div>
+</div>
+</template>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>50.0</apiVersion>
+    <isExposed>true</isExposed>
+    <targets>
+        <target>lightning__RecordPage</target>
+        <target>lightning__FlowScreen</target>
+        <target>lightningCommunity__Page</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__FlowScreen,lightningCommunity__Default">
+            <property name="objectName" type="String" label="Obj API" description="Enter the Object API"/>
+            <property name="fieldString" type="String" label="Fields" description="Fields (comma separated)"/>
+            <property name="oppId" type="String" label="Loan Application" description="Enter the Loan Application Id"/>
+            <property name="parentId" type="String" label="Parent Limit" description="Parent Limit Id"/>
+            </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

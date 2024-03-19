@@ -1,0 +1,152 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:hasRecordId,force:lightningQuickAction,lightning:availableForFlowScreens" access="global" >
+	<div class="slds-box slds-theme--shade slds-scrollable_x slds-size_1-of-1"> 
+        <div class="slds-p-vertical_xx-small slds-border_bottom">
+            <div class="slds-media slds-m-right_x-small">
+                <div class="slds-media__figure">
+                    <span class="slds-icon_container" title="opportunity">
+                        <ul class="slds-list_horizontal slds-align_absolute-center">
+                            <li> 
+                                <lightning:icon id="document" iconName="utility:dash" size="xx-small" class="slds-m-right_x-small slds-show" onclick="{!c.toggle}"/>
+                            </li>
+                            <li>
+                                <lightning:icon iconName="standard:file" size="small" />
+                            </li>
+                        </ul>
+                        <span class="slds-assistive-text">opportunity</span>
+                    </span>
+                </div>
+                <div class="slds-media__body">
+                    <div class="slds-page-header__name">
+                        <div class="slds-page-header__name-title">
+                            <h1>
+                                <span class="slds-text-heading_small slds-hyphenate" title="farming land Document">Property / farming land Documents</span>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="documentsummary" style="display:block;">
+            <table class="slds-table slds-table_bordered"> 
+                <thead>
+                    <tr class="slds-text-heading--label">
+                        <th scope="col"><div class="slds-truncate" title="Document">Document</div></th>
+                        <th scope="col"><div class="slds-truncate" title="Uploaded">Uploaded</div></th>
+                        <th scope="col"><div class="slds-truncate" title="Verification Status">Verification Status</div></th>
+                        <!--aura:if isTrue="{!v.reviewer}"-->
+                            <aura:if isTrue="{!and(v.reviewer, v.notRM)}">
+                            <th scope="col"><div class="slds-truncate" title="Review">Review</div></th>
+                            <aura:set attribute="else">
+                                <th scope="col"><div class="slds-truncate" title="View">View</div></th>
+                            </aura:set>
+                        </aura:if>
+                    </tr>
+                </thead>
+                <tbody>        
+                        <tr>
+                            <td>
+                                <div class="slds-truncate slds-clearfix" name="Role" title="Required">
+                                    <div class="slds-float_none">
+                                        <p>Original 7/12 extract</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <!--Uploaded-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <!--Review-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                <div class="slds-truncate slds-clearfix" name="Role" title="Required">
+                                    <div class="slds-float_none">
+                                        <p>8Aextract, Ferfar (6D)</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <!--Uploaded-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <!--Review-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                <div class="slds-truncate slds-clearfix" name="Role" title="Required">
+                                    <div class="slds-float_none">
+                                        <p>Boundary map from Talati/self- attested by farmer</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <!--Uploaded-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <!--Review-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                    <tr>
+                            <td>
+                                <div class="slds-truncate slds-clearfix" name="Role" title="Required">
+                                    <div class="slds-float_none">
+                                        <p>Govt valuation report from sub-registrar office/market valuation report</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <!--Uploaded-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <!--Review-->
+                            <td class="slds-media__figure">
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                </tbody>
+            </table>
+            <lightning:input aura:id="uploadedDocument" type="file" label="Upload Document for Verification" name="file" onchange="{!c.openModal}"></lightning:input>
+        </div>
+    </div>
+
+    <aura:if isTrue="{!v.imageModal}">
+        <div role="dialog" tabindex="-1" aria-labelledby="header99" class="slds-modal slds-fade-in-open ">
+			<div class="slds-modal__container">
+				<div class="slds-modal__header">
+					<button class="slds-button slds-modal__close slds-button--icon-inverse" title="Close" onclick="{!c.closeImageModel}">
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="header99" class="slds-text-heading--medium">Image Preview</h2>
+				</div>
+				<div class="slds-modal__content slds-p-around--medium  slds-is-relative">
+					<img src="{!'/servlet/servlet.FileDownload?file='+v.attchid}"/>
+					<!--BEGIN SAMPLE COMMENTS NEED TO ITTERATE LATER -->
+					<aura:iteration items="{!v.comments}" var="comment">
+						<label class="slds-form-element__label" for="textarea-id-01">Comment From: {!comment.userName} - {!comment.commentTime}</label>
+						<div class="slds-text-body_small">{!comment.commentText}</div>
+					</aura:iteration>
+					<!--END SAMPLE COMMENTS NEED TO ITTERATE LATER -->
+					<div class="slds-form-element__control">
+						<ui:inputTextArea aura:id="commentBox" placeholder="Add a New Comment...." rows="2"/>
+					</div>
+				</div>
+				<div class="slds-modal__footer">
+					<aura:if isTrue="{!v.reviewer}">
+						<button class="slds-button slds-button_success approval-btns btn" onclick="{!c.approveImage}" >Approve</button>
+						<button class="slds-button slds-button_destructive approval-btns btn" onclick="{!c.rejectImage}" >Reject</button>
+					</aura:if>
+					<button class="slds-button slds-button_outline-brand approval-btns btn" onclick="{!c.commentImage}" >Comment</button>
+					<button class="slds-button slds-button--neutral btn" onclick="{!c.closeImageModel}" >Cancel</button>
+				</div>
+			</div>
+        </div>
+	</aura:if>
+</aura:component>

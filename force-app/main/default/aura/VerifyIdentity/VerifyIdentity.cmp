@@ -1,0 +1,7 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId,lightning:actionOverride,force:lightningQuickActionWithoutHeader" access="global">
+	<aura:handler name="init" value="{!this}" action="{!c.init}" />
+  
+    <!--slds-box  slds-theme_default slds-theme_backgroundColor-lightblue-->
+        <lightning:flow aura:id="flowData" />
+   
+</aura:component>

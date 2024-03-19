@@ -1,0 +1,167 @@
+<apex:page controller="homeloan_class" renderAs="pdf">
+
+<!--<style>
+body{margin:0; padding:0;}
+.wrapper{width:95%; margin:0 auto;}
+table{width:100%; margin:25px auto;}
+table tr td{padding:5px;}
+.homeloan_table{border:1px solid gray !important; border-spacing:0 !important;}
+.homeloan_table tr{border-spacing:0 !important;}
+.homeloan_table tr td{border:1px solid gray !important; border-spacing:0 !important;}
+</style>-->
+<body>
+    
+   
+<div class="wrapper">
+<table>
+
+<tr>
+<td>Branch Office</td>
+<td>PUNE</td>
+<td>&nbsp;</td>
+<td>Sanction Date:</td>
+<td>{!formattedDate}</td>
+</tr>
+
+<tr>
+<td>Applicant</td>
+<td>{!con.name}</td>
+<td>&nbsp;</td>
+<td>Ref No: <br/><br/>Version No:</td>
+<td>H.NO/PUN/0116/260456<br/><br/>2</td>
+</tr>
+
+
+<tr>
+<td>Address:</td>
+    <td colspan="4">{!con.MailingCity},{!con.MailingState},{!con.MailingCountry},{!con.MailingPostalcode}<br/></td>
+</tr>
+
+<tr>
+<td>Email:</td>
+<td>{!con.email}</td>
+<td>&nbsp;</td>
+<td>Contact No: </td>
+<td>{!con.MobilePhone}</td>
+</tr>
+
+
+<tr>
+<td colspan="5">
+<br/><br/>
+Dear Sir/Madam,<br/><br/>
+With reference to your loan Application dated {!formattedDate}, We are pleased to inform you that we have principle sanctioned in your loan, on the broad terms and conditions as under/overleaf with special conditions, if any.
+
+</td>
+</tr>
+    </table><br/><br/>
+
+
+<table class="homeloan_table" style="border:1px solid gray !important; border-spacing:0 !important;">
+
+<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;">1.</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Purpose of Loan</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">{!opp.recordtype.name}</td>
+</tr>
+
+<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;">2.</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Loan Amount</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">{!opp.Approved_Loan_Amount__c}</td>
+</tr>
+
+<!--<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;"></td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Insurance Premium</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">INR 39,93,000</td>
+</tr>
+
+<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;"></td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Total Loan Amount</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">INR 39,93,000</td>
+</tr>-->
+
+
+<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;">3.</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Repayment Term</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">{!opp.Approved_Tenure__c} Months</td>
+</tr>
+
+<!--<tr>
+<td width="2%">4.</td>
+<td width="49%">Rate of Intrest Scheme</td>
+<td width="49%">Floating</td>
+</tr>
+
+<tr>
+<td width="2%">5.</td>
+<td width="49%">PNBHFR*</td>
+<td width="49%">14.35% per anum</td>
+</tr>-->
+
+<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;">4.</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Applicable rate of Intrest*</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">{!opp.Approved_ROI__c}</td>
+</tr>
+
+<tr>
+<td width="2%" style="border:1px solid gray !important; border-spacing:0 !important;">5.</td>
+<td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">Equated Monthly Installment ('EMI')</td>
+    <td width="49%" style="border:1px solid gray !important; border-spacing:0 !important;">{!abc}</td>
+</tr>
+
+
+<!--<tr>
+<td width="2%">8.</td>
+<td width="49%">Processing fee Receivable</td>
+<td width="49%">INR 8015.00</td>
+</tr>
+
+
+<tr>
+<td width="2%">9.</td>
+<td width="49%">Sancton Letter Validity</td>
+<td width="49%">90 Days, From the date of this Letter</td>
+</tr>
+
+<tr>
+<td width="2%">10.</td>
+<td width="49%">Security</td>
+<td width="49%">&nbsp;</td>
+</tr>-->
+
+</table>
+
+<p>*Subject to Change from time to time at the sole direction of The Bank.</p><br/>
+
+<!--<h4>Special Conditions</h4>
+<ul>
+<li>The offer is subject to satisfactory legal and technical clearance of the property.</li>
+<li>12 Security PDC punjab National bank AC. No: 3984006900002403</li>
+<li>Property should be registered in either name of poornima Hombal.</li>
+<li>Repayment from HDFC bank account number is 038201518320</li>
+<li>LTV to be registered as PNBHFL.</li>
+</ul><br/><br/>-->
+    
+ <p> <b>Relationship Manager : {!usr.name} -7757044052 </b></p>
+ <p>Yours Faithfully</p>
+    
+ <table>
+ <tr>
+ <td width="65%">&nbsp;</td>
+     <td width="40%">Accepted all terms &amp; Conditions<br/>
+         <b>Barrower(s)(Name/Signature)</b>
+     </td>    
+     
+ </tr>    
+ </table>   
+
+</div>
+</body>
+
+    
+</apex:page>

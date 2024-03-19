@@ -1,0 +1,36 @@
+input {
+    width: 30px;
+    height: 40px;
+    border: 0;
+    outline: 0;
+    background: gainsboro;
+    /* border-bottom: 2px solid rgb(73, 105, 165); */
+    text-align: center;
+    border-radius: 10px;
+    /* box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+    box-shadow: 0 4px 8px 0 rgba(172, 137, 43, 0.2), 0 6px 20px 0 rgba(185, 164, 42, 0.19);
+    
+  }
+
+  .otp {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox flow */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.setHeight {
+  min-height: 700px;
+}

@@ -1,0 +1,4 @@
+<design:component>
+	<design:attribute name="eligibleAmt" label="Eligible Amount" />
+    <design:attribute name="appliedAmt" label="Applied Amount" />
+</design:component>

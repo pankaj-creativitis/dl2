@@ -1,0 +1,30 @@
+<template>
+
+    <template if:true={articleRecord}>
+     <div class="cardBox">
+        <div class="cardBox1">
+            <lightning-layout>
+                <lightning-layout-item size="6">
+                    <p>
+                        <b>{articleRecord.Title}</b>
+                    </p>
+                </lightning-layout-item>
+                <lightning-layout-item size="6">
+                    <lightning-input class="slds-p-left_xx-large" type="checkbox"
+                        onchange={handleClick}></lightning-input>
+                </lightning-layout-item>
+
+            </lightning-layout>
+
+            <lightning-layout>
+                <lightning-button label="Check Article" onclick={handleArticle}></lightning-button>
+            </lightning-layout>
+        </div>
+      </div>
+    </template>
+
+    <template if:true={isArticle}>
+        <c-display-check-article article-content={articleRecord.Answer__c} onarticleclose={handleClose}></c-display-check-article>
+    </template>
+
+</template>

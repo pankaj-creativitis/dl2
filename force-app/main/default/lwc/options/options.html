@@ -1,0 +1,151 @@
+<template>
+    <template if:true={isCard}>
+        
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col">
+            <div
+                        class="slds-text-title_caps slds-text-body_small slds-var-m-top_small slds-var-m-bottom_small slds-align_absolute-center">
+                        {optionTitle}</div>
+            </div>
+            <div class="slds-col">
+            <lightning-card>
+                <lightning-layout horizontal-align="space" vertical-align="center" multiple-rows="true">
+                    <template if:true={displayData}>
+                        <template for:each={displayData} for:item="opt">
+
+                            <lightning-layout-item key={opt.optionId} flexibility="auto" class="slds-m-bottom_small">
+                                <span>
+
+                                    <div class="outer-box">
+                                        <!--div class="ribbon-box"-->
+                                        <div class="inner-box" data-name={opt.headerMsg} data-item={opt.optionId}
+                                            onclick={handleItemClicked}>
+                                            <template if:true={hasImage}>
+                                                <div class="img3 slds-p-top_x-small">
+                                                    <template if:true={opt.imgURL}>
+                                                        <img src={opt.imgURL} />
+                                                    </template>
+                                                </div>
+                                            </template>
+                                            <div class="slds-p-around_medium">
+                                                <!--div class="headContainer slds-p-top_large slds-p-left_small slds-p-bottom_small slds-p-right_small"-->
+                                                <div class="header slds-text-heading_small">{opt.headerMsg}</div>
+                                                <template if:true={showDesc}>
+                                                    <div class="slds-text-color_default slds-p-bottom_small">
+                                                        {opt.descriptionMsg}</div>
+                                                </template>
+                                                <template if:true={isSingleSelect}>
+                                                    <template if:true={actionButton}>
+                                                        <lightning-button variant="brand" label={actionButtonText}
+                                                            slot="actions" onclick={handleClick}></lightning-button>
+                                                    </template>
+                                                </template>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </span>
+                            </lightning-layout-item>
+
+                        </template>
+                    </template>
+
+
+                </lightning-layout>
+            </lightning-card>
+        </div>
+        <template if:true={mandatoryError}>
+            <div class="slds-col">
+                <div class="slds-text-color_error slds-align_absolute-center">Please select a value.</div>
+            </div>
+        </template>
+        <template if:true={showNextPrevious}>
+            <div class="slds-col slds-align_absolute-center slds-var-p-vertical_xx-large">
+                <lightning-button-group>
+                <lightning-button
+                  variant="neutral"
+                  type="submit"
+                  name="update"
+                  label="Previous"
+                  onclick={handlePrevious}
+                >
+                </lightning-button>
+                <lightning-button
+                  variant="brand"
+                  type="submit"
+                  name="update"
+                  label="Continue"
+                  onclick={handleNext}
+                >
+                </lightning-button>
+            </lightning-button-group>
+        </div>
+    </template>
+        </div>
+    </template>
+
+    <template if:true={isList}>
+        <div class="slds-align_absolute-center">
+
+
+            <div class="slds-grid slds-grid_vertical">
+                <div class="slds-col">
+                    <div
+                        class="slds-text-title_caps slds-text-body_small slds-var-m-top_small slds-var-m-bottom_small slds-align_absolute-center">
+                        {optionTitle}</div>
+                </div>
+                <template if:true={displayData}>
+                    <template for:each={displayData} for:item="list">
+                        <div class="slds-col slds-border_bottom slds-var-p-around_small" key={list.optionId}>
+                            <div class="slds-grid listgrid" onclick={handleListItemClicked} data-name={list.headerMsg}
+                                data-item={list.optionId}>
+                                <div class="slds-col">
+                                    <div class="slds-var-m-right_xx-large slds-text-title_bold">{list.headerMsg}</div>
+                                    <template if:true={showDesc}>
+                                        <div class="slds-var-m-right_xx-large slds-text-color_default">
+                                            {list.descriptionMsg}</div>
+                                    </template>
+                                </div>
+                                <div class="listicon slds-col slds-hidden">
+                                    <div class="slds-float_right slds-p-right_medium">
+                                        <img style="width:20px;height:auto;" src={icnCheck} />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </template>
+
+                </template>
+                <template if:true={mandatoryError}>
+                    <div class="slds-col">
+                        <div class="slds-text-color_error slds-align_absolute-center">Please select a value.</div>
+                    </div>
+                </template>
+                <template if:true={showNextPrevious}>
+                    <div class="slds-col slds-align_absolute-center slds-var-p-vertical_xx-large">
+                        <lightning-button-group>
+                        <lightning-button
+                          variant="neutral"
+                          type="submit"
+                          name="update"
+                          label="Previous"
+                          onclick={handlePrevious}
+                        >
+                        </lightning-button>
+                        <lightning-button
+                          variant="brand"
+                          type="submit"
+                          name="update"
+                          label="Continue"
+                          onclick={handleNext}
+                        >
+                        </lightning-button>
+                    </lightning-button-group>
+                </div>
+            </template>
+            </div>
+        </div>
+    </template>
+
+</template>

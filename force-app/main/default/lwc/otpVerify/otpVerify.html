@@ -1,0 +1,33 @@
+<template>
+    <div class="slds-grid_align-center">
+        <div class="otp slds-grid slds-grid_vertical slds-grid_align-center">
+            <div class="slds-col">
+            <div class="slds-grid slds-gutters slds-var-p-top_medium">
+                <template if:true={optJSON}>
+                    <template for:each={optJSON} for:item="index">
+                    <div class="slds-align_absolute-center" key={index}>
+                        <input class="m-2" data-id={index} onkeyup={handleKeyUp} onkeydown={handleKeyDown} type="password" pattern="[0-9]*"
+                        maxlength="1"></input>
+                    </div>
+                </template>
+                </template>
+            </div>
+            <div class="slds-col slds-var-p-vertical_medium slds-align_absolute-center">
+            <lightning-progress-ring value={timerStep}> </lightning-progress-ring> <div class="slds-var-p-left_small slds-text-body_small"> {timerText}</div>
+            <template if:true={expired}>
+                <lightning-button variant="base" label="Resend OTP" title="Resend OTP" onclick={handleResend} class="slds-m-left_x-small"></lightning-button>
+            </template>
+        </div>
+            <div class="slds-col">
+                <div class="slds-col slds-var-m-top_x-large slds-align_absolute-center">
+                    <lightning-button variant="brand" label="Verify Now" disabled={disabled} slot="actions" onclick={handleGoNext}></lightning-button>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+    </div>
+    <div class="slds-p-around_xx-large setHeight">
+
+    </div>
+</template>

@@ -1,0 +1,50 @@
+<template>
+    <div class="slds-page-header">
+        <div class="slds-page-header__row">
+          <div class="slds-page-header__col-title">
+            <div class="slds-media">
+              <div class="slds-media__figure">
+                <span class="slds-icon_container slds-icon-standard-opportunity" title="opportunity">
+                    
+                    <lightning-icon icon-name="utility:summary" alternative-text="Event" title="Event"></lightning-icon>
+                  <span class="slds-assistive-text">opportunity</span>
+                </span>
+              </div>
+              <div class="slds-media__body">
+                <div class="slds-page-header__name">
+                  <div class="slds-page-header__name-title">
+                    <h1>
+                        <span class="slds-page-header__title slds-truncate" title="Rohde Corp - 80,000 Widgets">Facility Summary</span>
+                    </h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slds-page-header__col-actions">
+            <div class="slds-page-header__controls">
+                <div class="slds-page-header__control">
+                  <template if:true={rmView}>
+                    <lightning-button label="Add Limit" title="Non-primary action" onclick={handleOpenModal} class="slds-m-right_small"></lightning-button>
+                  </template>
+                  <template if:true={opsView}>
+                    <lightning-button label="Generate MOF" title="Non-primary action" class="slds-m-right_small"></lightning-button>
+                  </template>
+                    <lightning-button variant="base" title="Download action with base variant" icon-name={icnName} onclick={bodyMgmt}></lightning-button>
+                </div>
+            </div>
+        </div>
+        </div>
+      </div>
+      <template if:true={showbody}>
+    <div>
+        <lightning-datatable
+                key-field="id"
+                data={data}
+                columns={columns}
+                show-row-number-column
+                hide-checkbox-column>
+        </lightning-datatable>
+    </div> 
+</template>
+</template>

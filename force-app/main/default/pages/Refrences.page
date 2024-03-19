@@ -1,0 +1,99 @@
+<apex:page lightningStylesheets="true">
+<!--<apex:image url="{!$Resource.Refrences}"/>-->
+
+
+    <head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<style>
+    p {
+  padding-bottom: 1px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid none;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+
+
+
+div.c {
+  font-size: 180%;
+}
+
+</style>
+</head>
+<apex:form >
+<body>
+<div class="c">Guarantors</div>
+<apex:commandButton styleclass="slds-button slds-button_brand" value="Add References" style="float: right;"/>
+<br/>
+<br/>
+
+<table>
+  <tr>
+    <th>Sr..</th>
+    <th>Contact Name</th>
+    <th>Contact Number</th>
+    <th>City</th>
+   
+    <th>% of Credit</th>
+    <th>Source</th>
+    <th>Reference</th>
+    <th>Remarks</th>
+    <th>Contacted</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td> Kiran Sharma </td>
+    <td>717-463-2526</td>
+    <td> Pune </td>
+   
+    <td>0.0178</td>
+  
+  <td>BSA</td>
+    <td>Buyers</td>
+    <td>-</td>
+    <td>No</td>  
+  </tr>
+  
+   <tr>
+    <td>2</td>
+    <td>Mira Thakur </td>
+    <td>704-836-3533</td>
+    <td>Banglore</td>
+    
+    <td>0.0178</td>
+  
+  <td>BSA</td>
+    <td>Buyers</td>
+    <td>-</td>
+    <td>No</td>  
+  </tr>
+    <tr>
+    <td>3</td>
+    <td> Jeevan Chodhary </td>
+    <td>665-889-3388</td>
+    <td> Mumbai </td>
+   
+    <td>0.0178</td>
+  
+  <td>BSA</td>
+    <td>Buyers</td>
+    <td>-</td>
+    <td>No</td>  
+  </tr>
+</table>
+</body>
+</apex:form>
+</apex:page>

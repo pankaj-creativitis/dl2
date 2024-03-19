@@ -1,0 +1,31 @@
+.cardBox1{
+
+border-radius: 8px;
+background-color:linen;
+color:brown;
+margin:8px;
+box-shadow: 2px 2px brown;
+box-sizing: content-box;
+padding: 5px;
+
+}
+
+
+
+
+.cardBox{
+
+width:300px; /* or whatever width you want. */
+max-width:300px; /* or whatever width you want. */
+display: inline-block;
+
+}
+
+
+
+
+.cardBox1:hover{
+background-color:brown;
+color:linen;
+
+}

@@ -1,0 +1,619 @@
+<template>
+  <lightning-accordion active-section-name="B">
+    <lightning-accordion-section name="E" label="E - Environmental factors">
+      <div style={eHeaderColor}>
+        <div class="slds-grid slds-text-body_small slds-m-bottom_large slds-p-around_xx-small" >
+          The environmental considerations for businesses to assess, monitor and improve upon can be vast and to some extent overwhelming. Here, we simplify and break down the main areas of interest and what is expected by the investor community. Broadly speaking, one of the most important considerations is to set targets toachieve Net Zero Carbon. 
+        </div>
+      </div>
+          <div
+            class="slds-grid slds-gutters slds-text-heading_small"
+            style={eColor}
+          >
+            <div class="slds-col slds-size_5-of-12">
+              <span>Energy Consumption</span>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+              <span>UNITS</span>
+            </div>
+            <div class="slds-col slds-size_5-of-12">
+              <span>NOTES</span>
+            </div>
+          </div>
+        
+
+        <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+          <div class="slds-col slds-size_5-of-12">
+            <span
+              >Total power consumption in last completed year (MWh) divided by
+              total revenue in the same year (£m) to give a measure of the
+              energy intensity of a business.</span
+            >
+          </div>
+          <div class="slds-col slds-size_2-of-12">
+            <span>
+                <lightning-input type="text" placeholder="MWh / £m"></lightning-input>
+                </span>
+          </div>
+          <div class="slds-col slds-size_5-of-12">
+            <span
+              >Using energy consumption per unit of revenue gives us a way of
+              comparing energy intensity across a wide range of
+              business/sectors.</span
+            >
+          </div>
+        </div>
+
+
+      <div
+        class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+        style={eColor}
+      >
+        <div class="slds-col slds-size_5-of-12">
+          <span>Carbon Dioxide Emissions</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>UNITS</span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>NOTES</span>
+        </div>
+      </div>
+      <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+        <div class="slds-col slds-size_5-of-12">
+          <span
+            >Total CO2 emissions in the last completed year (tonnes) divided by
+            total revenue in the same year (£m) to give a measure of the carbon
+            intensity of a business.
+          </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>
+            <lightning-input type="text" placeholder="tonnes / £m"></lightning-input>
+            </span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            Using tonnes of emissions per unit of revenue gives us a way of
+            comparing CO2 intensity across a wide range of business/sectors.
+            This measurement should be Scope 1 & 2 emissions. At this stage, we
+            believe Scope 3 emissions are difficult to verify, measure on a
+            standardised basis and could be subject to double counting.
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+        style={eColor}
+      >
+        <div class="slds-col slds-size_5-of-12">
+          <span>Water consumption</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>UNITS</span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>NOTES</span>
+        </div>
+      </div>
+      <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            Total water consumption in the last completed year (m3) divided by
+            total revenue in the same year (£m) to give a measure of the water
+            intensity of a business.
+          </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span> <lightning-input type="text" placeholder="m3 /£m"></lightning-input>
+            </span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            Using water consumption per unit of revenue gives us a way of
+            comparing water intensity across a wide range of business/sectors.
+            The scope of this measure is water discharged into the environment,
+            not water in closed-loop systems or water that is treated on-site
+            and re-used.
+          </span>
+        </div>
+      </div>
+
+      <div
+      class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+      style={eColor}
+    >
+      <div class="slds-col slds-size_5-of-12">
+        <span>Waste Production</span>
+      </div>
+      <div class="slds-col slds-size_2-of-12">
+        <span>UNITS</span>
+      </div>
+      <div class="slds-col slds-size_5-of-12">
+        <span>NOTES</span>
+      </div>
+    </div>
+    <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+      <div class="slds-col slds-size_5-of-12">
+        <span>
+            Total waste to landfill in the last completed year (tonnes) divided by total revenue in the same year (£m) to give a measure of the waste intensity of a business.
+        </span>
+      </div>
+      <div class="slds-col slds-size_2-of-12">
+        <span> <lightning-input type="text" placeholder="tonnes / £m"></lightning-input>
+          </span>
+      </div>
+      <div class="slds-col slds-size_5-of-12">
+        <span>
+            Using waste production per unit of revenue gives us a way of comparing waste intensity across a wide range of business/sectors. Waste that is recycled onsite or sent to another business for recycling is excluded from this measure.
+        </span>
+      </div>
+    </div>
+
+    <div
+    class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+    style={eColor}
+  >
+    <div class="slds-col slds-size_5-of-12">
+      <span>Environmental policy</span>
+    </div>
+    <div class="slds-col slds-size_2-of-12">
+      <span>UNITS</span>
+    </div>
+    <div class="slds-col slds-size_5-of-12">
+      <span>NOTES</span>
+    </div>
+  </div>
+  <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+    <div class="slds-col slds-size_5-of-12">
+      <span>
+        <lightning-file-upload
+        label="Environmental policy documents"
+        name="fileUploader"
+        accept={acceptedFormats}
+        record-id={myRecordId}
+        onuploadfinished={handleUploadFinished}
+        multiple
+    >
+    </lightning-file-upload>
+      </span>
+    </div>
+    <div class="slds-col slds-size_2-of-12">
+      <span>
+        <div class="slds-p-horizontal_medium">
+          <lightning-combobox
+            name="progress"
+            value=""
+            placeholder="Select Status"
+            options={options}
+            onchange={handleChange}
+    ></lightning-combobox>
+     </div>
+        </span>
+    </div>
+    <div class="slds-col slds-size_5-of-12">
+      <span>
+        We believe that all companies should have an environmental / sustainability policy that details the environmental goals of a business, that should be consistent with local legislation and should ultimately show the path to Carbon Net Zero.
+      </span>
+    </div>
+  </div>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="S" label="S - Social factors"
+      >
+      <div style={sHeaderColor}>
+        <div class="slds-grid slds-text-body_small slds-m-bottom_large slds-p-around_xx-small" >
+          In many respects, the ‘S’ or social impact can be more difficult to assess. Social issues are less tangible and the data to demonstrate companies’ social standards and the impact on their performance is not necessarily consistent. Areas of interest can include consumer protection to product safety, labour law and safety at work, labour standards, gender equality, diversity and inclusion, the fight against corruption and respect for human rights throughout the supply chain. The following points of interest are a good place to start.
+        </div>
+      </div>
+      <div
+            class="slds-grid slds-gutters slds-text-heading_small"
+            style={sColor}
+          >
+            <div class="slds-col slds-size_5-of-12">
+              <span>Energy Consumption</span>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+              <span>UNITS</span>
+            </div>
+            <div class="slds-col slds-size_5-of-12">
+              <span>NOTES</span>
+            </div>
+          </div>
+        
+
+        <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+          <div class="slds-col slds-size_5-of-12">
+            <span
+              >Number of leavers in the last full year divided by the total number of employees expressed as a percentage.</span
+            >
+          </div>
+          <div class="slds-col slds-size_2-of-12">
+            <span>
+                <lightning-input type="text" placeholder="%"></lightning-input>
+                </span>
+          </div>
+          <div class="slds-col slds-size_5-of-12">
+            <span
+              >Low levels of employee turnover can be a good indicator of a ‘happy business’, which cares about employee engagement and wellbeing, as well as profitability.</span
+            >
+          </div>
+        </div>
+
+
+      <div
+        class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+        style={sColor}
+      >
+        <div class="slds-col slds-size_5-of-12">
+          <span>Tax rate</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>UNITS</span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>NOTES</span>
+        </div>
+      </div>
+      <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+        <div class="slds-col slds-size_5-of-12">
+          <span
+            >Tax paid divided by adjusted pre-tax profits, taking the average for the last three full years.
+          </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>
+            <lightning-input type="text" placeholder="% of PBT"></lightning-input>
+            </span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            From an ESG perspective, paying tax is a good thing as it enables funding of national and local infrastructure, health and welfare.
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+        style={sColor}
+      >
+        <div class="slds-col slds-size_5-of-12">
+          <span>Non-discrimination policy</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>UNITS</span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>NOTES</span>
+        </div>
+      </div>
+      <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            <lightning-file-upload
+        label="Policy documents"
+        name="fileUploader"
+        accept={acceptedFormats}
+        record-id={myRecordId}
+        onuploadfinished={handleUploadFinished}
+        multiple
+    >
+    </lightning-file-upload>
+          </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span> 
+            <lightning-combobox
+            name="progress"
+            value=""
+            placeholder="Select Status"
+            options={options}
+            onchange={handleChange}
+    ></lightning-combobox>
+            </span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            We believe that having a non-discrimination policy (and implementing it) should be a core part of a company’s approach to ESG.
+          </span>
+        </div>
+      </div>
+
+      <div
+      class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+      style={sColor}
+    >
+      <div class="slds-col slds-size_5-of-12">
+        <span>Community outreach policy</span>
+      </div>
+      <div class="slds-col slds-size_2-of-12">
+        <span>UNITS</span>
+      </div>
+      <div class="slds-col slds-size_5-of-12">
+        <span>NOTES</span>
+      </div>
+    </div>
+    <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+      <div class="slds-col slds-size_5-of-12">
+        <span>
+          <lightning-file-upload
+          label="Policy documents"
+          name="fileUploader"
+          accept={acceptedFormats}
+          record-id={myRecordId}
+          onuploadfinished={handleUploadFinished}
+          multiple
+      >
+      </lightning-file-upload>
+        </span>
+      </div>
+      <div class="slds-col slds-size_2-of-12">
+        <span> 
+          <lightning-combobox
+            name="progress"
+            value=""
+            placeholder="Select Status"
+            options={options}
+            onchange={handleChange}
+    ></lightning-combobox>
+          </span>
+      </div>
+      <div class="slds-col slds-size_5-of-12">
+        <span>
+          Often over-looked, we believe that all companies should have a community outreach policy. This is all part of being a ‘good corporate citizen’ and can take many forms. One of the most popular is helping in the local community with education, skills, apprenticeships and work placements.
+        </span>
+      </div>
+    </div>
+
+    <div
+    class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+    style={sColor}
+  >
+    <div class="slds-col slds-size_5-of-12">
+      <span>Ethics policy</span>
+    </div>
+    <div class="slds-col slds-size_2-of-12">
+      <span>UNITS</span>
+    </div>
+    <div class="slds-col slds-size_5-of-12">
+      <span>NOTES</span>
+    </div>
+  </div>
+  <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+    <div class="slds-col slds-size_5-of-12">
+      <span>
+        <lightning-file-upload
+        label="Policy documents"
+        name="fileUploader"
+        accept={acceptedFormats}
+        record-id={myRecordId}
+        onuploadfinished={handleUploadFinished}
+        multiple
+    >
+    </lightning-file-upload>
+      </span>
+    </div>
+    <div class="slds-col slds-size_2-of-12">
+      <span>
+        <lightning-combobox
+        name="progress"
+        value=""
+        placeholder="Select Status"
+        options={options}
+        onchange={handleChange}
+></lightning-combobox>
+        </span>
+    </div>
+    <div class="slds-col slds-size_5-of-12">
+      <span>
+        We believe that having an ethics policy (and implementing it) is crucial for good business culture and being able to attract and retain good quality employees.
+      </span>
+    </div>
+  </div>
+      
+      </lightning-accordion-section>
+    <lightning-accordion-section name="G" label="G - Governance factors"
+      >
+      <div style={gHeaderColor}>
+        <div class="slds-grid slds-text-body_small slds-m-bottom_large slds-p-around_xx-small" >
+          Listed SMEs will likely know and adhere to many of the major good governance factors by default. The factors we have included in the scorecard also uphold the tenets of diversity and inclusion, and good balance, at board level, and fairness in company pay.
+        </div>
+      </div>
+      <div
+            class="slds-grid slds-gutters slds-text-heading_small"
+            style={gColor}
+          >
+            <div class="slds-col slds-size_5-of-12">
+              <span>Proportion of female directors</span>
+            </div>
+            <div class="slds-col slds-size_2-of-12">
+              <span>UNITS</span>
+            </div>
+            <div class="slds-col slds-size_5-of-12">
+              <span>NOTES</span>
+            </div>
+          </div>
+        
+
+        <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+          <div class="slds-col slds-size_5-of-12">
+            <span
+              >
+              Number of female directors as a percentage of all directors.
+              </span
+            >
+          </div>
+          <div class="slds-col slds-size_2-of-12">
+            <span>
+                <lightning-input type="text" placeholder="%"></lightning-input>
+                </span>
+          </div>
+          <div class="slds-col slds-size_5-of-12">
+            <span>
+              This is a simple measure of board diversity. This point may also be expanded to measure the percentage of female employees across a business as a whole.
+              </span
+            >
+          </div>
+        </div>
+
+
+      <div
+        class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+        style={gColor}
+      >
+        <div class="slds-col slds-size_5-of-12">
+          <span>Proportion of independent directors</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>UNITS</span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>NOTES</span>
+        </div>
+      </div>
+      <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+        <div class="slds-col slds-size_5-of-12">
+          <span
+            >
+            Number of independent directors as a percentage of all directors.
+          </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>
+            <lightning-input type="text" placeholder="% of PBT"></lightning-input>
+            </span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            It is considered desirable to have a good balance of independent and non-independent directors
+          </span>
+        </div>
+      </div>
+
+      <div
+        class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+        style={gColor}
+      >
+        <div class="slds-col slds-size_5-of-12">
+          <span>CEO pay</span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span>UNITS</span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>NOTES</span>
+        </div>
+      </div>
+      <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            Cash payments to the CEO (salary, bonus, other benefits) in the last full year, divided by UK median earnings (£30k).
+          </span>
+        </div>
+        <div class="slds-col slds-size_2-of-12">
+          <span> 
+            <lightning-input type="text" placeholder="%"></lightning-input>
+            </span>
+        </div>
+        <div class="slds-col slds-size_5-of-12">
+          <span>
+            e use UK median pay as a proxy, but this measure could be median pay in the business. The aim is to expose CEOs whose pay is a substantial outlier versus typical pay in their business.
+          </span>
+        </div>
+      </div>
+
+      <div
+      class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+      style={gColor}
+    >
+      <div class="slds-col slds-size_5-of-12">
+        <span>CEO / Chairman role split</span>
+      </div>
+      <div class="slds-col slds-size_2-of-12">
+        <span>UNITS</span>
+      </div>
+      <div class="slds-col slds-size_5-of-12">
+        <span>NOTES</span>
+      </div>
+    </div>
+    <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+      <div class="slds-col slds-size_5-of-12">
+        <span>
+          <lightning-file-upload
+          label="Policy documents"
+          name="fileUploader"
+          accept={acceptedFormats}
+          record-id={myRecordId}
+          onuploadfinished={handleUploadFinished}
+          multiple
+      >
+      </lightning-file-upload>
+        </span>
+      </div>
+      <div class="slds-col slds-size_2-of-12">
+        <span> 
+          <lightning-combobox
+            name="progress"
+            value=""
+            placeholder="Select Status"
+            options={options}
+            onchange={handleChange}
+    ></lightning-combobox>
+          </span>
+      </div>
+      <div class="slds-col slds-size_5-of-12">
+        <span>
+          We check whether the CEO and Chairman role is split. Modern corporate governance thinking suggests that it is highly desirable that these roles are split to prevent an excessive concentration of power on a company board.
+        </span>
+      </div>
+    </div>
+
+    <div
+    class="slds-grid slds-gutters slds-text-heading_small slds-border_bottom"
+    style={gColor}
+  >
+    <div class="slds-col slds-size_5-of-12">
+      <span>Adherence to a Corporate Governance code</span>
+    </div>
+    <div class="slds-col slds-size_2-of-12">
+      <span>UNITS</span>
+    </div>
+    <div class="slds-col slds-size_5-of-12">
+      <span>NOTES</span>
+    </div>
+  </div>
+  <div class="slds-grid slds-gutters slds-border_bottom slds-m-bottom_large">
+    <div class="slds-col slds-size_5-of-12">
+      <span>
+        <lightning-file-upload
+        label="Policy documents"
+        name="fileUploader"
+        accept={acceptedFormats}
+        record-id={myRecordId}
+        onuploadfinished={handleUploadFinished}
+        multiple
+    >
+    </lightning-file-upload>
+      </span>
+    </div>
+    <div class="slds-col slds-size_2-of-12">
+      <span>
+        <lightning-combobox
+        name="progress"
+        value=""
+        placeholder="Select Status"
+        options={options}
+        onchange={handleChange}
+></lightning-combobox>
+        </span>
+    </div>
+    <div class="slds-col slds-size_5-of-12">
+      <span>
+        We check whether the business adheres to a relevant corporate governance code. In the UK this is generally the QCA code. Adherence suggests a business takes corporate governance seriously.
+      </span>
+    </div>
+  </div>
+      </lightning-accordion-section
+    >
+  </lightning-accordion>
+</template>

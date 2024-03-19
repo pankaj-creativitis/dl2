@@ -1,0 +1,160 @@
+<template>
+  <div class="slds-col slds-m-around_small slds-p-around_large popup">
+    <lightning-card title={headerStr} icon-name="standard:calibration">
+      <div class="slds-button-group" role="group" slot="actions">
+        <!--lightning-button label="Run Eligibility" onclick={showResultDiv}></lightning-button>
+        <lightning-button label="Add Deviation" onclick={showResultDiv}></lightning-button-->
+        <button class="slds-button slds-button_neutral" onclick={showResultDiv}>Run Eligibility</button>
+  <button class="slds-button slds-button_neutral" onclick={handleOpenModal}>Add Deviation</button>
+        
+      </div>
+        
+        <template if:true={hasActionIcon}>
+            <lightning-button label="New" slot="actions"></lightning-button>
+        </template>
+        <template if:true={description}>
+            <div class="slds-p-horizontal_small">
+                <p class="desc slds-text-align--center">{description}</p></div>
+        </template>
+        <template if:true={content1}>
+            <div class="slds-p-horizontal_small slds-text-align--center">
+                <p class={content1ClassVal}>{content1}</p>
+                </div>
+        </template>
+
+        
+          <lightning-record-edit-form
+          record-id={recId}
+          object-api-name={objectName}
+          onsuccess={updateSuccess}
+        >
+          <lightning-messages> </lightning-messages>
+          <lightning-layout multiple-rows="true" horizontal-align="spread">
+            <template if:true={baseContent}>
+              <!--div class="slds-border_bottom"-->
+                <lightning-layout-item
+                size="12"
+                  small-device-size="12"
+                  medium-device-size="6"
+                  large-device-size="4"
+                  padding="slds-p-around_large"
+                ><lightning-input-field field-name="Requested_Limit_Amount__c">
+                </lightning-input-field>
+              </lightning-layout-item>
+            </template>
+            </lightning-layout>
+            
+          
+
+          <template if:true={fldSet}>
+            <div class="slds-m-top_small slds-p-top_small slds-border_bottom slds-text-title_caps slds-text-align_left">Input Params</div>
+          </template>
+          <lightning-layout multiple-rows class="slds-p-vertical_x-small">
+           
+            <template if:true={fldSet}>
+              <template for:each={fldSet} for:item="fld">
+                <!--temlpate key={fld}-->
+                <lightning-layout-item
+                  key={fld}
+                  size="12"
+                  small-device-size="12"
+                  medium-device-size="6"
+                  large-device-size="4"
+                  padding="slds-p-around_large"
+                >
+                  <lightning-input-field field-name={fld}>
+                  </lightning-input-field>
+                  
+                </lightning-layout-item>
+                <!--/temlpate-->
+              </template>
+            </template>
+          </lightning-layout>
+
+          <template if:true={showSpinner}>
+            <lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+          </template>
+          <template if:true={showResult}>
+            <div class="slds-m-top_small slds-p-top_small slds-border_bottom slds-text-title_caps slds-text-align_left">Assessment Result</div>
+          </template>
+          <lightning-layout multiple-rows="true" class="slds-p-vertical_x-small" horizontal-align="spread">
+            <template if:true={showResult}>
+              <!--div class="slds-border_bottom"-->
+                
+              <lightning-layout-item
+              size="12"
+                  small-device-size="12"
+                  medium-device-size="6"
+                  large-device-size="4"
+                  padding="slds-p-around_large">
+                  <lightning-input-field field-name="Limit_Eligible__c">
+                  </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item
+                size="12"
+                  small-device-size="12"
+                  medium-device-size="6"
+                  large-device-size="4"
+                  padding="slds-p-around_large">
+                  <lightning-input-field field-name="Limit_Recommended__c">
+                  </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item
+                size="12"
+                  small-device-size="12"
+                  medium-device-size="6"
+                  large-device-size="4"
+                  padding="slds-p-around_large">
+                  <lightning-input-field field-name="Sub_Limit_Amount__c">
+                  </lightning-input-field>
+                </lightning-layout-item>
+                <lightning-layout-item
+                size="12"
+                  small-device-size="12"
+                  medium-device-size="6"
+                  large-device-size="4"
+                  padding="slds-p-around_large">
+                  <lightning-input-field field-name="Remarks__c">
+                  </lightning-input-field>
+                </lightning-layout-item>
+              <!--/div-->
+            </template>
+          </lightning-layout>
+         
+          <lightning-button
+            variant="brand"
+            type="submit"
+            name="update"
+            label="Save"
+          >
+          </lightning-button>
+        </lightning-record-edit-form>
+    
+    </lightning-card>
+</div>
+<template if:true={isOpenModal}>
+  <div>
+      <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+          <div class="slds-modal__container">
+              <header class="slds-modal__header">
+                  <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCloseModal}>
+                      <lightning-icon icon-name="utility:close" variant="inverse" alternative-text="Close" size="medium">
+                      </lightning-icon>
+                      <span class="slds-assistive-text">Close</span>
+                  </button>
+                  <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Add Deviation</h2>
+              </header>
+              <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                  <div class="slds-text-heading_small slds-text-align_center">
+                    <c-create-deviation></c-create-deviation>
+                  </div>
+              </div>
+              <footer class="slds-modal__footer">
+                  <lightning-button label="Cancel" variant="neutral" onclick={handleCloseModal}></lightning-button>
+              </footer>
+          </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+  </div>
+</template>
+</template>

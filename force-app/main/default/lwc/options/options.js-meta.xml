@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightningComponentBundle xmlns="http://soap.sforce.com/2006/04/metadata">
+    <apiVersion>52.0</apiVersion>
+    <isExposed>true</isExposed>
+    <masterLabel>Options</masterLabel>
+    <targets>
+        <target>lightning__FlowScreen</target>
+        <target>lightning__RecordPage</target>
+        <target>lightning__AppPage</target>
+        <target>lightning__HomePage</target>
+        <target>lightningCommunity__Default</target>
+    </targets>
+    <targetConfigs>
+        <targetConfig targets="lightning__RecordPage,lightning__FlowScreen,lightningCommunity__Default,lightning__AppPage">
+            <property name="optionType" type="String" label="Card or List?" description="Options: card | list" />
+            <property name="optionTitle" type="String" label="Option label" description="Option label" />
+            <property name="isMultiSelect" type="Boolean" label="Multi-Select" description="Multi-Select or Single-select?" default="false"/>
+            <property name="outputValue" type="String" label="Output Text or Id?" description="Options: text | id" />
+            <property name="filterValue" type="String" label="Filter Value" description="Enter Option Filter/Type Value" default="Home Loan"/>
+            
+            <property name="headerAlignCenter" type="Boolean" label="Title/Header Align Center" description="Title/Header Align Center" default="false"/>
+            <property name="showDesc" type="Boolean" label="Show Description" description="Show Description?" default="true"/>
+
+            <property name="hoverColor" type="String" label="Option Hover Color" description="Enter Option Hover Color Hex code" default="#DC143C"/>
+            <property name="borderColor" type="String" label="Option Border Color" description="Enter Option Border Color Hex code" default="#FA8072"/>
+
+            <property name="hasImage" type="Boolean" label="Has Image?" />
+            <property name="imagePosition" type="String" label="Image Position" description="Image position: relative or absolute?" default="relative"/>
+            <property name="imageWidth" type="String" label="Image Width" description="Image Width in px" default="80px"/>
+            <property name="imageMargin" type="String" label="Image Margin" description="Please follow the order: top right bottom left" default="-40px auto auto 25px"/>
+            <property name="imageRadius" type="String" label="Image Radius" description="Image Radius in %" default=""/>
+            <property name="borderAdjustment" type="String" label="Top Border Adjustment" description="put value in px" default=""/>
+            
+            <property name="actionButton" type="Boolean" label="Has Action Button?" description="Has Action Button?" default="true"/>
+            <property name="actionButtonText" type="String" label="Action Button Text" description="Action Button Text" default="Apply"/>
+
+            <property name="selectedItem" type="String" label="Selected Value" description="Selected Values" />
+            <property name="showNextPrevious" type="String" label="Show Next Previous buttons" description="Show Next Previous buttons" />
+            
+        </targetConfig>
+    </targetConfigs>
+</LightningComponentBundle>

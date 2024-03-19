@@ -1,0 +1,92 @@
+<template>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:user" size="small"></lightning-icon>
+            Shaun Walker
+        </h3>
+        <div slot="footer">
+                <lightning-badge label="submitted"></lightning-badge>
+        </div>
+        <p class="slds-p-horizontal_small">
+            <lightning-button-icon icon-name="utility:search" alternative-text="View Answers" class="slds-m-left_xx-small" title="Add user" onclick={openModal}></lightning-button-icon>
+        </p>
+    </lightning-card>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:user" size="small"></lightning-icon>
+            Tim Taylor
+        </h3>
+        <div slot="footer">
+                <lightning-badge label="not submitted"></lightning-badge>
+        </div>
+        <p class="slds-p-horizontal_small">
+            <lightning-button-icon icon-name="utility:search" alternative-text="View Answers" class="slds-m-left_xx-small" title="Add user"></lightning-button-icon>
+        </p>
+    </lightning-card>
+    <lightning-card>
+        <h3 slot="title">
+            <lightning-icon icon-name="utility:user" size="small"></lightning-icon>
+            Ethan Wilson
+        </h3>
+        <div slot="footer">
+                <lightning-badge label="not submitted"></lightning-badge>
+        </div>
+        <p class="slds-p-horizontal_small">
+            <lightning-button-icon icon-name="utility:search" alternative-text="View Answers" class="slds-m-left_xx-small" title="Add user"></lightning-button-icon>
+        </p>
+    </lightning-card>
+    <template if:true={isModalOpen}>
+        <!-- Modal/Popup Box LWC starts here -->
+        <section
+          role="dialog"
+          tabindex="-1"
+          aria-labelledby="modal-heading-01"
+          aria-modal="true"
+          aria-describedby="modal-content-id-1"
+          class="slds-modal slds-fade-in-open"
+        >
+          <div class="slds-modal__container">
+            <!-- Modal/Popup Box LWC header here -->
+            <header class="slds-modal__header">
+              <button
+                class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+                title="Close"
+                onclick={closeModal}
+              >
+                <lightning-icon
+                  icon-name="utility:close"
+                  alternative-text="close"
+                  variant="inverse"
+                  size="small"
+                ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+              </button>
+              <h2
+                id="modal-heading-01"
+                class="slds-text-heading_medium slds-hyphenate"
+              >
+                Verify Responses
+              </h2>
+            </header>
+            <!-- Modal/Popup Box LWC body starts here -->
+            <div
+              class="slds-modal__content slds-var-p-around_medium"
+              id="modal-content-id-1"
+            >
+              <c-verify-record-list
+              str-title="Verify Answers"
+              rec-id="a3fS0000000CQvZIAW"
+              participant-id="005S000000HJap6"
+              object-name="Question__c"
+              parent-object-name="Category_ws__c"
+              relationship-api-name="Questions"
+              parent-field-a-p-i-name="Category__c"
+              fields-list="Question_Long_Text__c,Answer__c,Selected_Option_s__c"
+              ></c-verify-record-list>
+            </div>
+            <!-- Modal/Popup Box LWC footer starts here -->
+          </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+      </template>
+</template>

@@ -1,0 +1,5 @@
+<design:component>
+    <design:attribute name="sectionHeader" label="Section Header" description="Section Header"/>
+    <design:attribute name="sectionDetails" label="Section Details" description="Section Details"/>
+    <design:attribute name="icnName" label="Icon Name" description="Icon Name"/>
+</design:component>

@@ -1,0 +1,39 @@
+<template>
+    <div class="highlight">
+    <div class="slds-p-around_xx-small">
+        <lightning-card title="Transactions Data" icon-name="utility:chart">
+        <div class="slds-grid slds-gutters ">
+            <div class="slds-col slds-size_1-of-4">
+                <span>
+                    <c-gen-donut-chart></c-gen-donut-chart>
+                </span>
+            </div>
+            <div class="slds-col slds-size_1-of-4">
+            <span>
+                <c-gen-card content1="₹ 7.27 L"
+                    content2="Trade Transactions" content1-class="g"
+                    footer-description="₹ 5.26 L" footer-content="Non Trade Transactions"></c-gen-card>
+            </span>
+        </div>
+            <div class="slds-col slds-size_2-of-4">
+                <span>
+                    <div class="slds-grid slds-grid_vertical">
+                        <div class="slds-col">
+                          <span>
+                            <c-bar-chart1></c-bar-chart1>
+                          </span>
+                        </div>
+                        <div class="slds-col">
+                          <span>
+                            <c-bar-chart2></c-bar-chart2>
+                          </span>
+                        </div>
+                      </div>
+                    
+                </span>
+            </div>
+        </div>
+    </lightning-card>
+    </div>
+</div>
+</template>

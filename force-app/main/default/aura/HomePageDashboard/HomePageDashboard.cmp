@@ -1,0 +1,49 @@
+<aura:component>
+  <aura:attribute
+    name="inputData"
+    type="List"
+    default="[['100','150'],['200'],['4000']]"
+    description="List of data taken from input"
+  />
+  <aura:attribute
+    name="outputData"
+    type="List"
+    description="List of data to be outputted to the screen"
+  />
+  <aura:attribute
+    name="headers"
+    type="List"
+    default="['Summary','Gross Totals','Extra']"
+    description="Headers for the data"
+  />
+  <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+  <lightning:card title="">
+    <lightning:layout class="slds-page-header slds-page-header--object-home slds-text-heading_medium">
+      <lightning:layoutItem>
+        <lightning:icon class=" slds-text-heading_medium"
+          iconName="standard:scan_card"
+          alternativeText="My Expenses"
+        />
+      </lightning:layoutItem>
+      <lightning:layoutItem padding="horizontal-small slds-text-heading_medium">
+        <div class="page-section page-header">
+          <h1 class="slds-text-heading--label card-label">Account Insights</h1>
+          <h2 class="slds-text-heading--medium card-header">Home Page Dashboard</h2>
+        </div>
+      </lightning:layoutItem>
+    </lightning:layout>
+    <div class="info">
+      <p class="slds-p-horizontal_small slds-text-heading_medium card-header"> Card Body (custom component) </p>
+      <lightning:layout class="slds-align_absolute-center">
+        <aura:iteration items="{!v.outputData}" var="data">
+          <lightning:layoutItem class="{!'slds-box '+data.color+' slds-text-heading_medium'}">
+            {!data.label}
+            <aura:iteration items="{!data.values}" var="val">
+              <h1 class="slds-text-heading--large data-text">{!val}</h1>
+            </aura:iteration>
+          </lightning:layoutItem>
+        </aura:iteration>
+      </lightning:layout>
+    </div>
+  </lightning:card>
+</aura:component>

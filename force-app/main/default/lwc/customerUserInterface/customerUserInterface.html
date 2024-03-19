@@ -1,0 +1,174 @@
+<template>
+        <div class="slds-m-around_medium" style="width:350px; height:60%;">
+            <template if:true={isOpen} >
+                <div class="my-class">
+                    <div class="first-div"><img src={chatUrl} alt="Chatbot Image" height="25px" width="25px" style="padding-bottom: 10px;"/>MyAbbvie</div>
+                    <div class="second-div">
+                        <lightning-button-icon icon-name="utility:close"  alternative-text="Cancel" title="Cancel" onclick={closeChatbot} style="padding-bottom:100px;"></lightning-button-icon>
+                    </div>
+                </div>
+                <lightning-card>
+                <div class="chatbot-container">
+                    <!--<lightning-button icon-name="utility:einstein" alternative-text="Utility image" size="medium" class="slds-align_absolute-center" variant="brand" label="CoPilot" style="background-color:#014486; width:100%;" onclick={closeChatbot}></lightning-button>-->
+                    <div class="mainCard">        
+                        <div class="container">
+                            <div class="chat-area">
+                                <!-- <div>{messageTime}</div> -->
+                                <section role="log" class="slds-chat">
+                                    <ul class="slds-chat-list">
+                                        <li class="slds-chat-listitem slds-chat-listitem_inbound">
+                
+                                            <div class="slds-chat-message">
+                
+                                                <div class="div-10 slds-chat-message__body">
+                
+                                                    <div class="div-11 slds-chat-message__text slds-chat-message__text_inbound">
+                
+                                                        <span>Hey! I'm your personal Assistant, How can I help you? </span>
+                
+                                                    </div>
+                                                    <div class="message-time">{messageTime}</div>
+                                                </div>
+                                            </div>
+                                        </li><br>
+                                        <div>
+                
+                                            <!-- <div class="flexBox">
+                                              <div class="cardBox">
+                                                <template if:true={childHide} for:each={questions} for:item="question">
+                                                    <slot key={question.id}>
+                                                      <c-user-interface-question question-record={question}
+                                                            onclickquestion={handleQuestion}></c-user-interface-question>
+                                                    </slot>
+                                                </template>
+                                                
+                                               </div>
+                                               
+                                            </div> -->
+                
+                
+                                            <template if:true={showAnswer}>
+                                                <div>
+                                                    <h2>{selectedQuestion.text}</h2>
+                                                    <p>{answer}</p>
+                                                </div>
+                                            </template>
+                                        </div>
+                
+                
+                                        <template if:true={typedMessage}>
+                                            <div class="flexBox">
+                                                <div class="cardBox">
+                                                    <template if:true={childHide} for:each={questions} for:item="question">
+                                                        <slot key={question.id}>
+                                                            <c-user-interface-question question-record={question}
+                                                                onclickquestion={handleQuestion}></c-user-interface-question>
+                
+                                                        </slot>
+                
+                                                    </template>
+                                                </div>
+                
+                                            </div>
+                                            <template for:each={typedMessage} for:item="msg">
+                                                <template if:true={msg.messageType}>
+                                                    <li key={msg.messageType} class="slds-chat-listitem slds-chat-listitem_outbound">
+                                                        <div class="slds-chat-message">
+                                                            <div class="message-time">{messageTime}</div>
+                                                            <div class="slds-chat-message__body">
+                                                                <div
+                                                                    class="slds-chat-message__text slds-chat-message__text_outbound-agent">
+                                                                    <span>{msg.message}</span>
+                                                                </div>
+                
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                
+                                                </template>
+                                                
+                                                <template if:false={msg.messageType}>
+                                                    <li key={msg.messageType} class="slds-chat-listitem slds-chat-listitem_inbound">
+                                                        <div class="slds-chat-message">
+                                                            <div class=" slds-chat-message__body">
+                                                                
+                
+                                                                <div class="slds-chat-message__text slds-chat-message__text_inbound">
+                                                                      
+                                                                        <span>{msg.message}</span> 
+                                                                </div>
+                                                            </div>
+                                                            <div class="message-time">{messageTime}</div>
+                                                            
+                                                        </div>
+                                                    </li>
+                                                </template>
+                
+                
+                
+                                            </template>
+                
+                                        </template>
+                
+                
+                                    </ul>
+                
+                                </section>
+                            </div>
+                            <br>
+                            <br>
+                            <!-- <div class="slds-grid slds-gutters">
+                                <div class="div-8 slds-col"><span><lightning-textarea class="textArea" type="text"
+                                            onchange={handleInputChange} value={question}
+                                            placeholder="Type your Query...."></lightning-textarea>
+                                    </span></div>
+                                <div class="div-9 slds-col">
+                                    <span>
+                                        <div class="div-9"><lightning-button-icon-stateful icon-name="utility:send"
+                                                variant="border-filled" size="medium"
+                                                onclick={handleSend}></lightning-button-icon-stateful></div>
+                                    </span>
+                                </div>
+                
+                            </div> -->
+                
+                            <template if:true={isSpinner}>
+                            <span><img src={spinner} class="small-spinner"> </span>
+                            </template>
+                
+                        </div>
+                
+                        <!-- <div class="button-div">
+                            <lightning-input class="text" type="text" onchange={handleInputChange} value={oneMsg} label="Enter message here"></lightning-input>
+                                <lightning-button-icon-stateful icon-name="utility:send"variant="border" size="medium" onclick={handleSend}></lightning-button-icon-stateful>
+                            <button class="slds-button slds-button_brand" onclick={handleSend}>Send</button> 
+                        </div> -->
+                    </div>
+                
+                    <div class="slds-p-around_x-small slds-media slds-media_center slds-border_bottom chatBox" style="width:350px">
+                                <div class="slds-media__body">
+                                    <p class="slds-text-heading_small">
+                                        <lightning-textarea class="textArea" type="text" onchange={handleInputChange} value={question}
+                                            placeholder="Type your Query...." onkeydown={handleKeyDown}></lightning-textarea>
+                                    </p>
+                                </div>
+                                <div class="slds-media__figure slds-media__figure_reverse">
+                                    <lightning-button-icon-stateful icon-name="utility:send" variant="border-filled" size="medium"
+                                        onclick={handleSend}></lightning-button-icon-stateful>
+                                </div>
+                            </div>
+                </div>
+            </lightning-card>
+            </template>
+            
+        </div>
+
+    
+        <template if:false={isOpen}>
+            <!--<lightning-button icon-name="utility:einstein" alternative-text="Utility image" size="medium" class="slds-align_absolute-center" variant="brand" label="CoPilot" style="background-color:#014486; width:100%;" onclick={openChatbot}></lightning-button>-->
+            <div class="image-container">
+            <img src={chatbotLogoUrl} alt="Chatbot Image" onclick={openChatbot}/>
+        </div>
+        </template>
+    
+</template>

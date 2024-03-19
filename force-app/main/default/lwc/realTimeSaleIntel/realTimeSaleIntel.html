@@ -1,0 +1,33 @@
+<template>
+
+    <lightning-accordion allow-multiple-sections-open
+                         active-section-name={activeSections}>
+        <lightning-accordion-section name="A" label="MNV Details">
+            <lightning-card  variant="Narrow"  title="Suggested Vehicle" icon-name="utility:travel_and_places">
+                <img style="max-height: 400px" alt="Image on T.O." src={ecoSport}/>
+                <div class="slds-grid">
+                    <div class="slds-col">
+                        <p class="slds-p-horizontal_small">Model: EcoSport S</p>
+                        <p class="slds-p-horizontal_small">Cost: $22,040</p>
+                    </div>
+                    <div class="slds-col">
+                        <p class="slds-p-horizontal_small">EPA Est. MPG 23 city 29 hwy</p>
+                        <p class="slds-p-horizontal_small">Finance at: $327/mo</p>
+                    </div>
+                  </div>
+                
+                <p slot="footer">2022 Ford EcoSport</p>
+            </lightning-card>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="B" label="Get Customer Preferences">
+            <p>This is the content area for section B.</p>
+            <p>Nam at elit et justo scelerisque ullamcorper vel a felis. Mauris sit amet lorem sed est sagittis blandit nec ac turpis. Ut a mi id turpis pharetra ornare. Nullam rhoncus feugiat nunc, ac pulvinar felis pulvinar at. Nullam efficitur aliquet justo et ultricies. Maecenas eu felis aliquam, tincidunt elit at, suscipit leo. Duis ut urna nec nibh hendrerit lacinia. Sed non auctor libero. Sed pellentesque tempor mollis.</p>
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="C" label="Cases">
+            <p>This is the content area for section C.</p>
+            <p>Nulla ornare ipsum felis, vel aliquet dui blandit vel. Integer accumsan velit quis mauris pharetra, nec sollicitudin dui eleifend. Cras condimentum odio mi, nec ullamcorper arcu ullamcorper sed. Proin massa arcu, rutrum a ullamcorper nec, hendrerit in sem. Etiam tempus eros ut lorem tincidunt, id condimentum nulla molestie. Morbi hendrerit elit pretium, ultrices neque non, ullamcorper justo. Quisque vel nisi eget eros efficitur semper. Nulla pulvinar venenatis quam vitae efficitur. Nam facilisis sollicitudin quam ac imperdiet.</p>
+        </lightning-accordion-section>
+    </lightning-accordion>
+</template>

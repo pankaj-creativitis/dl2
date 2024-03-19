@@ -1,0 +1,37 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div class="slds-popover "
+         role="tooltip" id="help" style="position: absolute; width: 20rem; padding-bottom: 1rem;">
+        <lightning:layout multipleRows="true" >
+            <lightning:layoutItem size="6" padding="around-small" class="borderBottomClass">
+                <b>Report ID</b>:
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small" class="borderBottomClass">
+                <b>RP-24321</b>
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <b>Draw Date</b>:
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                02/09/21
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <b>Accession Date</b>:
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                02/11/21
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <b>AlloSure Score</b>:
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                1.82%
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                <b>AlloMap Score</b>:
+            </lightning:layoutItem>
+            <lightning:layoutItem size="6" padding="around-small">
+                Lab In Progress
+            </lightning:layoutItem>
+        </lightning:layout>
+    </div>
+</aura:component>

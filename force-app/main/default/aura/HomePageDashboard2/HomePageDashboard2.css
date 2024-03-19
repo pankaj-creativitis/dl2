@@ -1,0 +1,48 @@
+.THIS {
+   background-color: blue;
+}
+
+.THIS .light-green {
+    background-color : #CBE7D1;
+    height :250px;
+    width : 250px;
+    padding : 20px;
+	margin : 5px;
+
+  border-style: solid;
+    
+}
+
+.THIS .light-blue {
+    background-color : #D9EBF9;
+    height :250px;
+    width : 250px;
+    padding : 20px;
+	margin : 5px;
+  border-style: solid;
+}
+
+.THIS .gray {
+    background-color : #F0F1F3;
+    height :250px;
+    width : 250px;
+    padding : 20px;
+	margin : 5px;
+
+  border-style: solid;
+}
+
+.THIS .info {
+    
+    background-color : #F3F6FB;
+}
+
+.THIS .newItem{
+    background-color : #F0F1F3;
+    height :250px;
+    width : 250px;
+    padding : 20px;
+	margin : 5px;
+
+  border-style: solid;
+}

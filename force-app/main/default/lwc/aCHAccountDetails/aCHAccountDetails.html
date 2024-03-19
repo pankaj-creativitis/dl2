@@ -1,0 +1,49 @@
+<template>
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-size_1-of-3  center grey" >
+
+            <div class="slds-m-around_xx-small">
+                <label>Name on Account</label>
+                <lightning-input type="text" value={accountName} > </lightning-input>
+            </div>
+            <div class="slds-m-around_xx-small">
+                <label>Account Holder Type</label>
+                <lightning-combobox value={accountHolderType} options={options} onchange={updateAccountHolderType}></lightning-combobox>
+            </div>
+            <div class="slds-m-around_xx-small">
+                <label>Bank Name</label>
+                <lightning-input type="text"  value={bankName} onchange={updateBankName} > </lightning-input>
+            </div>
+
+            <div class="slds-grid slds-wrap">
+                <div class="slds-col slds-size_1-of-2">
+                    <div class="slds-m-around_xx-small">
+                        <label>Routing Number</label>
+                        <lightning-input type="text" value={routingNumber} onchange={updateRoutingNumber}> </lightning-input>
+                    </div>
+                    <div class="slds-m-around_xx-small">
+                        <label>Start Date of ACH</label>
+                        <lightning-input type="date" value={dateACH} onchange={updatedateACH}> </lightning-input>
+                    </div>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                    <div class="slds-m-around_xx-small">
+                        <label>Account Number</label>
+                        <lightning-input type="text" value={accountNumber} onchange={updateAccountNumber}  > </lightning-input>
+                    </div>
+                    <div class="slds-m-around_xx-small">
+                        <label>ACH Amount</label>
+                        <lightning-input type="number" value={aCHAmount} onchange={updateACHAmount} > </lightning-input>
+                    </div>
+                </div>
+            </div>
+            <div class="slds-m-around_xx-small">
+                <lightning-button variant="brand" label="Proceed to Review ->" class="slds-align_absolute-center" onclick={handleGoNext}></lightning-button>
+            </div>
+        
+        
+        </div>
+        
+        
+    </div>
+</template>

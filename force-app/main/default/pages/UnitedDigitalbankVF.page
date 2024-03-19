@@ -1,0 +1,151 @@
+<apex:page >
+       
+        <style>
+            body{margin:0; padding:0;}
+            table{border: 1px solid gray;
+            border-spacing: 0;
+            width: 95%;
+            margin: 25px auto;}
+            table tr td{border: 1px solid gray !important; padding: 5px;}
+            .logo{    font-size: 24px;
+            color: #08c !important;
+            text-align: center;
+            font-weight: bold}
+            .text_center{ text-align:center;}
+            
+        </style>
+        <apex:form >
+        <apex:pageBlock >
+		<apex:pageBlockSection >
+
+       
+            <tr>
+                <td colspan="2" class="logo">United Digital Bank Limited</td>
+            </tr>
+            <tr>
+                <td colspan="2" class="text_center">Sanction Letter No: 453CZ0044240</td>
+            </tr>
+            <tr>
+                <td width="70%"> &nbsp;
+                </td>
+                <td width="30%" class="text_center">DATE: 05/06/2019</td>
+            </tr>
+            <tr>
+                <td colspan="2" ><br/><br/>
+                    Dear Sir/Madam,<br/><br/>
+                    Sub:Reference your Home Loan Application dated 05/06/2019<br/><br/>
+                    Tata Capital Financial Services Limited (TCFSL) takes the pleasure in granting sanction to extend a Consumer Durable Loan to you for an amount not exceeding
+                    1,00,000.00.<br/><br/>
+                    This sanction is subject to acceptance of the Terms and Conditions in entirety to the complete satisfaction of TCL. Particulars of the loan, repayment, fees and other charges are given herein below:
+                    <br/><br/></td>
+            </tr>
+        
+        </apex:pageBlockSection>
+<apex:pageBlockSection columns="1">        
+    
+            <tr>
+                <td>Customer Name</td>
+                <td>Mr. PODDATURI ASSHOKK</td>
+                <td>Application Number</td>
+                <td>PODDATURI ASSHOKK Home
+                     5/6/2019 7:11 PM</td>
+            </tr>
+            
+            <tr>
+                <td>Store Name</td>
+                <td>ELECTRONICS MART INDIA LTD
+                    BODUPPAL</td>
+                <td>Date of issue of sanction letter</td>
+                <td>05/06/2019</td>
+            </tr>
+            
+            <tr>
+                <td>TCFSL Branch Name</td>
+                <td>0453 - HYD - AUTOPLAZA</td>
+                <td>Date of loan application</td>
+                <td>05/06/2019</td>
+            </tr>
+            
+            
+            <tr>
+                <td>Patient's Name</td>
+                <td colspan="3"># N/A</td>
+                
+            </tr>
+            
+            
+            
+            <tr>
+                <td>Relationship with the Applicant</td>
+                <td colspan="3"># N/A</td>
+            </tr>
+            
+            
+
+            </apex:pageBlockSection>            
+            
+        <!-- <table>
+            <tr>
+                <td>S.No</td>
+                <td>Product	</td>
+                <td>Manufacturer</td>
+                <td>Model Number</td>
+                <td>Quantity</td>
+                <td>#Advance  EMI(S)</td>
+                <td>Gross Loan Amount</td>
+                <td>EMI Amount</td>
+                <td>Net Tenure</td>
+                <td>Processing Fee	</td>
+                <td>Total Down Payment</td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>AIR CONDITIONER</td>
+                <td>DAIKIN INDIA PVT. LTD </td>
+                <td>FTKP71</td>
+                <td>1</td>
+                <td>0</td>
+                <td>65500.00</td>
+                <td>8188.00</td>
+                <td>8</td>
+                <td>538.00</td>
+                <td>538.00</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HEALTH SERVICES</td>
+                <td>HDFC</td>
+                <td>CLI</td>
+                <td>1</td>
+                <td>0</td>
+                <td>1096.00</td>
+                <td>137.00</td>
+                <td>8</td>
+                <td>0.00</td>
+                <td>0.00</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>Total</td>
+                <td>66596.00</td>
+                <td>8325.00</td>
+                <td>-</td>
+                <td>538.00</td>
+                 <td>538.00</td>
+            </tr>
+            <tr>
+                <td colspan="3">Mode of Repayment</td>
+                <td colspan="8"></td>
+                
+            </tr>
+            
+            
+        </table>-->
+  </apex:pageBlock>       
+ </apex:form>
+
+</apex:page>

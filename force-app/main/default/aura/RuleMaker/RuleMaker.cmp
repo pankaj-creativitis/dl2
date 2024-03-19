@@ -1,0 +1,76 @@
+<aura:component controller="RuleEngineHelper" implements="force:hasRecordId,force:lightningQuickAction,force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,forceCommunity:availableForAllPageTypes,lightning:actionOverride" access="global" >
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!--Event handler for Add and Delete Row Event which is fire from Child Component-->    
+    <aura:handler name="DeleteRowEvt" event="c:DeleteRowEvt" action="{!c.removeDeletedRow}"/>
+    <aura:handler name="AddRowEvt" event="c:AddNewRowEvt" action="{!c.addNewRow}"/>
+    
+    <!--Aura Attribute for store Contact Object List as Array-->    
+    <aura:attribute name="conditionList" type="Condition__c[]"/> 
+    <aura:attribute name="objs" type="Object[]" />
+    <aura:attribute name="objectName" type="String" />
+    <aura:attribute name="baseFlds" type="Object[]" />
+    
+    <!--Header Part-->     
+    <article class="slds-card">
+        <div class="slds-page-header">
+            <h1 class="slds-page-header__title">Condition Maker</h1>
+            <!--p class="slds-text-body_small slds-line-height_reset"></p-->
+            <div class="slds-form-element">
+                <lightning:select name="objectVal" label="Rule Object" 
+                                  required="true"  onchange="{!c.objectSelected}">
+                    <option value="">choose object...</option>
+                    <aura:iteration items="{!v.objs}" var="sObj" indexVar="index">
+                        <option value="{!sObj.apiName}">{!sObj.label}</option>
+                    </aura:iteration>
+                </lightning:select>
+            </div>
+        </div>
+        
+        <aura:if isTrue="{!not(empty(v.baseFlds))}" >
+            <!--Table Part-->           
+            <table class="slds-table slds-table_bordered slds-table_cell-buffer slds-scrollable" style="width:900px"> 
+                <thead>
+                    <tr class="slds-text-title_caps">
+                        <th scope="col">
+                            <div class="slds-truncate">S.No</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="First Name">Rule Name</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Last Name">Field</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Phone">Not Flag</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Phone">Operator</div>
+                        </th>
+                        <th scope="col">
+                            <div class="slds-truncate" title="Phone">Values</div>
+                        </th>
+                    </tr>
+                </thead>   
+                <tbody>
+                    <!--Iterate the child Component for display Table rows 
+               with pass the List Item Index for track the Every child Component 
+               and pass each List Contact Instance -->         
+                    <aura:iteration items="{!v.conditionList}" var="item" indexVar="index">
+                        <c:DynamicRow ConditionInstance="{!item}" rowIndex="{!index}" ObjectName="{!v.objectName}" 
+                                      fldList="{!v.baseFlds}"/>
+                    </aura:iteration>
+                </tbody>
+            </table>
+            <br/>
+            <!--Save Button which is call Save js function on click --> 
+            <button class="slds-button slds-button_brand" onclick="{!c.Save}">Save</button>
+        </aura:if>
+        
+        <div class="row">
+            <h2 class="header">Expression</h2>
+            <lightning:input name="input1" label="Expression Name" />
+            <lightning:input name="input2" label="Expression Logic" placeholder="(1 AND 2) OR 3 ..."/>
+        </div>
+    </article>
+</aura:component>
